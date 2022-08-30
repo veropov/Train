@@ -2,90 +2,49 @@
 
 import 'package:flutter/material.dart';
 import 'package:aga/icons/person_icons.dart';
+import 'package:aga/constant.dart';
 
 
 
-void main() => runApp(image());
+void main() => runApp(fitnestX());
 
-class nextWidget extends StatelessWidget {
-  const nextWidget({Key? key}) : super(key: key);
+class fitnestX extends StatelessWidget {
+  const fitnestX({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'FitnestX',
-        home: Scaffold(
-          body: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color.fromARGB(255, 102, 117, 184), Color.fromARGB(255, 87, 41, 194)])
-            ),
-            child: Center (
-              child: RichText(text: TextSpan(
-                style: TextStyle(color: Colors.white, fontSize: 22),
-                    // ignore: prefer_const_literals_to_create_immutables
-                  children: <TextSpan>[
-                    TextSpan(text: 'Everybody ', style: TextStyle(color: Color.fromARGB(255, 204, 204, 204), fontStyle: FontStyle.italic)),
-                    TextSpan(text: 'can '),
-                    TextSpan(text: 'train')
-                    ],
-                  ),
-                )
-            ),
+      theme: ThemeData(),
+        home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            alignment: Alignment.center,
+              child: Image.asset('assets/images/FitnestX.png')
           ),
-          floatingActionButton: FloatingActionButton(onPressed: () {  },
-            child: Text('next', 
-            style: TextStyle(color: Colors.blue)
-            ),
-            backgroundColor: Colors.white,
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(top: 15),
+            child: Text('Everybody Can Train',
+              style: kTextTitle
+            )
           ),
+        ]
       ),
     );
   }
 }
-
-class image extends StatelessWidget {
-  const image({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          child: Container(
-            width: 100,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              // ignore: prefer_const_literals_to_create_immutables
-              boxShadow: [
-                BoxShadow(
-                  color: Color.fromARGB(70, 30, 30, 30),
-                  spreadRadius: 2,
-                  blurRadius: 4,
-                  offset: Offset(1,1),
-                )
-              ],
-              color: Color.fromARGB(255, 206, 165, 42),
-            ),
-            padding: EdgeInsets.all(5),
-            margin: EdgeInsets.only(top: 20),
-            child: IconButton(
-              icon: Icon(
-                PersonIcons.message, size: 30, color: Colors.white),
-                onPressed: () {},
-                iconSize: 50,
-            ),
-          ),
-          alignment: Alignment.topCenter,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [Color.fromARGB(255, 102, 117, 184), Color.fromARGB(255, 87, 41, 194)])
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Text('add')),
-      )
-    );
-  }
-}
-
