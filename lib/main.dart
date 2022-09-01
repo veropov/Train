@@ -33,17 +33,45 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            alignment: Alignment.center,
-              child: Image.asset('assets/images/FitnestX.png')
-          ),
-          Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 15),
-            child: Text('Everybody Can Train',
-              style: kTextTitle
-            )
+            child: Column(
+              children: [
+              Container(
+                alignment: Alignment.center,
+                child: Image.asset('assets/images/FitnestX.png')
+              ),
+              Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 15),
+                child: Text('Everybody Can Train',
+                  style: kTextTitle
+                )
+              )
+            ],)
           ),
         ]
+      ),
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.only(bottom: 40, left: 30, right: 30),
+        height: 60,
+        decoration: ShapeDecoration(
+          shape: StadiumBorder(), 
+          gradient: LinearGradient(
+              colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
+              begin: Alignment.topLeft, 
+              end: Alignment.bottomRight
+              )
+            ),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              onPrimary: kWhite,
+              shadowColor: Colors.transparent,
+              primary: Colors.transparent,
+              elevation: 0,
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            ),
+            onPressed: () {  }, 
+            child: Text('Get Started', style: kTextButton),
+        )
       ),
     );
   }

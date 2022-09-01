@@ -25,8 +25,8 @@ const kBorder = Color.fromARGB(255, 247, 248, 248);
 
 //Shadows
 
-const shadowBlue = BoxDecoration(gradient: LinearGradient(colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)]));
-const shadowPurple = BoxDecoration(gradient: LinearGradient(colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(255, 238, 164, 206)]));
+const shadowBlue = Color.fromARGB(255, 154, 195, 254);
+const shadowPurple = Color.fromARGB(255, 197, 139, 242);
 const shadowCard = Colors.white;
 
 //Fonts
@@ -38,3 +38,4 @@ const kTextH2Medium = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeigh
 const kTextMainBold = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600);
 const kTextMain = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400);
 
+final shape = StadiumBorder();
