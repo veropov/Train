@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:aga/icons/person_icons.dart';
 import 'package:aga/constant.dart';
-
+import 'package:aga/pages/secondPage.dart';
 
 
 void main() => runApp(fitnestX());
@@ -17,10 +17,13 @@ class fitnestX extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitnestX',
       theme: ThemeData(),
-        home: HomeScreen(),
+        home: SecondPageSVG(),
     );
   }
 }
+
+
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -76,3 +79,10 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
