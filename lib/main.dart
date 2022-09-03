@@ -17,7 +17,7 @@ class fitnestX extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitnestX',
       theme: ThemeData(),
-        home: SecondPageSVG(),
+        home: Sec(),
     );
   }
 }
