@@ -4,43 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:aga/icons/person_icons.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class SecondPageSVG extends StatelessWidget {
-  const SecondPageSVG({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final heightScreen = MediaQuery.of(context).size.height;
-    return Material(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              color: Colors.amber,
-              height: heightScreen*0.4,
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
-                      begin: Alignment.topLeft, 
-                      end: Alignment.bottomRight
-                    ),
-                  ),
-                child: Container(
-                  margin: EdgeInsets.only(top: 40),
-                  child: SvgPicture.asset('assets/images/Group.svg'),
-                )
-              ),
-            ),
-            Container(
-            child: Text('Bla-bla', style: kTextH1Bold)
-          )
-      ]),
-    );
-  }
-}
+import 'dart:math' as math;
 
 class Sec extends StatelessWidget {
   const Sec({Key? key}) : super(key: key);
@@ -84,15 +48,32 @@ class Sec extends StatelessWidget {
               'Dont worry if you have trouble determining your goals, We can help you determine your goals and track your goals',
               style: kTextH2Medium
             )
+          ),
+          Container(
+            alignment: Alignment.bottomRight,
+            height: heightScreen*0.2,
+            child: InkWell(
+              child: Container(
+                margin: EdgeInsets.only(bottom: 20, right: 30),
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 0.5, color: Color.fromARGB(255, 201, 201, 201)),
+                  borderRadius: BorderRadius.all(Radius.circular(80))),
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: floatButton,
+                  child: Container(
+                    child: Transform.rotate(
+                    angle: 90 * math.pi / 180,
+                      child: Icon(Icons.navigation, color: Colors.white, size: 15))
+                  ),
+                )
+              ),
+              onTap: () {},
+            )
           )
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Container(
-          decoration: kBrandColor,
-
-        )
       ),
     );
   }
