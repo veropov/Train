@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'circleProgress.dart';
+import 'package:aga/icons/person_icons.dart';
+import 'package:aga/constant.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:math' as math;
 
 class Sec extends StatelessWidget {
@@ -75,7 +78,7 @@ class Sec extends StatelessWidget {
                   onTap: () {},
                 )
               ),
-            )
+            ),
           )
         ],
       ),
