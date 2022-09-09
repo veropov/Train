@@ -38,4 +38,13 @@ const kTextH2Medium = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeigh
 const kTextMainBold = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600);
 const kTextMain = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400);
 
-final shape = StadiumBorder();
+//Button
+
+const floatButton = ShapeDecoration(
+  shape: StadiumBorder(),
+  gradient: LinearGradient(
+  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
+  begin: Alignment.topLeft, 
+  end: Alignment.bottomRight
+  ),
+);
