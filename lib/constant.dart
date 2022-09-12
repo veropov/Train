@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 //Colors
 
 const kBrandColor = BoxDecoration(gradient: LinearGradient(
-  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
+  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(76, 149, 173, 254)], 
   begin: Alignment.topLeft, 
   end: Alignment.bottomRight
   )
 );
 
 const kSecondColor = BoxDecoration(gradient: LinearGradient(
-  colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(255, 238, 164, 206)],
+  colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(76, 197, 139, 242)],
   begin: Alignment.topLeft, 
   end: Alignment.bottomRight
   )
@@ -31,11 +31,22 @@ const shadowCard = Colors.white;
 
 //Fonts
 
-const kTextH1Bold = TextStyle(fontSize: 24, height: 1.5, fontWeight: FontWeight.w700);
-const kTextTitle = TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, color: kGray100);
-const kTextButton = TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, color: kWhite);
-const kTextH2Medium = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, color: kGray100);
-const kTextMainBold = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600);
-const kTextMain = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400);
+const kTextH1Bold = TextStyle(fontSize: 24, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+const kTextH2Bold = TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+const kTextTitle = TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins");
+const kTextButton = TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, color: kWhite, fontFamily: "Poppins");
+const kTextH3 = TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kBlack, fontFamily: "Poppins");
+const kTextH2Medium = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins");
+const kTextMainBold = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+const kTextMain = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins");
 
-final shape = StadiumBorder();
+//Button
+
+const floatButton = ShapeDecoration(
+  shape: StadiumBorder(),
+  gradient: LinearGradient(
+  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
+  begin: Alignment.topLeft, 
+  end: Alignment.bottomRight
+  ),
+);
