@@ -76,13 +76,13 @@ class Sec extends StatelessWidget {
                             child: SvgPicture.asset('assets/icons/Arrow - Right 2_light.svg', color: kWhite, width: 20)
                           )
                         ),
-                      ),
+                      )
                     ),
                   onTap: () {},
-                )
-              ),
+                  )
+                ),
+              )
             )
-          )
         ],
       ),
     );
