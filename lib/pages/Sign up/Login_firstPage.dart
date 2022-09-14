@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:aga/icons/person_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
@@ -29,20 +31,32 @@ class FirstLoginPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 30, left: 30, right: 30),
                 height: 48,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  color: kBorder,
-                ),
-                child: Row(
-                  children: [
-                  
-                  ],
+                margin: EdgeInsets.only(top: 30, left: 30, right: 30),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(14), color: kBorder),
+                child: TextFormField(
+                  textAlignVertical: TextAlignVertical.bottom,
+                  decoration: InputDecoration(
+                    hintText: 'First Name',
+                    border: InputBorder.none,
+                    hintStyle: kTextMain,
+                    prefixIcon: Container(margin: EdgeInsets.only(top: 15, bottom: 15, left: 15, right: 10), child: SvgPicture.asset('assets/icons/Profile.svg', color: kGray100))
+                  ),
                 )
               ),
               Container(
-
+                height: 48,
+                margin: EdgeInsets.only(top: 15, left: 30, right: 30),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(14), color: kBorder),
+                child: TextFormField(
+                  textAlignVertical: TextAlignVertical.bottom,
+                  decoration: InputDecoration(
+                    hintText: 'Last Name',
+                    border: InputBorder.none,
+                    hintStyle: kTextMain,
+                    prefixIcon: Container(margin: EdgeInsets.only(top: 15, bottom: 15, left: 15, right: 10), child: SvgPicture.asset('assets/icons/Profile.svg', color: kGray100))
+                  ),
+                )
               ),
               Container(
 
