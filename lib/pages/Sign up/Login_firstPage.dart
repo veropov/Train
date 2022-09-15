@@ -6,12 +6,19 @@ import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:math' as math;
 
-class FirstLoginPage extends StatelessWidget {
-  const FirstLoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _obscureText = true;
+  bool _hideCheck = true;
 
   @override
   Widget build(BuildContext context) {
-    bool _obscureText = true;
     return SafeArea(child: 
       Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -95,12 +102,12 @@ class FirstLoginPage extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(top: 15, bottom: 15, right: 10), 
                           child: GestureDetector(
-                            // onTap: () {
-                            //   setState(() {
-                            //   _obscureText = !_obscureText;
-                            //   });
-                            // },
-                            child: SvgPicture.asset('assets/icons/Hide-Password.svg', color: kGray100), 
+                            onTap: () {
+                              setState(() {
+                              _obscureText = !_obscureText;
+                              });
+                            },
+                            child: _obscureText ? SvgPicture.asset('assets/icons/Hide-Password_light.svg', color: kGray100) : SvgPicture.asset('assets/icons/Hide-Password-Unactive.svg', color: kGray100), 
                           )
                         )
                     ),
@@ -114,7 +121,15 @@ class FirstLoginPage extends StatelessWidget {
                       height: 16,
                       width: 16,
                       decoration: BoxDecoration(border: Border.all(color: kGray60), borderRadius: BorderRadius.circular(4)),
-                      margin: EdgeInsets.only(top: 10, left: 30)
+                      margin: EdgeInsets.only(top: 10, left: 30),
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                          _hideCheck = !_hideCheck;
+                          });
+                        },
+                        child: _hideCheck ? null : Icon(Icons.check, size: 10) 
+                      )
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 10, top: 10,),
@@ -143,7 +158,6 @@ class FirstLoginPage extends StatelessWidget {
                     ),
                   ]
                 ),
-
             ],)
           ),
         ],),
@@ -226,7 +240,14 @@ class FirstLoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               Text('Already have an account?', style: TextStyle(color: kBlack, fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
-              Text(' Login', style: TextStyle(color: Color.fromARGB(255, 199, 140, 239), fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
+              InkWell(
+                splashColor: Colors.white,
+                highlightColor: Color.fromARGB(129, 219, 166, 255),
+                child: Text(' Login', style: TextStyle(color: Color.fromARGB(255, 199, 140, 239), fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")
+                ),
+                onTap: () {
+                },
+              )
           ])
           ),
         ],)
