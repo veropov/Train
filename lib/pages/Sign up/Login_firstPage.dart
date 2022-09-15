@@ -146,25 +146,48 @@ class FirstLoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 50,
-                width: 50,
-                alignment: Alignment.center,
                 margin: EdgeInsets.only(bottom: 30, right: 15),
-                decoration: BoxDecoration(border: Border.all(color: kGray100), borderRadius: BorderRadius.circular(14)),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(14),
+                  splashColor: Color.fromARGB(188, 130, 167, 255),
+                  highlightColor: Colors.transparent,
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(border: Border.all(color: kGray100), borderRadius: BorderRadius.circular(14)),
+                    child: SvgPicture.asset('assets/images/Google.svg')
+                  ),
+                onTap: () {}
+                ),
               ),
               Container(
-                height: 50,
-                width: 50,
-                alignment: Alignment.center,
                 margin: EdgeInsets.only(bottom: 30, left: 15),
-                decoration: BoxDecoration(border: Border.all(color: kGray100), borderRadius: BorderRadius.circular(14)),
-              ),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(14),
+                  splashColor: Color.fromARGB(188, 130, 167, 255),
+                  highlightColor: Colors.transparent,
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(border: Border.all(color: kGray100), borderRadius: BorderRadius.circular(14)),
+                    child: SvgPicture.asset('assets/images/Facebook.svg')
+                  ),
+                onTap: () {}
+                ),
+              )
             ],
           ),
           Container(
             alignment: Alignment.bottomCenter,
             margin: EdgeInsets.only(bottom: 40),
-            child: Text('Already have an account? Login', style: kTextH2Medium)
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Text('Already have an account?', style: TextStyle(color: kBlack, fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
+              Text(' Login', style: TextStyle(color: Color.fromARGB(255, 199, 140, 239), fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
+          ])
           ),
         ],)
       ]),

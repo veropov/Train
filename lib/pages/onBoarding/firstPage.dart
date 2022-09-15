@@ -35,7 +35,6 @@ class HomeScreen extends StatelessWidget {
         ]
       ),
       bottomNavigationBar: Container(
-        alignment: Alignment.center,
         margin: EdgeInsets.only(bottom: 40, left: 30, right: 30),
         height: 60,
         decoration: BoxDecoration(
