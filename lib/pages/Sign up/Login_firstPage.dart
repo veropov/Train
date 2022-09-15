@@ -11,6 +11,7 @@ class FirstLoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool _obscureText = true;
     return SafeArea(child: 
       Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -69,7 +70,9 @@ class FirstLoginPage extends StatelessWidget {
                       hintText: 'Email',
                       border: InputBorder.none,
                       hintStyle: kTextMain,
-                      prefixIcon: Container(margin: EdgeInsets.only(top: 15, bottom: 15, left: 13, right: 10), child: SvgPicture.asset('assets/icons/Message.svg', color: kGray100))
+                      prefixIcon: Container(
+                        margin: EdgeInsets.only(top: 15, bottom: 15, left: 13, right: 10), 
+                        child: SvgPicture.asset('assets/icons/Message.svg', color: kGray100))
                     ),
                   )
                 ),
@@ -78,13 +81,28 @@ class FirstLoginPage extends StatelessWidget {
                   margin: EdgeInsets.only(top: 15, left: 30, right: 30),
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(14), color: kBorder),
                   child: TextFormField(
+                    obscureText: _obscureText,
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
                       hintText: 'Password',
                       border: InputBorder.none,
                       hintStyle: kTextMain,
-                      prefixIcon: Container(margin: EdgeInsets.only(top: 15, bottom: 15, left: 13, right: 10), child: SvgPicture.asset('assets/icons/Lock.svg', color: kGray100)),
-                      suffixIcon: Container(margin: EdgeInsets.only(top: 15, bottom: 15, right: 10), child: SvgPicture.asset('assets/icons/Hide-Password.svg', color: kGray100))
+                      prefixIcon: Container(
+                        margin: EdgeInsets.only(top: 15, bottom: 15, left: 13, right: 10), 
+                        child: SvgPicture.asset('assets/icons/Lock.svg', color: kGray100)
+                      ),
+                      suffixIcon: 
+                        Container(
+                          margin: EdgeInsets.only(top: 15, bottom: 15, right: 10), 
+                          child: GestureDetector(
+                            // onTap: () {
+                            //   setState(() {
+                            //   _obscureText = !_obscureText;
+                            //   });
+                            // },
+                            child: SvgPicture.asset('assets/icons/Hide-Password.svg', color: kGray100), 
+                          )
+                        )
                     ),
                   )
                 ),
@@ -100,10 +118,32 @@ class FirstLoginPage extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 10, top: 10,),
-                      child: Text('By continuing you accept our Privacy Policy and\nTerm of Use', style: kTextMainBranch),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text('By continuing you accept our ', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
+                              InkWell(
+                                onTap: () {},
+                                child: Text('Privacy Policy ', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", decoration: TextDecoration.underline)),
+                              ),
+                              Text('and', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
+                            ],
+                          ),
+                        InkWell(
+                          onTap: () {},
+                            child: Text('Term of Use', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", decoration: TextDecoration.underline)),
+                          )
+                        ],
                       )
+                    ),
                   ]
                 ),
+
             ],)
           ),
         ],),
