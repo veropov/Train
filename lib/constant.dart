@@ -53,4 +53,7 @@ const floatButton = ShapeDecoration(
   ),
 );
 
-//Input
+DropdownMenuItem<String> buidMenuItem(String item) => DropdownMenuItem(
+  value: item,
+  child: Text(item, style: kTextMain)
+);

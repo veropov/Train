@@ -13,6 +13,7 @@ import 'package:aga/pages/onBoarding/fivePage.dart';
 
 //Login
 import 'package:aga/pages/Sign up/Login_firstPage.dart';
+import 'package:aga/pages/Sign up/Login_secondPage.dart';
 
 void main() => runApp(fitnestX());
 
@@ -25,7 +26,7 @@ class fitnestX extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitnestX',
       theme: ThemeData(),
-        home: LoginPage(),
+        home: LoginSecPage(),
     );
   }
 }

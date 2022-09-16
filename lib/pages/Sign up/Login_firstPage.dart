@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:aga/icons/person_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'dart:math' as math;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -47,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextFormField(
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
-                      hintText: 'First Name',
+                      hintText: 'Choose Gender',
                       border: InputBorder.none,
                       hintStyle: kTextMain,
                       prefixIcon: Container(margin: EdgeInsets.only(top: 15, bottom: 15, left: 15, right: 10), child: SvgPicture.asset('assets/icons/Profile.svg', color: kGray100))
@@ -61,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextFormField(
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
-                      hintText: 'Last Name',
+                      hintText: 'Date of Birth',
                       border: InputBorder.none,
                       hintStyle: kTextMain,
                       prefixIcon: Container(margin: EdgeInsets.only(top: 15, bottom: 15, left: 15, right: 10), child: SvgPicture.asset('assets/icons/Profile.svg', color: kGray100))
