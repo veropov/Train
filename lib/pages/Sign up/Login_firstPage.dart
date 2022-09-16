@@ -16,6 +16,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
   bool _hideCheck = true;
+  Color _button = Color.fromARGB(255, 48, 105, 230);
 
   @override
   Widget build(BuildContext context) {
@@ -171,14 +172,10 @@ class _LoginPageState extends State<LoginPage> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(60), 
-                gradient: LinearGradient(
-                  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
-                    begin: Alignment.topLeft, 
-                    end: Alignment.bottomRight
-                ),
+                color: _hideCheck ? _button = Color.fromARGB(118, 133, 133, 133) : _button = Color.fromARGB(255, 149, 175, 253),
                 boxShadow: [ 
                   BoxShadow(
-                    color: shadowBlue,
+                    color: _hideCheck ? Colors.transparent : shadowBlue,
                     blurRadius: 22,
                     offset: Offset(0,10)
                   )
@@ -186,13 +183,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    onPrimary: kWhite,
+                    shape: StadiumBorder(),
+                    onPrimary: _hideCheck ? Color.fromARGB(0, 199, 199, 199) : kWhite,
                     shadowColor: Colors.transparent,
                     primary: Colors.transparent,
                     elevation: 0,
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   ),
-                  onPressed: () {  }, 
+                  onPressed: () { 
+                    
+                   }, 
                     child: Text('Registr', style: kTextButton)
                   ),
             ),
