@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 //Colors
 
 const kBrandColor = BoxDecoration(gradient: LinearGradient(
-  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(76, 149, 173, 254)], 
+  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
   begin: Alignment.topLeft, 
   end: Alignment.bottomRight
   )
