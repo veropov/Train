@@ -12,8 +12,6 @@ class LoginThirdPage extends StatefulWidget {
 
 class _LoginThirdPageState extends State<LoginThirdPage> {
 
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -22,11 +20,23 @@ class _LoginThirdPageState extends State<LoginThirdPage> {
 
     final pictures = [
       'assets/images/Login_third_page.svg', 
-      'assets/images/girl_fivePage.svg', 
-      'assets/images/Login_third_page.svg'
+      'assets/images/login_third_page2.svg', 
+      'assets/images/login_third_page3.svg'
     ];
 
-    Widget buildImage(dynamic picture, int index) => Stack(
+    final texts = [
+      'I have a low amount of body fat\n and need / want to build more\n muscle',
+      'I am “skinny fat”. look thin but have\n no shape. I want to add learn\n muscle in the right way',
+      'I have over 20 lbs to lose. I want to\n drop all this fat and gain muscle\n mass'
+    ];
+
+    final textBolds = [
+      'Improve Shape',
+      'Lean & Tone',
+      'Lose a Fat'
+    ];
+
+    Widget buildImage(dynamic picture, int index, String text, String textBold) => Stack(
       alignment: Alignment.center,
       children: [
       Container(
@@ -43,9 +53,9 @@ class _LoginThirdPageState extends State<LoginThirdPage> {
         children: [
           SvgPicture.asset(picture, height: heightScreen*0.36, fit: BoxFit.cover),
           Column(children: [
-            Text('Improve Shape', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, color: Colors.white, fontFamily: "Poppins")),
+            Text(textBold, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, color: Colors.white, fontFamily: "Poppins")),
             SizedBox(height: 20),
-            Text('I have a low amount of body fat\n and need / want to build more\n muscle', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: Colors.white, fontFamily: "Poppins"), textAlign: TextAlign.center,)
+            Text(text, style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: Colors.white, fontFamily: "Poppins"), textAlign: TextAlign.center,)
           ]),
         ],
       )
@@ -72,11 +82,13 @@ class _LoginThirdPageState extends State<LoginThirdPage> {
                 height: heightScreen*0.59,
                 enlargeCenterPage: true
               ),
-              itemCount: pictures.length,
+              itemCount: pictures.length & texts.length & textBolds.length,
               itemBuilder: (context, index, realIndex) {
 
+                final text = texts[index];
+                final textBold = textBolds[index];
                 final picture = pictures[index];
-                return buildImage(picture, index);
+                return buildImage(picture, index, text, textBold);
               },
             ),
             Container(
