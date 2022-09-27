@@ -12,7 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool _obscureText = true;
+  bool _obscureTextLogin = true;
   bool _hideCheck = true;
   Color _button = Color.fromARGB(255, 48, 105, 230);
 
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                   margin: EdgeInsets.only(top: 15, left: 30, right: 30),
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(14), color: kBorder),
                   child: TextFormField(
-                    obscureText: _obscureText,
+                    obscureText: _obscureTextLogin,
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
                       hintText: 'Password',
@@ -103,10 +103,10 @@ class _LoginPageState extends State<LoginPage> {
                           child: GestureDetector(
                             onTap: () {
                               setState(() {
-                              _obscureText = !_obscureText;
+                              _obscureTextLogin = !_obscureTextLogin;
                               });
                             },
-                            child: _obscureText ? SvgPicture.asset('assets/icons/Hide-Password_light.svg', color: kGray100) : SvgPicture.asset('assets/icons/Hide-Password-Unactive.svg', color: kGray100), 
+                            child: _obscureTextLogin ? SvgPicture.asset('assets/icons/Hide-Password_light.svg', color: kGray100) : SvgPicture.asset('assets/icons/Hide-Password-Unactive.svg', color: kGray100), 
                           )
                         )
                     ),
