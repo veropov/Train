@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:aga/icons/person_icons.dart';
+import 'package:aga/pages/onBoarding/secondPage.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 class HomeScreen extends StatelessWidget {
@@ -21,11 +22,16 @@ class HomeScreen extends StatelessWidget {
               children: [
               Container(
                 alignment: Alignment.center,
-                child: Image.asset('assets/images/FitnestX.png')
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                  Text('Fitnest', style: TextStyle(fontSize: 36, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: kBlack)),
+                  Text('X', style: TextStyle(fontSize: 50, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 173, 170, 244)))
+                ],)
               ),
               Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 15),
                 child: Text('Everybody Can Train',
                   style: kTextTitle
                 )
@@ -60,7 +66,11 @@ class HomeScreen extends StatelessWidget {
               elevation: 0,
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             ),
-            onPressed: () {  }, 
+            onPressed: () { 
+              Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Sec()),
+              );
+             }, 
               child: Text('Get Started', style: kTextButton)
             ),
       ),
