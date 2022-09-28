@@ -67,8 +67,25 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             ),
             onPressed: () { 
-              Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Sec()),
+              Navigator.push(context,
+                PageRouteBuilder(
+                  reverseTransitionDuration: Duration(milliseconds: 200),
+                  transitionDuration: Duration(milliseconds: 200),
+                  barrierColor: Color.fromARGB(30, 149, 174, 254),
+                  transitionsBuilder: (context, animation, secondaryAnimation, Widget child) {
+
+                    animation = CurvedAnimation(curve: Curves.ease, parent: animation);
+
+                    return ScaleTransition(
+                      alignment: Alignment.center,
+                      scale: animation,
+                      child: child,
+                    );
+                  },
+                  pageBuilder:(context, animation, secondaryAnimation) {
+                    return Sec();
+                  }
+                )
               );
              }, 
               child: Text('Get Started', style: kTextButton)
