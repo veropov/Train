@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:aga/icons/person_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'circleProgress.dart';
 import 'dart:math' as math;
+import 'package:aga/transition.dart';
+import 'package:aga/pages/onBoarding/thridPage.dart';
 
 class Sec extends StatelessWidget {
   const Sec({Key? key}) : super(key: key);
@@ -78,7 +79,10 @@ class Sec extends StatelessWidget {
                         ),
                       )
                     ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, Transition(child: Third())
+                    );
+                  },
                   )
                 ),
               )

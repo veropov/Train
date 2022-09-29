@@ -5,6 +5,8 @@ import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'circleProgress.dart';
 import 'dart:math' as math;
+import 'package:aga/transition.dart';
+import 'package:aga/pages/onBoarding/fivePage.dart';
 
 class Fourth extends StatelessWidget {
   const Fourth({Key? key}) : super(key: key);
@@ -77,7 +79,10 @@ class Fourth extends StatelessWidget {
                         ),
                       ),
                     ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, Transition(child: Five())
+                    );
+                  },
                 )
               ),
             )

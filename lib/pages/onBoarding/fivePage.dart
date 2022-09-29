@@ -5,6 +5,8 @@ import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'circleProgress.dart';
 import 'dart:math' as math;
+import 'package:aga/transition.dart';
+import 'package:aga/pages/Sign up/Login_firstPage.dart';
 
 class Five extends StatelessWidget {
   const Five({Key? key}) : super(key: key);
@@ -81,7 +83,10 @@ class Five extends StatelessWidget {
                         ),
                       ),
                     ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, Transition(child: LoginPage())
+                    );
+                  },
                 )
               ),
             )

@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:aga/pages/onBoarding/secondPage.dart';
 import 'package:aga/constant.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aga/transition.dart';
+import 'package:aga/pages/onBoarding/secondPage.dart';
 
 
 
@@ -67,25 +67,7 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             ),
             onPressed: () { 
-              Navigator.push(context,
-                PageRouteBuilder(
-                  reverseTransitionDuration: Duration(milliseconds: 200),
-                  transitionDuration: Duration(milliseconds: 200),
-                  barrierColor: Color.fromARGB(30, 149, 174, 254),
-                  transitionsBuilder: (context, animation, secondaryAnimation, Widget child) {
-
-                    animation = CurvedAnimation(curve: Curves.ease, parent: animation);
-
-                    return ScaleTransition(
-                      alignment: Alignment.center,
-                      scale: animation,
-                      child: child,
-                    );
-                  },
-                  pageBuilder:(context, animation, secondaryAnimation) {
-                    return Sec();
-                  }
-                )
+              Navigator.push(context, Transition(child: Sec())
               );
              }, 
               child: Text('Get Started', style: kTextButton)

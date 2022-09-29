@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aga/transition.dart';
+import 'package:aga/pages/Sign up/Login_secondPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -189,7 +191,8 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   ),
                   onPressed: () { 
-                    
+                    _hideCheck ? null : Navigator.push(context, Transition(child: LoginSecPage())
+                    );
                    }, 
                     child: Text('Registr', style: kTextButton)
                   ),
