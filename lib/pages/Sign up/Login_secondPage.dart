@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aga/transition.dart';
+import 'package:aga/pages/Sign up/Login_thirdPage.dart';
 
 class LoginSecPage extends StatefulWidget {
   const LoginSecPage({Key? key}) : super(key: key);
@@ -168,7 +170,10 @@ class _LoginSecPageState extends State<LoginSecPage> {
                       elevation: 0,
                       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, Transition(child: LoginThirdPage())
+                      );
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:aga/transition.dart';
+import 'package:aga/pages/Sign up/Login_welcome.dart';
 
 class LoginThirdPage extends StatefulWidget {
   const LoginThirdPage({Key? key}) : super(key: key);
@@ -116,7 +118,10 @@ class _LoginThirdPageState extends State<LoginThirdPage> {
                   onPrimary: kWhite,
                   shadowColor: Colors.transparent
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, Transition(child: LoginWelcome())
+                  );
+                },
                 child: Text('Confirm', style: kTextButton),
               )
             )

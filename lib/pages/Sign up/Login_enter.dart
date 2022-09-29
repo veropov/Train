@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aga/transition.dart';
+import 'package:aga/pages/Sign up/Login_firstPage.dart';
 
 class LoginEnter extends StatefulWidget {
   const LoginEnter({Key? key}) : super(key: key);
@@ -177,6 +179,8 @@ class _LoginEnterState extends State<LoginEnter> {
                 child: Text(' Register', style: TextStyle(color: Color.fromARGB(255, 199, 140, 239), fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")
                 ),
                 onTap: () {
+                  Navigator.push(context, Transition(child: LoginPage())
+                  );
                 },
               )
           ])
