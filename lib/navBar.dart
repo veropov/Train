@@ -29,15 +29,15 @@ class _NavigatBarState extends State<NavigatBar> {
         ),
         BottomNavigationBarItem(
           label: '',
-          icon: SvgPicture.asset('assets/icons/Activity_light.svg', height: 24)
+          icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
         ),
         BottomNavigationBarItem(
           label: '',
-          icon: SvgPicture.asset('assets/icons/Camera_light.svg', height: 24)
+          icon: currentIndex == 2 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
         ),
         BottomNavigationBarItem(
           label: '',
-          icon: SvgPicture.asset('assets/icons/Profile_light.svg', height: 24)
+          icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
         )
       ]
     );
