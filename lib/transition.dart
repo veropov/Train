@@ -5,6 +5,7 @@ final Widget child;
 
 Transition( {
   required this.child,
+  
 }) : super(
     reverseTransitionDuration: Duration(milliseconds: 300),
     transitionDuration: Duration(milliseconds: 300),

@@ -57,3 +57,27 @@ DropdownMenuItem<String> buidMenuItem(String item) => DropdownMenuItem(
   value: item,
   child: Text(item, style: kTextMain)
 );
+
+//Navbar
+
+final navBar = BottomNavigationBar(
+  type: BottomNavigationBarType.fixed,
+  currentIndex: 1,
+  items: [
+BottomNavigationBarItem(
+  label: '',
+  icon: SvgPicture.asset('assets/icons/Home_light.svg', height: 24)),
+BottomNavigationBarItem(
+  label: '',
+  icon: SvgPicture.asset('assets/icons/Activity_light.svg', height: 24)
+  ),
+BottomNavigationBarItem(
+  label: '',
+  icon: SvgPicture.asset('assets/icons/Camera_light.svg', height: 24)
+  ),
+BottomNavigationBarItem(
+  label: '',
+  icon: SvgPicture.asset('assets/icons/Profile_light.svg', height: 24)
+  )
+]
+);

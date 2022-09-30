@@ -5,6 +5,8 @@ import 'package:aga/icons/person_icons.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/pages/onBoarding/firstPage.dart';
 
+import 'package:aga/pages/DashBoard/DashBoard_firstPage.dart';
+
 
 void main() => runApp(fitnestX());
 
@@ -17,7 +19,7 @@ class fitnestX extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitnestX',
       theme: ThemeData(),
-        home: HomeScreen(),
+        home: BoardFirstPage(),
     );
   }
 }
