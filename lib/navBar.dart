@@ -18,10 +18,9 @@ class _NavigatBarState extends State<NavigatBar> {
       type: BottomNavigationBarType.fixed,
       currentIndex: currentIndex,
       onTap: (index) => setState(() => currentIndex = index),
+      elevation: 2,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      unselectedItemColor: kGray100,
-      selectedItemColor: Color.fromARGB(255, 170, 105, 219),
       items: [
         BottomNavigationBarItem(
           label: '',
@@ -32,14 +31,25 @@ class _NavigatBarState extends State<NavigatBar> {
           icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
         ),
         BottomNavigationBarItem(
+          icon: SvgPicture.asset('assets/icons/Activity_fill.svg', height: 1, color: Colors.transparent),
           label: '',
-          icon: currentIndex == 2 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
         ),
         BottomNavigationBarItem(
           label: '',
-          icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
+          icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
+        ),
+        BottomNavigationBarItem(
+          label: '',
+          icon: currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
         )
       ]
     );
   }
 }
+
+Widget FloatButton() => FloatingActionButton(
+  child: SvgPicture.asset('assets/icons/Search_light.svg', height: 20, color: Colors.white),
+  elevation: 2,
+  backgroundColor: Color.fromARGB(255, 149, 174, 254),
+  onPressed: () {},
+  );
