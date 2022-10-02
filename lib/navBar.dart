@@ -54,7 +54,7 @@ Widget FloatButton() => SizedBox.fromSize(
   size: Size.square(60),
   child: FloatingActionButton(
   child: SvgPicture.asset('assets/icons/Search_light.svg', height: 20, color: Colors.white),
-  elevation: 2,
+  elevation: 0,
   highlightElevation: 2,
   splashColor: Color.fromARGB(255, 56, 126, 255),
   backgroundColor: Color.fromARGB(255, 149, 174, 254),
