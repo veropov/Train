@@ -16,7 +16,7 @@ class _NavigatBarState extends State<NavigatBar> {
   Widget build(BuildContext context) {
     return NavigationBarTheme(
       data: NavigationBarThemeData(
-        elevation: 1,
+        elevation: 0,
         height: 65,
         backgroundColor: Colors.white,
         indicatorColor: Colors.transparent,
