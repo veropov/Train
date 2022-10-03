@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/navBar.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:aga/pages/onBoarding/circleProgress.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'dart:math' as math;
 
 class BoardFirstPage extends StatefulWidget {
   const BoardFirstPage({Key? key}) : super(key: key);
@@ -28,9 +29,24 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
 //   });
 // }
 
+int height = 150;
+int weight = 65;
 
   @override
   Widget build(BuildContext context) {
+    var present = (weight/math.pow(height, 2))*100;
+    var percenting = (present * 100).round();
+
+  BMIndex() { 
+    if (percenting <= 18) {
+      return Text(' underweight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins"));
+    } else if (percenting>=19 && percenting <=25) {
+      return Text(' normal weight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins"));
+    } else {
+      return Text(' overweight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins"));
+    }
+  }
+
     return SafeArea(child: 
       Scaffold(
         // backgroundColor: Colors.white,
@@ -113,7 +129,10 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
                         children: [
                           Text('BMI (Body Mass Index)', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kWhite)),
                           SizedBox(height: 5),
-                          Text('You have a normal weight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins"))
+                          Row(children: [
+                          Text('You have a', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins")),
+                          BMIndex(),
+                          ],)
                         ],
                       ),
                       SizedBox(height: 15),
@@ -161,10 +180,22 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 15),
-                        child: CustomPaint(
-                          foregroundPainter: BMI(),
-                        ) 
-                      )
+                          child: CircularPercentIndicator(
+                            radius: 50,
+                            linearGradient: LinearGradient(
+                              colors: [Color.fromARGB(255, 218, 177, 247), Color.fromARGB(255, 197, 139, 242)],
+                              begin: Alignment.topLeft, 
+                              end: Alignment.bottomRight
+                            ),
+                            backgroundColor: Colors.transparent,
+                            circularStrokeCap: CircularStrokeCap.round,
+                            percent: present,
+                            lineWidth: 20,
+                            animation: true,
+                            animationDuration: 1000,
+                            center: Text('${percenting}', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kGray100)),
+                          )
+                        )
                     ],)
               ],)
             ],)
