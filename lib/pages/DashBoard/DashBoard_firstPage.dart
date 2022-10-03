@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/navBar.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:aga/pages/onBoarding/circleProgress.dart';
 
 class BoardFirstPage extends StatefulWidget {
   const BoardFirstPage({Key? key}) : super(key: key);
@@ -11,6 +12,23 @@ class BoardFirstPage extends StatefulWidget {
 }
 
 class _BoardFirstPageState extends State<BoardFirstPage> {
+
+// AnimationController _animationController;
+// Animation _animation;
+
+// @override 
+// void initState() {
+//   super.initState();
+//   _animationController = AnimationController(vsync: this, duration: Duration(microseconds: 1000));
+//   _animation = Tween(begin: 0, end: 100).animate(_animationController)
+//   ..addListener(() {
+//     setState(() {
+      
+//     });
+//   });
+// }
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: 
@@ -115,6 +133,7 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
                             onPrimary: kWhite,
                             primary: Colors.transparent,
                             shadowColor: Colors.transparent,
+                            onSurface: Colors.amber,
                           ),
                           child: Text('View More', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins")),
                           onPressed: () {},
@@ -131,8 +150,20 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
                         height: 88,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(100)
+                          borderRadius: BorderRadius.circular(100),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(78, 255, 255, 255),
+                              blurRadius: 10,
+                            )
+                          ]
                         ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 15),
+                        child: CustomPaint(
+                          foregroundPainter: BMI(),
+                        ) 
                       )
                     ],)
               ],)
