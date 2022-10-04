@@ -17,7 +17,7 @@ const kSecondColor = BoxDecoration(gradient: LinearGradient(
   )
 );
 
-const kBlack = Color.fromARGB(255, 29, 22, 23);
+const kBlack = Color.fromARGB(255, 44, 44, 44);
 const kWhite = Colors.white;
 const kGray100 = Color.fromARGB(255, 123, 111, 114);
 const kGray60 = Color.fromARGB(255, 173, 164, 165);
