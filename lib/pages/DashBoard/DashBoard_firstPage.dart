@@ -29,8 +29,8 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
 //   });
 // }
 
-int height = 150;
-int weight = 65;
+int height = 170;
+int weight = 55;
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +153,7 @@ int weight = 65;
                             primary: Colors.transparent,
                             shadowColor: Colors.transparent,
                             onSurface: Colors.amber,
+                            shape: StadiumBorder(),
                           ),
                           child: Text('View More', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins")),
                           onPressed: () {},
@@ -220,6 +221,7 @@ int weight = 65;
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text('Today Target', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+                      SizedBox(width: 20),
                       Container(
                         width: 74,
                         height: 32,
@@ -233,9 +235,11 @@ int weight = 65;
                         ),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            shape: StadiumBorder(),
                             onPrimary: Colors.white,
                             primary: Colors.transparent,
                             shadowColor: Colors.transparent,
+                            onSurface: Colors.amber,
                             padding: EdgeInsets.all(5)
                           ),
                           child: Text('Check', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
@@ -244,7 +248,74 @@ int weight = 65;
                       ),
                   ],)
                 ),
-
+            ],),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+              Container(
+                margin: EdgeInsets.only(top: 30, left:30, bottom: 15),
+                child: Text('Activity Status', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w600, color: kBlack, fontFamily: "Poppins")),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 30),
+                height: 150,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Color.fromARGB(101, 216, 234, 255), Color.fromARGB(92, 159, 183, 255)], 
+                      begin: Alignment.topLeft, 
+                      end: Alignment.bottomRight
+                  ),
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                child: InkWell(
+                  highlightColor: Color.fromARGB(255, 255, 255, 255),
+                  splashColor: Color.fromARGB(255, 209, 204, 252),
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: () {},
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 20, top: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Heart Rate', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins")),
+                            SizedBox(height: 5),
+                            Text('78 BPM', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253)))
+                          ],
+                        )
+                      ),
+                        Container(
+                          margin: EdgeInsets.only(top: 30, right: 50),
+                          width: 74,
+                          height: 38,
+                          child: Text('change 3mins ago', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(255, 104, 126, 250)))
+                        ),
+                    ],),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: Stack(
+                        alignment: Alignment.centerLeft,
+                        children: [
+                        SvgPicture.asset('assets/images/backPages/dashboard/Vector109.svg', color: Color.fromARGB(206, 126, 145, 253)),
+                        SvgPicture.asset('assets/images/backPages/dashboard/Vector111.svg', color: Color.fromARGB(255, 170, 183, 255)),
+                        Container(
+                          margin: EdgeInsets.only(left: 192, bottom: 36),
+                          child: SvgPicture.asset('assets/images/backPages/dashboard/Ellipse102.svg', height: 8, color: Color.fromARGB(193, 208, 136, 255),)
+                        ),
+                      ],),
+                    )
+                  ],)
+                )
+              )
             ],)
           ],
         ),
