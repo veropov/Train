@@ -90,7 +90,8 @@ int weight = 55;
       //MAIN ITEMS
       //MAIN ITEMS
       //MAIN ITEMS
-        body: Column(
+        body: SingleChildScrollView(child: 
+        Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -305,23 +306,111 @@ int weight = 55;
                       child: Stack(
                         alignment: Alignment.centerLeft,
                         children: [
-                        SvgPicture.asset('assets/images/backPages/dashboard/Vector109.svg', color: Color.fromARGB(206, 126, 145, 253)),
-                        SvgPicture.asset('assets/images/backPages/dashboard/Vector111.svg', color: Color.fromARGB(255, 170, 183, 255)),
+                        SvgPicture.asset('assets/images/Vector109.svg', color: Color.fromARGB(206, 126, 145, 253)),
+                        SvgPicture.asset('assets/images/Vector111.svg', color: Color.fromARGB(255, 170, 183, 255)),
                         Container(
                           margin: EdgeInsets.only(left: 192, bottom: 36),
-                          child: SvgPicture.asset('assets/images/backPages/dashboard/Ellipse102.svg', height: 8, color: Color.fromARGB(193, 208, 136, 255),)
+                          child: SvgPicture.asset('assets/images/Ellipse102.svg', height: 8, color: Color.fromARGB(193, 208, 136, 255),)
                         ),
                       ],),
                     )
                   ],)
                 )
               )
+            ],),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 30, right: 15, top: 30),
+                    width: 150,
+                    height: 315,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(200, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(20, 0, 0, 0),
+                          blurRadius: 40,
+                          offset: Offset(0,10)
+                        )
+                      ]
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 30, right: 30),
+                        width: 150,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(200, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(20, 0, 0, 0),
+                              blurRadius: 40,
+                              offset: Offset(0,10)
+                            )
+                          ]
+                        ),
+                        child: InkWell(
+                          highlightColor: Color.fromARGB(255, 234, 236, 255),
+                          splashColor: Color.fromARGB(255, 118, 103, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 20, right: 50),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Text('Sleep', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins")),
+                                  SizedBox(height: 5),
+                                  Text('8h 20m', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                                  ]
+                              )),
+                              SvgPicture.asset('assets/images/Sleep-Graph.svg', color: Color.fromARGB(255, 138, 88, 255))
+                          ],)
+                        )
+                      ),
+                      SizedBox(height: 15),
+                      Container(
+                        margin: EdgeInsets.only(right: 30),
+                        width: 150,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(200, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(20, 0, 0, 0),
+                              blurRadius: 40,
+                              offset: Offset(0,10)
+                            )
+                          ]
+                        ),
+                      )
+                    ],
+                  )
+              ],)
             ],)
           ],
         ),
-        bottomNavigationBar: NavigatBar(),
-        floatingActionButton: FloatButton(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      ),
+      bottomNavigationBar: NavigatBar(),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       ),
     );
   }
