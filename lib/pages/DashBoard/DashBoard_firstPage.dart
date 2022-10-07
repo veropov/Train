@@ -36,6 +36,8 @@ int weight = 55;
   Widget build(BuildContext context) {
     var present = (weight/math.pow(height, 2))*100;
     var percenting = (present * 100).round();
+    
+  final widthScreen = MediaQuery.of(context).size.width;
 
   BMIndex() { 
     if (percenting <= 18) {
@@ -240,7 +242,6 @@ int weight = 55;
                             onPrimary: Colors.white,
                             primary: Colors.transparent,
                             shadowColor: Colors.transparent,
-                            onSurface: Colors.amber,
                             padding: EdgeInsets.all(5)
                           ),
                           child: Text('Check', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
@@ -288,7 +289,7 @@ int weight = 55;
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Heart Rate', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins")),
+                            Text('Heart Rate', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
                             SizedBox(height: 5),
                             Text('78 BPM', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253)))
                           ],
@@ -327,7 +328,7 @@ int weight = 55;
                 children: [
                   Container(
                     margin: EdgeInsets.only(left: 30, right: 15, top: 30),
-                    width: 150,
+                    width: widthScreen*0.4,
                     height: 315,
                     decoration: BoxDecoration(
                       color: Color.fromARGB(200, 255, 255, 255),
@@ -340,14 +341,215 @@ int weight = 55;
                         )
                       ]
                     ),
+                    child: InkWell(
+                      highlightColor: Color.fromARGB(255, 234, 236, 255),
+                      splashColor: Color.fromARGB(255, 118, 103, 255),
+                      borderRadius: BorderRadius.circular(20),
+                      radius: 500,
+                      onTap: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          //DATE OF WATER
+                          //DATE OF WATER
+                          //DATE OF WATER
+                          Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 15, right: 10),
+                                width: 20,
+                                height: 275,
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 233, 233, 233),
+                                  borderRadius: BorderRadius.circular(30)
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 15, right: 10),
+                                width: 20,
+                                height: 170,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(255, 180, 192, 254)], 
+                                    begin: Alignment.topLeft, 
+                                    end: Alignment.bottomRight
+                                  ),
+                                  borderRadius: BorderRadius.circular(30)
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 20),
+                              Text('Water Intake', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
+                              SizedBox(height: 5),
+                              Text('4 Liters', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                              SizedBox(height: 10),
+                              Text('Real time updates', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
+                              SizedBox(height: 5),
+                              //QUANITY OF WATER
+                              //QUANITY OF WATER
+                              //QUANITY OF WATER
+                              Column(
+                                children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5, right: 8),
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [Color.fromARGB(255, 218, 177, 247), Color.fromARGB(255, 197, 139, 242)],
+                                          begin: Alignment.topLeft, 
+                                          end: Alignment.bottomRight
+                                      ),
+                                      borderRadius: BorderRadius.circular(100)
+                                    ),
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                    Text('4pm - now', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray60)),
+                                    SizedBox(height: 3),
+                                    Text('600ml', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 197, 139, 242)))
+                                  ],)
+                                ],),
+                                SizedBox(height: 8),
+                                
+                                  Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5, right: 8),
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [Color.fromARGB(255, 218, 177, 247), Color.fromARGB(255, 197, 139, 242)],
+                                          begin: Alignment.topLeft, 
+                                          end: Alignment.bottomRight
+                                      ),
+                                      borderRadius: BorderRadius.circular(100)
+                                    ),
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                    Text('2pm - 4pm', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray60)),
+                                    SizedBox(height: 3),
+                                    Text('600ml', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 197, 139, 242)))
+                                  ],)
+                                ],),
+                                SizedBox(height: 8),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5, right: 8),
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [Color.fromARGB(255, 218, 177, 247), Color.fromARGB(255, 197, 139, 242)],
+                                          begin: Alignment.topLeft, 
+                                          end: Alignment.bottomRight
+                                      ),
+                                      borderRadius: BorderRadius.circular(100)
+                                    ),
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                    Text('11am - 2pm', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray60)),
+                                    SizedBox(height: 3),
+                                    Text('600ml', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 197, 139, 242)))
+                                  ],)
+                                ],),
+                                SizedBox(height: 8),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5, right: 8),
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [Color.fromARGB(255, 218, 177, 247), Color.fromARGB(255, 197, 139, 242)],
+                                          begin: Alignment.topLeft, 
+                                          end: Alignment.bottomRight
+                                      ),
+                                      borderRadius: BorderRadius.circular(100)
+                                    ),
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                    Text('9am - 11am', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray60)),
+                                    SizedBox(height: 3),
+                                    Text('600ml', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 197, 139, 242)))
+                                  ],)
+                                ],),
+                                SizedBox(height: 8),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5, right: 8),
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [Color.fromARGB(255, 218, 177, 247), Color.fromARGB(255, 197, 139, 242)],
+                                          begin: Alignment.topLeft, 
+                                          end: Alignment.bottomRight
+                                      ),
+                                      borderRadius: BorderRadius.circular(100)
+                                    ),
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                    Text('6am - 8am', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray60)),
+                                    SizedBox(height: 3),
+                                    Text('600ml', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 197, 139, 242)))
+                                  ],)
+                                ],),
+                              ],)
+                          ],)
+                      ],)
+                    )
                   ),
+                  //
+                  //
+                  //
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 30, right: 30),
-                        width: 150,
+                        margin: EdgeInsets.only(top: 30, right: 20),
+                        width: widthScreen*0.4,
                         height: 150,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(200, 255, 255, 255),
@@ -375,7 +577,7 @@ int weight = 55;
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                  Text('Sleep', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins")),
+                                  Text('Sleep', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
                                   SizedBox(height: 5),
                                   Text('8h 20m', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
                                   ]
@@ -386,8 +588,8 @@ int weight = 55;
                       ),
                       SizedBox(height: 15),
                       Container(
-                        margin: EdgeInsets.only(right: 30),
-                        width: 150,
+                        margin: EdgeInsets.only(right: 20),
+                        width: widthScreen*0.4,
                         height: 150,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(200, 255, 255, 255),
@@ -400,6 +602,56 @@ int weight = 55;
                             )
                           ]
                         ),
+                        child: InkWell(
+                          highlightColor: Color.fromARGB(255, 234, 236, 255),
+                          splashColor: Color.fromARGB(255, 118, 103, 255),
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 20, right: 50),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Text('Calories', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
+                                  SizedBox(height: 5),
+                                  Text('760 kCal', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                                  ]
+                              )),
+                              SizedBox(height: 10),
+                              CircularPercentIndicator(
+                                radius: 38,
+                                lineWidth: 9,
+                                linearGradient: LinearGradient(
+                                  colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(255, 180, 192, 254)], 
+                                  begin: Alignment.topLeft, 
+                                  end: Alignment.bottomRight
+                                ),
+                                circularStrokeCap: CircularStrokeCap.round,
+                                percent: 0.6,
+                                backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                                reverse: true,
+                                center: Container(
+                                  alignment: Alignment.center,
+                                  width: 48,
+                                  height: 48,
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                    colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                                      begin: Alignment.topLeft, 
+                                      end: Alignment.bottomRight
+                                    ),
+                                    borderRadius: BorderRadius.circular(100)
+                                  ),
+                                  child: Text('230kCal\nleft', style: TextStyle(fontSize: 8, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Colors.white), textAlign: TextAlign.center,)
+                                ),
+                              ),
+                          ],)
+                        )
                       )
                     ],
                   )
