@@ -5,7 +5,7 @@ import 'package:aga/icons/person_icons.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/pages/onBoarding/firstPage.dart';
 
-import 'package:aga/pages/DashBoard/DashBoard_firstPage.dart';
+import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 
 
 void main() => runApp(fitnestX());
