@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:aga/icons/person_icons.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/pages/onBoarding/firstPage.dart';
+import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 
@@ -19,7 +20,7 @@ class fitnestX extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitnestX',
       theme: ThemeData(),
-        home: BoardFirstPage(),
+        home: ListTarget(),
     );
   }
 }

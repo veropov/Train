@@ -1,4 +1,5 @@
 import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
+import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/navBar.dart';
@@ -101,7 +102,7 @@ int weight = 55;
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BMI(BMIndex, present, percenting, context),
-            TodayTarget(),
+            TodayTarget(context),
             HeartRate(),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -313,7 +314,7 @@ Widget BMI(BMIndex, present, percenting, context) => Stack(
 ],);
 
 
-Widget TodayTarget() => Column(
+Widget TodayTarget(context) => Column(
   mainAxisAlignment: MainAxisAlignment.spaceBetween,
   crossAxisAlignment: CrossAxisAlignment.center,
   children: [
@@ -355,7 +356,9 @@ Widget TodayTarget() => Column(
                 padding: const EdgeInsets.all(5)
               ),
               child: const Text('Check', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, Transition(child: Activity()));
+              },
             )
           ),
       ],)
