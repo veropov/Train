@@ -17,7 +17,7 @@ class _ListTargetState extends State<ListTarget> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 60,
-        title: Text('Body mass index', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+        title: Text('Add target', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
         titleTextStyle: TextStyle(),
         elevation: 0,
         backgroundColor: Color.fromARGB(220, 255, 255, 255),
@@ -51,14 +51,62 @@ class _ListTargetState extends State<ListTarget> {
         children: [
           ListTile(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
-            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 40),
+            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
             trailing: SvgPicture.asset(''),
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Water Intake', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+            onTap: () {},
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
+          ListTile(
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+            leading: SvgPicture.asset('assets/images/target_boots.svg', height: 35),
+            trailing: SvgPicture.asset(''),
+            tileColor: Color.fromARGB(45, 202, 221, 255),
+            title: Text('Foot Steps', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+            onTap: () {},
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
+            trailing: SvgPicture.asset(''),
+            tileColor: Color.fromARGB(45, 202, 221, 255),
+            title: Text('Calories', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+            onTap: () {},
+          ),
+          SizedBox(height: 5),     
+          ListTile(
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
+            trailing: SvgPicture.asset(''),
+            tileColor: Color.fromARGB(45, 202, 221, 255),
+            title: Text('Sleep', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+            onTap: () {},
+          ), 
+          SizedBox(height: 5), 
+          ListTile(
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
+            trailing: SvgPicture.asset(''),
+            tileColor: Color.fromARGB(45, 202, 221, 255),
+            title: Text('Push-ups', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+            onTap: () {},
+          ),       
+          SizedBox(height: 5), 
+          ListTile(
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
+            trailing: SvgPicture.asset(''),
+            tileColor: Color.fromARGB(45, 202, 221, 255),
+            title: Text('Running', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+            onTap: () {},
+          ),   
         ],
-      )
+      ),
+      bottomNavigationBar: NavigatBar(),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }

@@ -7,9 +7,9 @@ Transition( {
   required this.child,
   
 }) : super(
-    reverseTransitionDuration: Duration(milliseconds: 300),
-    transitionDuration: Duration(milliseconds: 300),
-    barrierColor: Color.fromARGB(70, 191, 212, 250),
+    reverseTransitionDuration: Duration(milliseconds: 250),
+    transitionDuration: Duration(milliseconds: 250),
+    barrierColor: Color.fromARGB(80, 150, 187, 255),
     transitionsBuilder: (context, animation, secondaryAnimation, Widget child) {
 
     animation = CurvedAnimation(curve: Curves.ease, parent: animation);

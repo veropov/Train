@@ -4,6 +4,7 @@ import '../FirstPage/DashBoard_firstPage.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
+import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 
 class Activity extends StatefulWidget {
   const Activity({Key? key}) : super(key: key);
@@ -17,11 +18,11 @@ class _ActivityState extends State<Activity> {
 
   mm() { 
     if (count%2 != 0 && count>2) {
-      return 200 + (count-1)*30;
+      return 160 + (count-1)*30;
     } else if (count%2 == 0){
-      return 200 + count*30;
+      return 160 + count*30;
     } else {
-      return 200;
+      return 160;
     }
   }
 
@@ -109,11 +110,9 @@ class _ActivityState extends State<Activity> {
                 SizedBox(width: 20),
                 InkWell(
                   borderRadius: BorderRadius.circular(8),
-                  splashColor: Color.fromARGB(255, 28, 89, 255),
+                  highlightColor: Color.fromARGB(255, 28, 89, 255),
                   onTap: () {
-                  setState(() {
-                    count++;
-                  });
+                  Navigator.push(context, Transition(child: ListTarget()));
                 },
                 child: Container(
                   width: 30,
