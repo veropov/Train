@@ -3,6 +3,7 @@ import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
+import 'package:aga/pages/DashBoard/Activity traker/ChangeTarget.dart';
 
 class ListTarget extends StatefulWidget {
   const ListTarget({Key? key}) : super(key: key);
@@ -55,7 +56,9 @@ class _ListTargetState extends State<ListTarget> {
             trailing: SvgPicture.asset(''),
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Water Intake', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, Transition(child: ChangeTarget()));
+            },
           ),
           SizedBox(height: 5),
           ListTile(
