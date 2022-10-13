@@ -28,9 +28,9 @@ class _ListTargetState extends State<ListTarget> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              gradient: const LinearGradient(colors: [Color.fromARGB(101, 216, 234, 255), Color.fromARGB(92, 159, 183, 255)], 
-                begin: Alignment.topLeft, 
-                end: Alignment.bottomRight
+              gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
+                  begin: Alignment.topCenter, 
+                  end: Alignment.bottomCenter
               ),
               borderRadius: BorderRadius.circular(8)
             )
@@ -69,37 +69,19 @@ class _ListTargetState extends State<ListTarget> {
           SizedBox(height: 5),
           ListTile(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
-            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
+            leading: SvgPicture.asset('assets/images/target_calories.svg', height: 38),
             trailing: SvgPicture.asset(''),
             tileColor: Color.fromARGB(45, 202, 221, 255),
-            title: Text('Calories', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+            title: Text('Burn calories', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {},
           ),
           SizedBox(height: 5),     
           ListTile(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
-            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
+            leading: SvgPicture.asset('assets/images/target_sleep.svg', height: 35),
             trailing: SvgPicture.asset(''),
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Sleep', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
-            onTap: () {},
-          ), 
-          SizedBox(height: 5), 
-          ListTile(
-            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
-            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
-            trailing: SvgPicture.asset(''),
-            tileColor: Color.fromARGB(45, 202, 221, 255),
-            title: Text('Push-ups', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
-            onTap: () {},
-          ),       
-          SizedBox(height: 5), 
-          ListTile(
-            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
-            leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
-            trailing: SvgPicture.asset(''),
-            tileColor: Color.fromARGB(45, 202, 221, 255),
-            title: Text('Running', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {},
           ),   
         ],

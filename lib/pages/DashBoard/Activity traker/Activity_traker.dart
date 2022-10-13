@@ -66,9 +66,9 @@ class _ActivityState extends State<Activity> {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [Color.fromARGB(101, 216, 234, 255), Color.fromARGB(92, 159, 183, 255)], 
-                  begin: Alignment.topLeft, 
-                  end: Alignment.bottomRight
+                gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
+                  begin: Alignment.topCenter, 
+                  end: Alignment.bottomCenter
                 ),
                 borderRadius: BorderRadius.circular(8)
               )
@@ -119,12 +119,16 @@ class _ActivityState extends State<Activity> {
                   height: 30,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color.fromARGB(80, 116, 174, 255), Color.fromARGB(80, 0, 60, 255)], 
+                      colors: [Color.fromARGB(121, 122, 177, 255), Color.fromARGB(122, 0, 60, 255)], 
                         begin: Alignment.topLeft, 
                         end: Alignment.bottomRight
                     ),
                     borderRadius: BorderRadius.circular(8)
                   ),
+                  child: Container(
+                    padding: EdgeInsets.all(9),
+                    child: SvgPicture.asset('assets/images/Plus.svg', color: Colors.white)
+                  )
                 )
               )
             ],),
