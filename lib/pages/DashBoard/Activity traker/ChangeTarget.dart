@@ -12,9 +12,20 @@ class ChangeTarget extends StatefulWidget {
 }
 
 class _ChangeTargetState extends State<ChangeTarget> {
+
+  final targets = [
+    'Mo',
+    'Tu',
+    'We',
+    'Th',
+    'Fr',
+    'Sa',
+    'Su'
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final heightScreen = MediaQuery.of(context).size.height;
+  final heightScreen = MediaQuery.of(context).size.height;
 
     return SafeArea(
       child: Scaffold(
@@ -32,13 +43,45 @@ class _ChangeTargetState extends State<ChangeTarget> {
               width: double.infinity,
               height: heightScreen * 0.4,
               decoration: BoxDecoration(
-                color: Color.fromARGB(45, 202, 221, 255),
-                borderRadius: BorderRadius.circular(12)
+                color: Color.fromARGB(44, 216, 230, 255),
+                borderRadius: BorderRadius.circular(16)
               ),
-              child: Column(
-                children: [
-
-              ],)
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  children: [
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        Text('Every day', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)),
+                        InkWell(
+                          onTap: () {},
+                          child: SvgPicture.asset('')
+                        )
+                    ],),
+                    SizedBox(height: 20),
+                      Container(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            for (var i=0; i<7; i++) InkWell(
+                              onTap: () {},
+                              highlightColor: Color.fromARGB(255, 128, 126, 255),
+                              borderRadius: BorderRadius.circular(100),
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 38,
+                                height: 38,
+                                decoration: ShapeDecoration(shape: StadiumBorder(), color: Color.fromARGB(155, 231, 231, 255),),
+                                  child: Text(targets[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
+                              )
+                            )
+                          ],
+                        ),
+                      )
+                ],),
+              )
             )
         ],)
       )
