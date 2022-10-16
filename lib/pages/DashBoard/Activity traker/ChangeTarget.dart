@@ -3,6 +3,7 @@ import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
+import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
 class ChangeTarget extends StatefulWidget {
   const ChangeTarget({Key? key}) : super(key: key);
@@ -93,14 +94,15 @@ class _ChangeTargetState extends State<ChangeTarget> {
                             height: 38,
                             decoration: ShapeDecoration(
                               shape: StadiumBorder(), 
-                              color: _targetBool[i] ? Color.fromARGB(155, 185, 201, 255) : Color.fromARGB(155, 231, 231, 255)
+                              color: _targetBool[i] ? Color.fromARGB(155, 163, 169, 255) : Color.fromARGB(155, 214, 214, 241)
                             ),
                               child: Text(targets[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                           )
                         )
                       ],
                     ),
-                    SizedBox(height: 15)
+                    SizedBox(height: 15),
+                    SwitchButton()
                 ],),
               )
             )

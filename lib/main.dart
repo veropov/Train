@@ -19,7 +19,19 @@ class fitnestX extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FitnestX',
-      theme: ThemeData(),
+      theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            elevation: 2,
+            shape: StadiumBorder(),
+            minimumSize: Size.square(30),
+            primary: Colors.transparent,
+            onPrimary: Colors.transparent,
+            shadowColor: Color.fromARGB(0, 0, 0, 0),
+            padding: EdgeInsets.all(10),
+          )
+        )
+      ),
         home: BoardFirstPage(),
     );
   }

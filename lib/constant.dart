@@ -1,3 +1,6 @@
+import 'dart:collection';
+
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -44,6 +47,9 @@ const kTextMainBranch = TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWei
 
 //Button
 
+
+
+
 const floatButton = ShapeDecoration(
   shape: StadiumBorder(),
   gradient: LinearGradient(
@@ -57,3 +63,129 @@ DropdownMenuItem<String> buidMenuItem(String item) => DropdownMenuItem(
   value: item,
   child: Text(item, style: kTextMain)
 );
+
+
+
+
+
+class SwitchButton extends StatefulWidget {
+  const SwitchButton({Key? key}) : super(key: key);
+
+  @override
+  State<SwitchButton> createState() => _SwitchButtonState();
+}
+
+class _SwitchButtonState extends State<SwitchButton> {
+
+  bool SwitchBut = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final widthScreen = MediaQuery.of(context).size.width;
+
+    return Container(
+      width: 60,
+      height: 40,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            width: 50,
+            height: 25,
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 214, 214, 214),
+              borderRadius: BorderRadius.circular(100)
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SwitchBut ? Transform.translate(offset: Offset(25, 0),
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(100),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromARGB(25, 0, 0, 0),
+                        blurRadius: 6,
+                        offset: Offset(0,2)
+                      )
+                    ]
+                  ),
+                child: SizedBox(
+                  width: 35,
+                  height: 35,
+                  child: ElevatedButton(
+                    child: Text(''),
+                    onPressed: () {
+                      setState(() {
+                        SwitchBut = !SwitchBut;
+                      });
+                    },
+                    style: ButtonStyle(
+                      overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
+                      animationDuration: Duration(milliseconds: 200),
+                      splashFactory: InkSplash.splashFactory,
+                      alignment: Alignment.centerLeft,
+                    )
+                  ),
+                ),
+              ),
+              ) : Transform.translate(offset: Offset(0, 0), child: 
+              Container(
+                  alignment: Alignment.centerLeft,
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(100),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromARGB(25, 0, 0, 0),
+                        blurRadius: 6,
+                        offset: Offset(0,2)
+                      )
+                    ]
+                  ),
+                child: SizedBox(
+                  width: 35,
+                  height: 35,
+                  child: ElevatedButton(
+                    child: Text(''),
+                    onPressed: () {
+                      setState(() {
+                        SwitchBut = !SwitchBut;
+                      });
+                    },
+                    style: ButtonStyle(
+                      overlayColor: getColor(Color.fromARGB(143, 17, 0, 255), Color.fromARGB(30, 0, 0, 0)),
+                      animationDuration: Duration(milliseconds: 200),
+                      splashFactory: InkSplash.splashFactory,
+                      alignment: Alignment.centerLeft,
+                    )
+                  ),
+                ),
+              ),
+            )
+          ])
+        ],
+      )
+    );
+  }
+}
+
+MaterialStateProperty<Color> getColor(Color color, Color colorPressed) {
+  final getColor = (Set<MaterialState> states) {
+    if (states.contains(MaterialState.pressed)) {
+      return colorPressed;
+    } else { 
+      return color; 
+      }
+  };
+
+  return MaterialStateProperty.resolveWith(getColor);
+}
