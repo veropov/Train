@@ -83,97 +83,101 @@ class _SwitchButtonState extends State<SwitchButton> {
   Widget build(BuildContext context) {
     final widthScreen = MediaQuery.of(context).size.width;
 
-    return Container(
-      width: 60,
-      height: 40,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Container(
-            width: 50,
-            height: 25,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 214, 214, 214),
-              borderRadius: BorderRadius.circular(100)
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: () {
+        setState(() {
+          SwitchBut = !SwitchBut;
+        });
+      },
+      child: SizedBox(
+        width: 80,
+        height: 40,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              width: 50,
+              height: 25,
+              decoration: BoxDecoration(
+                color: SwitchBut ? Color.fromARGB(155, 143, 149, 235) : Color.fromARGB(255, 214, 214, 214),
+                borderRadius: BorderRadius.circular(100)
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SwitchBut ? Transform.translate(offset: Offset(25, 0),
-                child: Container(
-                  alignment: Alignment.centerLeft,
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(100),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(25, 0, 0, 0),
-                        blurRadius: 6,
-                        offset: Offset(0,2)
-                      )
-                    ]
-                  ),
-                child: SizedBox(
-                  width: 35,
-                  height: 35,
-                  child: ElevatedButton(
-                    child: Text(''),
-                    onPressed: () {
-                      setState(() {
-                        SwitchBut = !SwitchBut;
-                      });
-                    },
-                    style: ButtonStyle(
-                      overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
-                      animationDuration: Duration(milliseconds: 200),
-                      splashFactory: InkSplash.splashFactory,
-                      alignment: Alignment.centerLeft,
+            SwitchBut ? Transform.translate(offset: Offset(20, 0),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(100),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(20, 0, 0, 0),
+                      blurRadius: 6,
+                      offset: Offset(0,2)
                     )
-                  ),
+                  ]
+                ),
+              child: SizedBox(
+                width: 35,
+                height: 35,
+                child: ElevatedButton(
+                  child: Text(''),
+                  onPressed: () {
+                    setState(() {
+                      SwitchBut = !SwitchBut;
+                    });
+                  },
+                  style: ButtonStyle(
+                    overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
+                    animationDuration: Duration(milliseconds: 200),
+                    splashFactory: InkSplash.splashFactory,
+                    alignment: Alignment.centerLeft,
+                  )
                 ),
               ),
-              ) : Transform.translate(offset: Offset(0, 0), child: 
-              Container(
-                  alignment: Alignment.centerLeft,
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(100),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(25, 0, 0, 0),
-                        blurRadius: 6,
-                        offset: Offset(0,2)
-                      )
-                    ]
-                  ),
-                child: SizedBox(
-                  width: 35,
-                  height: 35,
-                  child: ElevatedButton(
-                    child: Text(''),
-                    onPressed: () {
-                      setState(() {
-                        SwitchBut = !SwitchBut;
-                      });
-                    },
-                    style: ButtonStyle(
-                      overlayColor: getColor(Color.fromARGB(143, 17, 0, 255), Color.fromARGB(30, 0, 0, 0)),
-                      animationDuration: Duration(milliseconds: 200),
-                      splashFactory: InkSplash.splashFactory,
-                      alignment: Alignment.centerLeft,
+            ),
+            ) : Transform.translate(offset: Offset(-20, 0), child: 
+            Container(
+                alignment: Alignment.centerLeft,
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(100),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(25, 0, 0, 0),
+                      blurRadius: 6,
+                      offset: Offset(0,2)
                     )
-                  ),
+                  ]
+                ),
+              child: SizedBox(
+                width: 35,
+                height: 35,
+                child: ElevatedButton(
+                  child: Text(''),
+                  onPressed: () {
+                    setState(() {
+                      SwitchBut = !SwitchBut;
+                    });
+                  },
+                  style: ButtonStyle(
+                    overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
+                    animationDuration: Duration(milliseconds: 200),
+                    splashFactory: InkSplash.splashFactory,
+                    alignment: Alignment.centerLeft,
+                  )
                 ),
               ),
-            )
-          ])
-        ],
-      )
+            ),
+              )
+          ],
+        )
+      ),
     );
   }
 }

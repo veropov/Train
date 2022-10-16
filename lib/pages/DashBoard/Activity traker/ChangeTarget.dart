@@ -67,9 +67,9 @@ class _ChangeTargetState extends State<ChangeTarget> {
                       children: [
                         _targetBool.every((element) => element == true) ? Text('Every day', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)) : Text('Every '),
                         for (var i=0; i<7; i++)
-                          _targetBool.every((element) => element == true) ? SizedBox(height: 20) :
+                          _targetBool.every((element) => element == true) ? SizedBox(height: 22) :
                           _targetBool[i] ? 
-                          Text(targets[i] + ', ', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)) : SizedBox(height: 20),
+                          Text(targets[i] + ', ', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)) : SizedBox(height: 22),
                         InkWell(
                           onTap: () {},
                           child: SvgPicture.asset('')
@@ -94,7 +94,7 @@ class _ChangeTargetState extends State<ChangeTarget> {
                             height: 38,
                             decoration: ShapeDecoration(
                               shape: StadiumBorder(), 
-                              color: _targetBool[i] ? Color.fromARGB(155, 163, 169, 255) : Color.fromARGB(155, 214, 214, 241)
+                              color: _targetBool[i] ? Color.fromARGB(155, 143, 149, 235) : Color.fromARGB(155, 214, 214, 241)
                             ),
                               child: Text(targets[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                           )
