@@ -32,7 +32,7 @@ class _ChangeTargetState extends State<ChangeTarget> {
     false, 
     false
   ];
-  
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,43 +64,43 @@ class _ChangeTargetState extends State<ChangeTarget> {
                     SizedBox(height: 15),
                     Row(
                       children: [
-                        for (var i=0; i<7; i++) 
-                         _targetBool[i] ? 
-                        Text(targets[i] + ', ', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack))
-                        : SizedBox(height: 15,),
+                        _targetBool.every((element) => element == true) ? Text('Every day', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)) : Text('Every '),
+                        for (var i=0; i<7; i++)
+                          _targetBool.every((element) => element == true) ? SizedBox(height: 20) :
+                          _targetBool[i] ? 
+                          Text(targets[i] + ', ', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)) : SizedBox(height: 20),
                         InkWell(
                           onTap: () {},
                           child: SvgPicture.asset('')
                         )
                     ],),
                     SizedBox(height: 20),
-                    Container(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          for (var i=0; i<7; i++) InkWell(
-                            onTap: () {
-                              setState(() {
-                              _targetBool[i] = !_targetBool[i];
-                              });
-                            },
-                            highlightColor: Color.fromARGB(255, 128, 126, 255),
-                            borderRadius: BorderRadius.circular(100),
-                            child: Container(
-                              alignment: Alignment.center,
-                              width: 38,
-                              height: 38,
-                              decoration: ShapeDecoration(
-                                shape: StadiumBorder(), 
-                                color: _targetBool[i] ? Color.fromARGB(155, 185, 201, 255) : Color.fromARGB(155, 231, 231, 255)
-                              ),
-                                child: Text(targets[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
-                            )
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        for (var i=0; i<7; i++) InkWell(
+                          onTap: () {
+                            setState(() {
+                            _targetBool[i] = !_targetBool[i];
+                            });
+                          },
+                          highlightColor: Color.fromARGB(255, 128, 126, 255),
+                          borderRadius: BorderRadius.circular(100),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 38,
+                            height: 38,
+                            decoration: ShapeDecoration(
+                              shape: StadiumBorder(), 
+                              color: _targetBool[i] ? Color.fromARGB(155, 185, 201, 255) : Color.fromARGB(155, 231, 231, 255)
+                            ),
+                              child: Text(targets[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                           )
-                        ],
-                      ),
+                        )
+                      ],
                     ),
+                    SizedBox(height: 15)
                 ],),
               )
             )
