@@ -55,7 +55,7 @@ class _ChangeTargetState extends State<ChangeTarget> {
               width: double.infinity,
               height: heightScreen * 0.4,
               decoration: BoxDecoration(
-                color: Color.fromARGB(44, 216, 230, 255),
+                color: Color.fromARGB(44, 196, 212, 241),
                 borderRadius: BorderRadius.circular(16)
               ),
               child: Container(
@@ -101,8 +101,25 @@ class _ChangeTargetState extends State<ChangeTarget> {
                         )
                       ],
                     ),
-                    SizedBox(height: 15),
-                    SwitchButton()
+                    SizedBox(height: 20),
+                    ListTile(
+                      title: Text('Notification enabling ', style: TextStyle(fontSize: 15, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(255, 49, 49, 49))),
+                      subtitle: Text('Every day', style: TextStyle(fontSize: 13, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(171, 63, 46, 216))),
+                      trailing: SwitchButton(),
+                      onTap: () {},
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      width: double.infinity,
+                      height: 1,
+                      color: Color.fromARGB(255, 179, 179, 179)
+                    ),
+                    ListTile(
+                      title: Text('Notification sound', style: TextStyle(fontSize: 15, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(255, 49, 49, 49))),
+                      subtitle: Text('Incoming', style: TextStyle(fontSize: 13, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(171, 63, 46, 216))),
+                      trailing: SwitchButton(),
+                      onTap: () {},
+                    )
                 ],),
               )
             )
