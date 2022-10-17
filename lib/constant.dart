@@ -91,24 +91,34 @@ class _SwitchButtonState extends State<SwitchButton> {
         });
       },
       child: SizedBox(
-        width: 80,
-        height: 40,
+        width: 50,
+        height: 30,
         child: Stack(
           alignment: Alignment.center,
           children: [
             Container(
-              width: 50,
-              height: 25,
+              width: 40,
+              height: 20,
               decoration: BoxDecoration(
-                color: SwitchBut ? Color.fromARGB(155, 143, 149, 235) : Color.fromARGB(255, 214, 214, 214),
+                gradient: SwitchBut ? 
+                LinearGradient(
+                  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                  begin: Alignment.topLeft, 
+                  end: Alignment.bottomRight
+                )  :    
+                LinearGradient(
+                  colors: [Color.fromARGB(255, 224, 224, 224), Color.fromARGB(255, 196, 196, 196)], 
+                    begin: Alignment.topLeft, 
+                    end: Alignment.bottomRight
+                ),
                 borderRadius: BorderRadius.circular(100)
               ),
             ),
-            SwitchBut ? Transform.translate(offset: Offset(20, 0),
+            SwitchBut ? Transform.translate(offset: Offset(10, 0),
               child: Container(
                 alignment: Alignment.centerLeft,
-                width: 30,
-                height: 30,
+                width: 15,
+                height: 15,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(100),
@@ -121,29 +131,29 @@ class _SwitchButtonState extends State<SwitchButton> {
                   ]
                 ),
               child: SizedBox(
-                width: 35,
-                height: 35,
-                child: ElevatedButton(
-                  child: Text(''),
-                  onPressed: () {
-                    setState(() {
-                      SwitchBut = !SwitchBut;
-                    });
-                  },
-                  style: ButtonStyle(
-                    overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
-                    animationDuration: Duration(milliseconds: 200),
-                    splashFactory: InkSplash.splashFactory,
-                    alignment: Alignment.centerLeft,
-                  )
-                ),
+                width: 25,
+                height: 25,
+                // child: ElevatedButton(
+                //   child: Text(''),
+                //   onPressed: () {
+                //     setState(() {
+                //       SwitchBut = !SwitchBut;
+                //     });
+                //   },
+                //   style: ButtonStyle(
+                //     overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
+                //     animationDuration: Duration(milliseconds: 200),
+                //     splashFactory: InkSplash.splashFactory,
+                //     alignment: Alignment.centerLeft,
+                //   )
+                // ),
               ),
             ),
-            ) : Transform.translate(offset: Offset(-20, 0), child: 
+            ) : Transform.translate(offset: Offset(-10, 0), child: 
             Container(
                 alignment: Alignment.centerLeft,
-                width: 30,
-                height: 30,
+                width: 15,
+                height: 15,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(100),
@@ -156,22 +166,22 @@ class _SwitchButtonState extends State<SwitchButton> {
                   ]
                 ),
               child: SizedBox(
-                width: 35,
-                height: 35,
-                child: ElevatedButton(
-                  child: Text(''),
-                  onPressed: () {
-                    setState(() {
-                      SwitchBut = !SwitchBut;
-                    });
-                  },
-                  style: ButtonStyle(
-                    overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
-                    animationDuration: Duration(milliseconds: 200),
-                    splashFactory: InkSplash.splashFactory,
-                    alignment: Alignment.centerLeft,
-                  )
-                ),
+                width: 25,
+                height: 25,
+                // child: ElevatedButton(
+                //   child: Text(''),
+                //   onPressed: () {
+                //     setState(() {
+                //       SwitchBut = !SwitchBut;
+                //     });
+                //   },
+                //   style: ButtonStyle(
+                //     overlayColor: getColor(Color.fromARGB(30, 0, 0, 0), Color.fromARGB(30, 0, 0, 0)),
+                //     animationDuration: Duration(milliseconds: 200),
+                //     splashFactory: InkSplash.splashFactory,
+                //     alignment: Alignment.centerLeft,
+                //   )
+                // ),
               ),
             ),
               )
