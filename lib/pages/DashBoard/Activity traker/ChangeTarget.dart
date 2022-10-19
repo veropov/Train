@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
@@ -34,10 +35,82 @@ class _ChangeTargetState extends State<ChangeTarget> {
     false
   ];
 
+  var Cas = [ 
+    for (var i=0; i<24; i++)
+      if (i<10) Text('0' + '$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right,)
+      else Text('$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right),
+  ];
+
+    var Cas2 = [ 
+    for (var i=0; i<60; i++)
+      if (i<10) Text('0' + '$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left,)
+      else Text('$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left),
+  ];
+
+  Widget Case(widthScreen) => Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        alignment: Alignment.centerRight,
+        width: widthScreen * 0.4,
+        height: 280,
+        child: CarouselSlider.builder(
+          options: CarouselOptions(
+            height: 150,
+            enlargeCenterPage: true,
+            scrollDirection: Axis.vertical,
+          ),
+          itemCount: Cas.length,
+          itemBuilder: (context, index, realIndex) => Cas[index],
+        ),
+      ),
+       SizedBox(
+        width: 15,
+         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Color.fromARGB(255, 75, 75, 75)
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Color.fromARGB(255, 75, 75, 75)
+              ),
+            ),
+      ],),
+       ),
+      Container(
+        alignment: Alignment.centerLeft,
+        width: widthScreen * 0.4,
+        height: 280,
+        child: CarouselSlider.builder(
+          options: CarouselOptions(
+            height: 150,
+            enlargeCenterPage: true,
+            scrollDirection: Axis.vertical,
+          ),
+          itemCount: Cas2.length,
+          itemBuilder: (context, index, realIndex) => Cas2[index],
+        ),
+      ),
+    ],
+  );
+
 
   @override
   Widget build(BuildContext context) {
   final heightScreen = MediaQuery.of(context).size.height;
+  final widthScreen = MediaQuery.of(context).size.width;
 
     return SafeArea(
       child: Scaffold(
@@ -47,13 +120,13 @@ class _ChangeTargetState extends State<ChangeTarget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: double.infinity,
               height: heightScreen*0.45,
-              color: Colors.transparent
+              color: Colors.transparent,
+                child: Case(widthScreen),
             ),
             Container(
               width: double.infinity,
-              height: heightScreen * 0.4,
+              height: heightScreen * 0.42,
               decoration: BoxDecoration(
                 color: Color.fromARGB(44, 196, 212, 241),
                 borderRadius: BorderRadius.circular(16)
