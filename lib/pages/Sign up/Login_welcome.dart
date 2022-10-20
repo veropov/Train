@@ -1,6 +1,8 @@
+import 'package:aga/transition.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 
 class LoginWelcome extends StatelessWidget {
   const LoginWelcome({Key? key}) : super(key: key);
@@ -72,7 +74,9 @@ class LoginWelcome extends StatelessWidget {
                   onPrimary: kWhite,
                   shadowColor: Colors.transparent
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, Transition(child: BoardFirstPage()));
+                },
                 child: Text('Confirm', style: kTextButton),
               )
             )

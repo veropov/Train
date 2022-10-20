@@ -3,7 +3,8 @@ import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
-import 'package:aga/pages/DashBoard/Activity traker/ChangeTarget.dart';
+import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_sleep.dart';
+import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_steps.dart';
 
 class ListTarget extends StatefulWidget {
   const ListTarget({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _ListTargetState extends State<ListTarget> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Water Intake', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTarget()));
+              Navigator.push(context, Transition(child: ChangeTargetSteps()));
             },
           ),
           SizedBox(height: 5),
@@ -85,7 +86,9 @@ class _ListTargetState extends State<ListTarget> {
             trailing: SvgPicture.asset(''),
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Sleep', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, Transition(child: ChangeTarget()));
+            },
           ),   
         ],
       ),

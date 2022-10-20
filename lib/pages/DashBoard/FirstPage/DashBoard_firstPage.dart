@@ -9,6 +9,7 @@ import 'dart:math' as math;
 import 'package:aga/transition.dart';
 import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
 
+
 class BoardFirstPage extends StatefulWidget {
   const BoardFirstPage({Key? key}) : super(key: key);
 

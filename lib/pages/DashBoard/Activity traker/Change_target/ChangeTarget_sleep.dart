@@ -120,19 +120,18 @@ class _ChangeTargetState extends State<ChangeTarget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: heightScreen*0.45,
+              height: heightScreen*0.4,
               color: Colors.transparent,
                 child: Case(widthScreen),
             ),
             Container(
               width: double.infinity,
-              height: heightScreen * 0.42,
               decoration: BoxDecoration(
                 color: Color.fromARGB(44, 196, 212, 241),
                 borderRadius: BorderRadius.circular(16)
               ),
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 child: Column(
                   children: [
                     SizedBox(height: 15),
