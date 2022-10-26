@@ -5,6 +5,7 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 
 class ChangeTargetSteps extends StatefulWidget {
   const ChangeTargetSteps({Key? key}) : super(key: key);
@@ -36,25 +37,21 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
   ];
 
   var CasSteps = [ 
-    for (var i=0; i<300; i++)
+    for (var i=10; i<=500; i++)
     if (i<10) Text('${i*100}', style: TextStyle(fontSize: 65, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center)
       else if (i<100) Text('${i*100}', style: TextStyle(fontSize: 55, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center)
       else Text('${i*100}', style: TextStyle(fontSize: 45, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center),
   ];
 
-  Widget Case(widthScreen) => Container(
-    alignment: Alignment.centerRight,
-    width: widthScreen * 0.4,
-    height: 280,
-    child: CarouselSlider.builder(
-      options: CarouselOptions(
-        height: 120,
-        enlargeCenterPage: true,
-        scrollDirection: Axis.vertical,
-      ),
-      itemCount: CasSteps.length,
-      itemBuilder: (context, index, realIndex) => CasSteps[index],
+  Widget Case(widthScreen) => CarouselSlider.builder(
+    options: CarouselOptions(
+      enableInfiniteScroll: false,
+      height: 180,
+      enlargeCenterPage: true,
+      scrollDirection: Axis.vertical,
     ),
+    itemCount: CasSteps.length,
+    itemBuilder: (context, index, realIndex) => CasSteps[index],
   );
 
 
@@ -71,6 +68,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              alignment: Alignment.center,
               height: heightScreen*0.4,
               color: Colors.transparent,
                 child: Case(widthScreen),
@@ -142,9 +140,40 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                       subtitle: Text('Incoming', style: TextStyle(fontSize: 13, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(171, 63, 46, 216))),
                       trailing: SwitchButton(),
                       onTap: () {},
-                    )
+                    ),
                 ],),
               )
+            ),
+            SizedBox(height: heightScreen * 0.05),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.transparent,
+                    onPrimary: Color.fromARGB(255, 49, 49, 49),
+                    shadowColor: Colors.transparent,
+                    padding: EdgeInsets.all(15),
+                    
+                ),
+                onPressed: () {
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                }, 
+                child: Text('Save', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
+                SizedBox(width: 30),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.transparent,
+                    onPrimary: Color.fromARGB(255, 49, 49, 49),
+                    shadowColor: Colors.transparent,
+                    padding: EdgeInsets.all(15)
+                ),
+                onPressed: () {
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                }, 
+                child: Text('Back', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
+              ],
             )
         ],)
       )

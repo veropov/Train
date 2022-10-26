@@ -5,6 +5,7 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 
 class ChangeTarget extends StatefulWidget {
   const ChangeTarget({Key? key}) : super(key: key);
@@ -194,6 +195,37 @@ class _ChangeTargetState extends State<ChangeTarget> {
                     )
                 ],),
               )
+            ),
+          SizedBox(height: heightScreen * 0.05),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.transparent,
+                    onPrimary: Color.fromARGB(255, 49, 49, 49),
+                    shadowColor: Colors.transparent,
+                    padding: EdgeInsets.all(15),
+                    
+                ),
+                onPressed: () {
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                }, 
+                child: Text('Save', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
+                SizedBox(width: 30),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.transparent,
+                    onPrimary: Color.fromARGB(255, 49, 49, 49),
+                    shadowColor: Colors.transparent,
+                    padding: EdgeInsets.all(15)
+                ),
+                onPressed: () {
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                }, 
+                child: Text('Back', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
+              ],
             )
         ],)
       )

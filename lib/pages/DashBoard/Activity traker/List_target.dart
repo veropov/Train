@@ -58,7 +58,7 @@ class _ListTargetState extends State<ListTarget> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Water Intake', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetSteps()));
+              
             },
           ),
           SizedBox(height: 5),
@@ -68,7 +68,9 @@ class _ListTargetState extends State<ListTarget> {
             trailing: SvgPicture.asset(''),
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Foot Steps', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, Transition(child: ChangeTargetSteps()));
+            },
           ),
           SizedBox(height: 5),
           ListTile(
