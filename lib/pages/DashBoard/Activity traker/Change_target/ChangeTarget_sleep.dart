@@ -48,14 +48,14 @@ class _ChangeTargetState extends State<ChangeTarget> {
       else Text('$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left),
   ];
 
-  Widget Case(widthScreen) => Row(
+  Widget Case(widthScreen, heightScreen) => Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
         alignment: Alignment.centerRight,
         width: widthScreen * 0.4,
-        height: 280,
+        height: heightScreen*0.4,
         child: CarouselSlider.builder(
           options: CarouselOptions(
             height: 150,
@@ -93,7 +93,7 @@ class _ChangeTargetState extends State<ChangeTarget> {
       Container(
         alignment: Alignment.centerLeft,
         width: widthScreen * 0.4,
-        height: 280,
+        height: heightScreen*0.4,
         child: CarouselSlider.builder(
           options: CarouselOptions(
             height: 150,
@@ -121,9 +121,9 @@ class _ChangeTargetState extends State<ChangeTarget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: heightScreen*0.4,
+              height: heightScreen*0.35,
               color: Colors.transparent,
-                child: Case(widthScreen),
+                child: Case(widthScreen, heightScreen),
             ),
             Container(
               width: double.infinity,
@@ -196,37 +196,39 @@ class _ChangeTargetState extends State<ChangeTarget> {
                 ],),
               )
             ),
-          SizedBox(height: heightScreen * 0.05),
-            Row(
+          SizedBox(
+            height: heightScreen*0.2,
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.transparent,
                     onPrimary: Color.fromARGB(255, 49, 49, 49),
                     shadowColor: Colors.transparent,
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                     
                 ),
                 onPressed: () {
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                 }, 
-                child: Text('Save', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
-                SizedBox(width: 30),
+                child: Text('Back', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
+                SizedBox(width: 45),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.transparent,
                     onPrimary: Color.fromARGB(255, 49, 49, 49),
                     shadowColor: Colors.transparent,
-                    padding: EdgeInsets.all(15)
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                 ),
                 onPressed: () {
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                 }, 
-                child: Text('Back', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
+                child: Text('Save', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
               ],
-            )
+            ),
+          )
         ],)
       )
     );

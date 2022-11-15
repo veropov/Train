@@ -69,7 +69,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
           children: [
             Container(
               alignment: Alignment.center,
-              height: heightScreen*0.4,
+              height: heightScreen*0.35,
               color: Colors.transparent,
                 child: Case(widthScreen),
             ),
@@ -144,37 +144,39 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                 ],),
               )
             ),
-            SizedBox(height: heightScreen * 0.05),
-            Row(
+                      SizedBox(
+            height: heightScreen*0.2,
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.transparent,
                     onPrimary: Color.fromARGB(255, 49, 49, 49),
                     shadowColor: Colors.transparent,
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                     
                 ),
                 onPressed: () {
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                 }, 
-                child: Text('Save', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
-                SizedBox(width: 30),
+                child: Text('Back', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
+                SizedBox(width: 45),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.transparent,
                     onPrimary: Color.fromARGB(255, 49, 49, 49),
                     shadowColor: Colors.transparent,
-                    padding: EdgeInsets.all(15)
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                 ),
                 onPressed: () {
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                 }, 
-                child: Text('Back', style: TextStyle(fontSize: 20, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
+                child: Text('Save', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
               ],
-            )
+            ),
+          )
         ],)
       )
     );

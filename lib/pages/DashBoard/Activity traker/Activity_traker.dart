@@ -15,17 +15,6 @@ class Activity extends StatefulWidget {
 
 class _ActivityState extends State<Activity> {
 
-
-  mm() { 
-    if (count%2 != 0 && count>2) {
-      return 160 + (count-1)*30;
-    } else if (count%2 == 0){
-      return 160 + count*30;
-    } else {
-      return 160;
-    }
-  }
-
   var count = 1;
   bool countElem = false;
 
@@ -33,22 +22,6 @@ class _ActivityState extends State<Activity> {
   Widget build(BuildContext context) {
 
     final widthScreen = MediaQuery.of(context).size.width;
-
-    List flowTarget = [
-      Container(
-        margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-        width: widthScreen*0.35,
-        height: 60,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
-              begin: Alignment.topLeft, 
-              end: Alignment.bottomRight
-          ),
-          borderRadius: BorderRadius.circular(8)
-        ),
-      ), 
-    ];
   ///
   ///
   ///
@@ -85,80 +58,86 @@ class _ActivityState extends State<Activity> {
             )
           ],)
       ),
-      body: Container(
-        width: double.infinity,
-        height: mm(),
-        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-        decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color.fromARGB(121, 218, 235, 255), Color.fromARGB(108, 206, 217, 255)], 
-          begin: Alignment.topLeft, 
-          end: Alignment.bottomRight
-        ),
-        borderRadius: BorderRadius.circular(22)
-      ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Today Target'),
-                SizedBox(width: 20),
-                InkWell(
-                  borderRadius: BorderRadius.circular(8),
-                  highlightColor: Color.fromARGB(255, 28, 89, 255),
-                  onTap: () {
-                  Navigator.push(context, Transition(child: ListTarget()));
-                },
-                child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color.fromARGB(121, 122, 177, 255), Color.fromARGB(122, 0, 60, 255)], 
-                        begin: Alignment.topLeft, 
-                        end: Alignment.bottomRight
-                    ),
-                    borderRadius: BorderRadius.circular(8)
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.all(9),
-                    child: SvgPicture.asset('assets/images/Plus.svg', color: Colors.white)
-                  )
-                )
-              )
-            ],),
-            SizedBox(height: 10),
-            Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-                  width: widthScreen*0.35,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color.fromARGB(255, 90, 243, 248), Color.fromARGB(255, 255, 182, 87)], 
-                        begin: Alignment.topLeft, 
-                        end: Alignment.bottomRight
-                    ),
-                    borderRadius: BorderRadius.circular(8)
-                  )
-                ),
-              for (var i=0; i<count; i++) InkWell(
-                splashColor: Color.fromARGB(255, 28, 89, 255),
-                onTap: () {},
-                child: flowTarget[i]) 
-              ],
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color.fromARGB(121, 218, 235, 255), Color.fromARGB(108, 206, 217, 255)], 
+              begin: Alignment.topLeft, 
+              end: Alignment.bottomRight
             ),
-          ],
-        )
+            borderRadius: BorderRadius.circular(22)
+          ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('Today Target', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins")),
+                    SizedBox(width: 20),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(8),
+                      highlightColor: Color.fromARGB(255, 28, 89, 255),
+                      onTap: () {
+                      Navigator.push(context, Transition(child: ListTarget()));
+                    },
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Color.fromARGB(121, 122, 177, 255), Color.fromARGB(122, 0, 60, 255)], 
+                            begin: Alignment.topLeft, 
+                            end: Alignment.bottomRight
+                        ),
+                        borderRadius: BorderRadius.circular(8)
+                      ),
+                      child: Container(
+                        padding: EdgeInsets.all(9),
+                        child: SvgPicture.asset('assets/images/Plus.svg', color: Colors.white)
+                      )
+                    )
+                  )
+                ],),
+                SizedBox(height: 15),
+                Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  children: [
+                  WaterTarget(widthScreen),
+                  StepTarget(widthScreen),
+                  ],
+                ),
+              ],
+            )
+          ),
+        ],
       )
     );
   }
 }
 
+WaterTarget(widthScreen) => Container(
+  margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
+  width: widthScreen*0.35,
+  height: 60,
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(8)
+  ),
+);
+
+StepTarget(widthScreen) => Container(
+  margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
+  width: widthScreen*0.35,
+  height: 60,
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(8)
+  ),
+);
