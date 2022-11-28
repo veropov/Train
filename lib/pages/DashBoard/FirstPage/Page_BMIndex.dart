@@ -20,7 +20,7 @@ class _Page_BMIndexState extends State<Page_BMIndex> {
   Widget build(BuildContext context) {
     final heightScreen = MediaQuery.of(context).size.height;
     return SafeArea(
-      child:Scaffold(
+      child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 60,
           title: Text('Body mass index', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),

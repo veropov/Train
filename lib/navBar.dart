@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:aga/constant.dart';
+import 'package:aga/transition.dart';
+import 'package:aga/pages/person_profile.dart';
+import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
+
+  int currentIndex = 0;
+
 
 class NavigatBar extends StatefulWidget {
   const NavigatBar({Key? key}) : super(key: key);
@@ -10,7 +16,13 @@ class NavigatBar extends StatefulWidget {
 }
 
 class _NavigatBarState extends State<NavigatBar> {
-  int currentIndex = 0;
+
+
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +38,7 @@ class _NavigatBarState extends State<NavigatBar> {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         height: 60,
         selectedIndex: currentIndex,
-        onDestinationSelected: (index) => setState(() => currentIndex = index),
+        onDestinationSelected: onTap,
         destinations: [
           NavigationDestination(
             label: '',
@@ -50,14 +62,5 @@ class _NavigatBarState extends State<NavigatBar> {
   }
 }
 
-Widget FloatButton() => SizedBox.fromSize(
-  size: Size.square(60),
-  child: FloatingActionButton(
-  child: SvgPicture.asset('assets/icons/Search_light.svg', height: 20, color: Colors.white),
-  elevation: 0,
-  highlightElevation: 2,
-  splashColor: Color.fromARGB(255, 56, 126, 255),
-  backgroundColor: Color.fromARGB(255, 149, 174, 254),
-  onPressed: () {},
-  )
-);
+
+
