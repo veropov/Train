@@ -64,29 +64,66 @@ class _ProfileState extends State<Profile> {
 
 Widget Avatar() => Column(
   children: [
-    Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          width: 55,
-          height: 55,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: Color.fromARGB(255, 223, 229, 254)
+    Container(
+      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 55,
+            height: 55,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              color: Color.fromARGB(255, 223, 229, 254)
+            ),
+            child: SvgPicture.asset('assets/images/Avatar.svg')
           ),
-        ),
-        SizedBox(width: 15),
-        Column(
-          children: [
-            Text('Stefani Wong'),
-            Text('Lose a Fat Program')
-          ],
-        ),
-        Container(
-
-        )
-      ],
+          SizedBox(width: 15),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Stefani Wong', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack), textAlign: TextAlign.start),
+              SizedBox(height: 5),
+              Text('Lose a Fat Program', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100), textAlign: TextAlign.start)
+            ],
+          ),
+          SizedBox(width: 45),
+          Container(
+            alignment: Alignment.center,
+            height: 30,
+            width: 85,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100), 
+                gradient: LinearGradient(
+                  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
+                    begin: Alignment.topLeft, 
+                    end: Alignment.bottomRight
+                ),
+              boxShadow: [ 
+                BoxShadow(
+                  color: shadowBlue,
+                  blurRadius: 22,
+                  offset: Offset(0,10)
+                )
+              ]
+            ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                onPrimary: kWhite,
+                primary: Colors.transparent,
+                shadowColor: Colors.transparent,
+                elevation: 0,
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              ),
+              onPressed: () {
+                
+              },
+              child: Text('Edit', style: kTextButton)
+              )
+          )],
+      ),
     ),
     Row(
       children: [
