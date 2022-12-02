@@ -11,6 +11,44 @@ import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 
 int currentIndex = 0;
 
+Widget AppMainBoards() => AppBar(
+  toolbarHeight: 60,
+  title: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
+      const Text('Stefani Wong', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+    ]),
+    titleTextStyle: const TextStyle(),
+    elevation: 0,
+    backgroundColor: const Color.fromARGB(220, 255, 255, 255),
+    actions: [Stack(
+      alignment: Alignment.center,
+      children: [Container(
+        margin: const EdgeInsets.only(right: 20),
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
+            begin: Alignment.topCenter, 
+            end: Alignment.bottomCenter
+          ),
+          borderRadius: BorderRadius.circular(8)
+        )
+      ),
+      Container(
+        margin: const EdgeInsets.only(right: 20),
+        child: IconButton(
+          icon: SvgPicture.asset('assets/icons/Notification_light.svg', height: 16),
+          splashRadius: 16,
+          onPressed: () {}
+        )
+      )
+    ],)
+  ],
+);
+
 
 class MainBoards extends StatefulWidget {
   const MainBoards({Key? key}) : super(key: key);
@@ -38,43 +76,9 @@ class _MainBoardsState extends State<MainBoards> {
   }
 
     return Scaffold(
-      appBar: AppBar(
-          toolbarHeight: 60,
-          title: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-            const Text('Stefani Wong', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-          ]),
-          titleTextStyle: const TextStyle(),
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(220, 255, 255, 255),
-          actions: [Stack(
-            alignment: Alignment.center,
-            children: [Container(
-              margin: const EdgeInsets.only(right: 20),
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
-                  begin: Alignment.topCenter, 
-                  end: Alignment.bottomCenter
-                ),
-                borderRadius: BorderRadius.circular(8)
-              )
-            ),
-            Container(
-              margin: const EdgeInsets.only(right: 20),
-              child: IconButton(
-                icon: SvgPicture.asset('assets/icons/Notification_light.svg', height: 16),
-                splashRadius: 16,
-                onPressed: () {}
-              )
-            )
-          ],)
-        ],
-      ),
+      appBar: PreferredSize(
+          preferredSize: currentIndex == 0 ? Size.fromHeight(60) : Size.fromHeight(0),
+          child: currentIndex == 0 ? AppMainBoards() : Container()),
       body: widgetList(),
       bottomNavigationBar: NavigationBarTheme(
       data: NavigationBarThemeData(
