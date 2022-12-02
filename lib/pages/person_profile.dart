@@ -65,9 +65,11 @@ class _ProfileState extends State<Profile> {
 Widget Avatar() => Column(
   children: [
     Container(
-      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+      margin: EdgeInsets.symmetric(horizontal: 30),
+      height: 60,
+      width: double.infinity,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
@@ -91,36 +93,28 @@ Widget Avatar() => Column(
           ),
           SizedBox(width: 45),
           Container(
-            alignment: Alignment.center,
             height: 30,
-            width: 85,
+            width: 82,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100), 
+              borderRadius: BorderRadius.circular(50), 
                 gradient: LinearGradient(
                   colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
                     begin: Alignment.topLeft, 
                     end: Alignment.bottomRight
                 ),
-              boxShadow: [ 
-                BoxShadow(
-                  color: shadowBlue,
-                  blurRadius: 22,
-                  offset: Offset(0,10)
-                )
-              ]
             ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
+                shape: StadiumBorder(),
                 onPrimary: kWhite,
                 primary: Colors.transparent,
                 shadowColor: Colors.transparent,
                 elevation: 0,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               ),
               onPressed: () {
                 
               },
-              child: Text('Edit', style: kTextButton)
+              child: Text('Edit', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins"))
               )
           )],
       ),

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
+import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/icons/person_icons.dart';
 import 'package:aga/constant.dart';
@@ -22,7 +23,7 @@ class fitnestX extends StatelessWidget {
       theme: ThemeData(
 
       ),
-        home: BoardFirstPage(),
+        home: MainBoards(),
     );
   }
 }

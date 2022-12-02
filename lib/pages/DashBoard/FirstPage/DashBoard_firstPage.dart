@@ -1,12 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
-import 'package:aga/navBar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:aga/transition.dart';
 import 'package:aga/pages/person_profile.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
-
+import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
 
 
 class BoardFirstPage extends StatefulWidget {
@@ -27,16 +25,7 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
     });
   }
 
-  widgetList() {
-    if (currentIndex == 0) { return MainBoards();}
-    if (currentIndex == 1) {return Profile();}
-    if (currentIndex == 3) { return MainBoards();}
-    if (currentIndex == 4) {return Profile();}
-  }
-
-    return SafeArea(child: 
-      Scaffold(
-      body: widgetList(),
+    return Scaffold(
       bottomNavigationBar: NavigationBarTheme(
       data: NavigationBarThemeData(
         elevation: 0,
@@ -72,7 +61,6 @@ class _BoardFirstPageState extends State<BoardFirstPage> {
     ),
       floatingActionButton: FloatButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
-      ),
     );
   }
 }
