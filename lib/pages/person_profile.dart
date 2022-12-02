@@ -65,9 +65,7 @@ class _ProfileState extends State<Profile> {
 Widget Avatar() => Column(
   children: [
     Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
-      height: 60,
-      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -119,10 +117,79 @@ Widget Avatar() => Column(
           )],
       ),
     ),
-    Row(
-      children: [
-        
-      ],
+    Container(
+      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),      
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 95,
+            height: 65,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white,
+              boxShadow: [
+                  const BoxShadow(
+                    color: Color.fromARGB(10, 15, 5, 5),
+                    blurRadius: 30,
+                  )
+                ] 
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('180cm', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                Text('Height', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
+            ],)
+          ),
+          SizedBox(width: 15),
+          Container(
+            width: 95,
+            height: 65,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white,
+              boxShadow: [
+                  const BoxShadow(
+                    color: Color.fromARGB(10, 15, 5, 5),
+                    blurRadius: 30,
+                  )
+                ] 
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('65kg', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                Text('Weight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
+            ],)
+          ),
+          SizedBox(width: 15),
+          Container(
+            width: 95,
+            height: 65,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white,
+              boxShadow: [
+                  const BoxShadow(
+                    color: Color.fromARGB(10, 15, 5, 5),
+                    blurRadius: 30,
+                  )
+                ] 
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('22', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                Text('Age', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
+            ],)
+          ),
+        ],
+      ),
     )
   ],
 );
