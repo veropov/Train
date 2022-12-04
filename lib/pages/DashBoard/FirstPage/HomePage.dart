@@ -5,7 +5,7 @@ import 'package:aga/transition.dart';
 import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:aga/pages/person_profile.dart';
+import 'package:aga/pages/Profile/person_profile.dart';
 import 'dart:math' as math;
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 

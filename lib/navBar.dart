@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
-import 'package:aga/pages/person_profile.dart';
+import 'package:aga/pages/Profile/person_profile.dart';
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 
   int currentIndex = 0;

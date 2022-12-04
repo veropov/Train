@@ -5,7 +5,7 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
-import 'package:aga/pages/person_profile.dart';
+import 'package:aga/pages/Profile/person_profile.dart';
 
 
 
