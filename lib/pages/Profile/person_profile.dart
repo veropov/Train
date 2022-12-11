@@ -56,148 +56,174 @@ class _ProfileState extends State<Profile> {
             )
           ],)
         ],),
-        body: Avatar(), 
+        body: ProfilePerson(age: '', name: '', height: '', weight: '', onChanged: (value) => true, person: true), 
       )
     );
   }
 }
 
-Widget Avatar() => SingleChildScrollView(child:
-  Column(
-    children: [
-      Container(
-        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 55,
-              height: 55,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: Color.fromARGB(255, 223, 229, 254)
-              ),
-              child: SvgPicture.asset('assets/images/Avatar.svg')
-            ),
-            SizedBox(width: 15),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Stefani Wong', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack), textAlign: TextAlign.start),
-                SizedBox(height: 5),
-                Text('Lose a Fat Program', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100), textAlign: TextAlign.start)
-              ],
-            ),
-            SizedBox(width: 45),
-            Container(
-              height: 30,
-              width: 82,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50), 
-                  gradient: LinearGradient(
-                    colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
-                      begin: Alignment.topLeft, 
-                      end: Alignment.bottomRight
-                  ),
-              ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(),
-                  onPrimary: kWhite,
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  elevation: 0,
+class ProfilePerson extends StatefulWidget {
+  final bool person;
+  final String name;
+  final String height;
+  final String weight;
+  final String age;
+  final ValueChanged<String> onChanged;
+
+  const ProfilePerson({
+    Key? key,
+  required this.person,
+  required this.name,
+  required this.height,
+  required this.weight,
+  required this.age,
+  required this.onChanged,
+  }) : super(key: key);
+
+  @override
+  State<ProfilePerson> createState() => _ProfilePersonState();
+}
+
+class _ProfilePersonState extends State<ProfilePerson> {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 55,
+                height: 55,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Color.fromARGB(255, 223, 229, 254)
                 ),
-                onPressed: () {
-                  
-                },
-                child: Text('Edit', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins"))
-                )
-            )],
+                child: SvgPicture.asset('assets/images/Avatar.svg')
+              ),
+              SizedBox(width: 15),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(widget.name, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack), textAlign: TextAlign.start),
+                  SizedBox(height: 5),
+                  Text('Lose a Fat Program', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100), textAlign: TextAlign.start)
+                ],
+              ),
+              SizedBox(width: 45),
+              Container(
+                height: 30,
+                width: 82,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50), 
+                    gradient: LinearGradient(
+                      colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
+                        begin: Alignment.topLeft, 
+                        end: Alignment.bottomRight
+                    ),
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: StadiumBorder(),
+                    onPrimary: kWhite,
+                    primary: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    elevation: 0,
+                  ),
+                  onPressed: () {
+                    
+                  },
+                  child: Text('Edit', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins"))
+                  )
+              )],
+          ),
         ),
-      ),
-      Container(
-        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 5),      
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 95,
-              height: 65,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
-                boxShadow: [
-                    const BoxShadow(
-                      color: Color.fromARGB(10, 15, 5, 5),
-                      blurRadius: 30,
-                    )
-                  ] 
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 5),      
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 95,
+                height: 65,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.white,
+                  boxShadow: [
+                      const BoxShadow(
+                        color: Color.fromARGB(10, 15, 5, 5),
+                        blurRadius: 30,
+                      )
+                    ] 
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(widget.height, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                    Text('Height', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
+                ],)
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('180cm', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
-                  Text('Height', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
-              ],)
-            ),
-            SizedBox(width: 15),
-            Container(
-              width: 95,
-              height: 65,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
-                boxShadow: [
-                    const BoxShadow(
-                      color: Color.fromARGB(10, 15, 5, 5),
-                      blurRadius: 30,
-                    )
-                  ] 
+              SizedBox(width: 15),
+              Container(
+                width: 95,
+                height: 65,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.white,
+                  boxShadow: [
+                      const BoxShadow(
+                        color: Color.fromARGB(10, 15, 5, 5),
+                        blurRadius: 30,
+                      )
+                    ] 
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(widget.weight, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                    Text('Weight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
+                ],)
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('65kg', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
-                  Text('Weight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
-              ],)
-            ),
-            SizedBox(width: 15),
-            Container(
-              width: 95,
-              height: 65,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
-                boxShadow: [
-                    const BoxShadow(
-                      color: Color.fromARGB(10, 15, 5, 5),
-                      blurRadius: 30,
-                    )
-                  ] 
+              SizedBox(width: 15),
+              Container(
+                width: 95,
+                height: 65,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.white,
+                  boxShadow: [
+                      const BoxShadow(
+                        color: Color.fromARGB(10, 15, 5, 5),
+                        blurRadius: 30,
+                      )
+                    ] 
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(widget.age, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                    Text('Age', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
+                ],)
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('22', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
-                  Text('Age', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100))
-              ],)
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      Account(),
-      Notification(),
-      Other()
-    ],
-  ),
-);
+        Account(),
+        Notification(),
+        Other()
+      ],),
+    );
+  }
+}
 
 Widget Account() => Container(
   margin: EdgeInsets.only(left: 30, right: 30, top: 25, bottom: 15),
