@@ -3,6 +3,7 @@ import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
+import 'package:aga/pages/Profile/Profile_model_change.dart';
 
 int height = 170;
 int weight = 55;
@@ -136,7 +137,7 @@ class _ProfilePersonState extends State<ProfilePerson> {
                     elevation: 0,
                   ),
                   onPressed: () {
-                    
+                    Navigator.push(context, Transition(child: TextFieldWidget()));
                   },
                   child: Text('Edit', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins"))
                   )
