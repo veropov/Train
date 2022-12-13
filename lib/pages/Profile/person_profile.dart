@@ -27,8 +27,8 @@ class _ProfileState extends State<Profile> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-            const Text('Stefani Wong', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+            Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
+            Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
           ]),
           titleTextStyle: const TextStyle(),
           elevation: 0,
@@ -57,7 +57,7 @@ class _ProfileState extends State<Profile> {
             )
           ],)
         ],),
-        body: ProfilePerson(age: '', name: '', height: '', weight: '', onChanged: (value) => true, person: true), 
+        body: ProfilePerson(age: '22', height: '170', weight: '55', person: true), 
       )
     );
   }
@@ -65,20 +65,16 @@ class _ProfileState extends State<Profile> {
 
 class ProfilePerson extends StatefulWidget {
   final bool person;
-  final String name;
   final String height;
   final String weight;
   final String age;
-  final ValueChanged<String> onChanged;
 
   const ProfilePerson({
     Key? key,
   required this.person,
-  required this.name,
   required this.height,
   required this.weight,
   required this.age,
-  required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -111,7 +107,7 @@ class _ProfilePersonState extends State<ProfilePerson> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(widget.name, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack), textAlign: TextAlign.start),
+                  Text('Stefani Wong', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack), textAlign: TextAlign.start),
                   SizedBox(height: 5),
                   Text('Lose a Fat Program', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100), textAlign: TextAlign.start)
                 ],
@@ -137,7 +133,15 @@ class _ProfilePersonState extends State<ProfilePerson> {
                     elevation: 0,
                   ),
                   onPressed: () {
-                    Navigator.push(context, Transition(child: TextFieldWidget()));
+                    Navigator.push(context, Transition(child: TextFieldWidget(
+                      ageChange: widget.age, 
+                      weightChange: widget.weight, 
+                      heightChange: widget.height, 
+                      nameChange: name, 
+                      personChange: widget.person, 
+                      onChanged: (value) => null)
+                      )
+                    );
                   },
                   child: Text('Edit', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins"))
                   )

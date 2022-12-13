@@ -3,26 +3,35 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:aga/constant.dart';
 
+String name = 'Stefani Wong';
+
 class TextFieldWidget extends StatefulWidget {
-  const TextFieldWidget({Key? key}) : super(key: key);
+  final bool personChange;
+  final String nameChange;
+  final String heightChange;
+  final String weightChange;
+  final String ageChange;
+  final ValueChanged<String> onChanged;
+
+  const TextFieldWidget({
+    Key? key,
+  required this.personChange,
+  required this.nameChange,
+  required this.heightChange,
+  required this.weightChange,
+  required this.ageChange,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
-
-bool personChange = true;
-String nameChange = '';
-String heightChange = '';
-String weightChange = '';
-String ageChange = '';
-ValueChanged<String> onChanged = (value) => null;
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
       return Scaffold(
         body: Column(children: [
-          Text(nameChange),
           Container(
             height: 48,
             margin: EdgeInsets.only(top: 15, left: 30, right: 30),
@@ -31,7 +40,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               obscureText: false,
               textAlignVertical: TextAlignVertical.bottom,
               decoration: InputDecoration(
-                hintText: nameChange,
+                hintText: 'Password',
                 border: InputBorder.none,
                 hintStyle: kTextMain
               ),
