@@ -110,24 +110,24 @@ class _LoginEnterState extends State<LoginEnter> {
                   )
                 ]
               ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: StadiumBorder(),
-                    onPrimary: kWhite,
-                    shadowColor: Colors.transparent,
-                    primary: Colors.transparent,
-                    elevation: 0,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  ),
-                  onPressed: () {}, 
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                      SvgPicture.asset('assets/icons/Login_fill.svg', color: Colors.white),
-                      SizedBox(width: 8),
-                      Text('Login', style: kTextButton)
-                    ],) 
-                  ),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: StadiumBorder(),
+                  onPrimary: kWhite,
+                  shadowColor: Colors.transparent,
+                  primary: Colors.transparent,
+                  elevation: 0,
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                ),
+                onPressed: () {}, 
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    SvgPicture.asset('assets/icons/Login_fill.svg', color: Colors.white),
+                    SizedBox(width: 8),
+                    Text('Login', style: kTextButton)
+                  ],) 
+                ),
             ),
             Row(
             mainAxisAlignment: MainAxisAlignment.center,

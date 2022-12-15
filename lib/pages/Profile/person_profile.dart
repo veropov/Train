@@ -57,21 +57,19 @@ class _ProfileState extends State<Profile> {
             )
           ],)
         ],),
-        body: ProfilePerson(age: '22', height: '170', weight: '55', person: true), 
+        body: ProfilePerson(age: '22', height: '170', weight: '55'), 
       )
     );
   }
 }
 
 class ProfilePerson extends StatefulWidget {
-  final bool person;
   final String height;
   final String weight;
   final String age;
 
   const ProfilePerson({
     Key? key,
-  required this.person,
   required this.height,
   required this.weight,
   required this.age,
@@ -138,7 +136,6 @@ class _ProfilePersonState extends State<ProfilePerson> {
                       weightChange: widget.weight, 
                       heightChange: widget.height, 
                       nameChange: name, 
-                      personChange: widget.person, 
                       onChanged: (value) => null)
                       )
                     );
