@@ -7,6 +7,7 @@ import 'package:aga/pages/Profile/Profile_model_change.dart';
 
 int height = 170;
 int weight = 55;
+int age = 18;
 
 
 class Profile extends StatefulWidget {
@@ -57,7 +58,7 @@ class _ProfileState extends State<Profile> {
             )
           ],)
         ],),
-        body: ProfilePerson(age: '22', height: '170', weight: '55'), 
+        body: ProfilePerson(age: age.toString(), height: height.toString(), weight: weight.toString()), 
       )
     );
   }

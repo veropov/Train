@@ -64,7 +64,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
@@ -74,6 +74,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                 child: Case(widthScreen),
             ),
             Container(
+              margin: EdgeInsets.symmetric(vertical: 15),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Color.fromARGB(44, 196, 212, 241),
@@ -144,8 +145,8 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                 ],),
               )
             ),
-                      SizedBox(
-            height: heightScreen*0.2,
+            Container(
+            margin: EdgeInsets.only(bottom: 40),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -161,7 +162,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                 onPressed: () {
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                 }, 
-                child: Text('Back', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
+                child: Text('Back', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
                 SizedBox(width: 45),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -173,7 +174,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                 onPressed: () {
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                 }, 
-                child: Text('Save', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
+                child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
               ],
             ),
           )
