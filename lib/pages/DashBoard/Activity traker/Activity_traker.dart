@@ -5,6 +5,7 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
 import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
+import 'package:aga/pages/DashBoard/Activity traker/Activity_progress.dart';
 
 class Activity extends StatefulWidget {
   const Activity({Key? key}) : super(key: key);
@@ -22,9 +23,7 @@ class _ActivityState extends State<Activity> {
   Widget build(BuildContext context) {
 
     final widthScreen = MediaQuery.of(context).size.width;
-  ///
-  ///
-  ///
+
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 60,
@@ -116,6 +115,7 @@ class _ActivityState extends State<Activity> {
               ],
             )
           ),
+          ActProgress()
         ],
       )
     );
@@ -141,3 +141,35 @@ StepTarget(widthScreen) => Container(
     borderRadius: BorderRadius.circular(8)
   ),
 );
+
+Widget ActProgress() => Container(
+  margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text('Activity Progress', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w600, color: kBlack, fontFamily: "Poppins")),
+          Container(
+            height: 30,
+            width: 76,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                begin: Alignment.topLeft, 
+                end: Alignment.bottomRight
+              ),
+              borderRadius: BorderRadius.circular(50)
+            ),
+          ),
+        ],
+      ),
+      SizedBox(height: 15),
+      ActivityProgress()
+    ],
+  )
+);
+

@@ -16,15 +16,7 @@ class ChangeTargetSteps extends StatefulWidget {
 
 class _ChangeTargetState extends State<ChangeTargetSteps> {
 
-  final targets = [
-    'Mo',
-    'Tu',
-    'We',
-    'Th',
-    'Fr',
-    'Sa',
-    'Su'
-  ];
+
 
   final _targetBool = [
     false, 
@@ -91,7 +83,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                         for (var i=0; i<7; i++)
                           _targetBool.every((element) => element == true) ? SizedBox(height: 22) :
                           _targetBool[i] ? 
-                          Text(targets[i] + ', ', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)) : SizedBox(height: 22),
+                          Text(days[i] + ', ', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: kBlack)) : SizedBox(height: 22),
                         InkWell(
                           onTap: () {},
                           child: SvgPicture.asset('')
@@ -118,7 +110,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                               shape: StadiumBorder(), 
                               color: _targetBool[i] ? Color.fromARGB(155, 143, 149, 235) : Color.fromARGB(155, 214, 214, 241)
                             ),
-                              child: Text(targets[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
+                              child: Text(days[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                           )
                         )
                       ],

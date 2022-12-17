@@ -174,3 +174,13 @@ MaterialStateProperty<Color> getColor(Color color, Color colorPressed) {
 
   return MaterialStateProperty.resolveWith(getColor);
 }
+
+final days = [
+    'Mo',
+    'Tu',
+    'We',
+    'Th',
+    'Fr',
+    'Sa',
+    'Su'
+];
