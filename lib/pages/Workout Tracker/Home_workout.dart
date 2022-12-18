@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
+import 'package:aga/pages/Profile/person_profile.dart';
 
 class HomeWorkout extends StatefulWidget {
   const HomeWorkout({Key? key}) : super(key: key);

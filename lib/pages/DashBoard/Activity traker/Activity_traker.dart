@@ -17,66 +17,15 @@ class Activity extends StatefulWidget {
 
 class _ActivityState extends State<Activity> {
 
-  var count = 1;
-  bool countElem = false;
-
-    void onTap(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
-
-    widgetList() {
-    if (currentIndex == 0) {return Tracker();}
-    if (currentIndex == 1) {return Profile();}
-    if (currentIndex == 3) {return Home();}
-    if (currentIndex == 4) {return Profile();}
-  }
-
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: currentIndex == 0 ? Size.fromHeight(60) : Size.fromHeight(0),
-        child: currentIndex == 0 ? App(titleApp: 'Activity Tracker') : Container()
-      ),
-    body: widgetList(),
-    bottomNavigationBar: NavigationBarTheme(
-      data: NavigationBarThemeData(
-        elevation: 0,
-        height: 65,
-        backgroundColor: Colors.white,
-        indicatorColor: Colors.transparent,
-        indicatorShape: StadiumBorder()
-      ),
-      child: NavigationBar(
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-        height: 60,
-        selectedIndex: currentIndex,
-        onDestinationSelected: onTap,
-        destinations: [
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100)
-          ),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
-          ),
-          SizedBox(width: 25),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
-          ),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
-          )
-        ],)
-      ),
-      floatingActionButton: FloatButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+    return MainApp(
+      Ind: 0, 
+      titleApp: 'Activity Tracker',
+      currentInd: Tracker(), 
+      currentInd2: Profile(), 
+      currentInd3: Home(), 
+      currentInd4: Profile()
     );
   }
 }

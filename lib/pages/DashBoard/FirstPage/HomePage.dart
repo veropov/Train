@@ -11,49 +11,8 @@ import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
 
 
-int currentIndex = 0;
-
-Widget AppMainBoards() => AppBar(
-  toolbarHeight: 60,
-  title: Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      const Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-      Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-    ]),
-    titleTextStyle: const TextStyle(),
-    elevation: 0,
-    backgroundColor: const Color.fromARGB(220, 255, 255, 255),
-    actions: [Stack(
-      alignment: Alignment.center,
-      children: [Container(
-        margin: const EdgeInsets.only(right: 20),
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
-            begin: Alignment.topCenter, 
-            end: Alignment.bottomCenter
-          ),
-          borderRadius: BorderRadius.circular(8)
-        )
-      ),
-      Container(
-        margin: const EdgeInsets.only(right: 20),
-        child: IconButton(
-          icon: SvgPicture.asset('assets/icons/Notification_light.svg', height: 16),
-          splashRadius: 16,
-          onPressed: () {}
-        )
-      )
-    ],)
-  ],
-);
-
-
 class MainBoards extends StatefulWidget {
-  const MainBoards({Key? key}) : super(key: key);
+  const MainBoards({Key? key,}) : super(key: key);
 
   @override
   State<MainBoards> createState() => _MainBoardsState();
@@ -63,63 +22,18 @@ class _MainBoardsState extends State<MainBoards> {
   @override
   
   Widget build(BuildContext context) {
-
-  void onTap(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
-
-    widgetList() {
-    if (currentIndex == 0) {return Home();}
-    if (currentIndex == 1) {return Profile();}
-    if (currentIndex == 3) {return Home();}
-    if (currentIndex == 4) {return Profile();}
-  }
-
-    return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: currentIndex == 0 ? Size.fromHeight(60) : Size.fromHeight(0),
-          child: currentIndex == 0 ? AppMainBoards() : Container()),
-      body: widgetList(),
-      bottomNavigationBar: NavigationBarTheme(
-      data: NavigationBarThemeData(
-        elevation: 0,
-        height: 65,
-        backgroundColor: Colors.white,
-        indicatorColor: Colors.transparent,
-        indicatorShape: StadiumBorder()
-      ),
-      child: NavigationBar(
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-        height: 60,
-        selectedIndex: currentIndex,
-        onDestinationSelected: onTap,
-        destinations: [
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100)
-          ),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
-          ),
-          SizedBox(width: 25),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
-          ),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
-          )
-      ],)
-    ),
-      floatingActionButton: FloatButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+    return MainApp(
+      Ind: 0, 
+      titleApp: 'Welcome, $name',
+      currentInd: Home(), 
+      currentInd2: Profile(), 
+      currentInd3: Home(), 
+      currentInd4: Profile()
     );
   }
 }
+
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
