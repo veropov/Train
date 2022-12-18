@@ -8,42 +8,6 @@ import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 
 
-
-
-Widget AppFuck(context) => AppBar(
-  toolbarHeight: 60,
-  title: Text('Body mass index', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-  titleTextStyle: TextStyle(),
-  elevation: 0,
-  backgroundColor: Color.fromARGB(220, 255, 255, 255),
-  leading: Stack(
-    alignment: Alignment.center,
-    children: [Container(
-      margin: const EdgeInsets.only(left: 20),
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
-          begin: Alignment.topCenter, 
-          end: Alignment.bottomCenter
-        ),
-        borderRadius: BorderRadius.circular(8)
-      )
-    ),
-    Container(
-      margin: const EdgeInsets.only(left: 20),
-      child: IconButton(
-        icon: SvgPicture.asset('assets/icons/Arrow - Left_light.svg', height: 16),
-        splashRadius: 16,
-        onPressed: () {
-          Navigator.pop(context);
-        }
-      )
-    )
-  ],)
-);
-
-
 class Page_BMIndex extends StatefulWidget {
   const Page_BMIndex({Key? key}) : super(key: key);
 
@@ -74,7 +38,7 @@ class _Page_BMIndexState extends State<Page_BMIndex> {
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: currentIndex == 0 ? Size.fromHeight(60) : Size.fromHeight(0),
-          child: currentIndex == 0 ? AppFuck(context) : Container()),
+          child: currentIndex == 0 ? App(titleApp: 'Body Mass Index') : Container()),
         body: widgetList(),
         bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(

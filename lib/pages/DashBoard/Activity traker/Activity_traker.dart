@@ -17,39 +17,6 @@ class Activity extends StatefulWidget {
 
 class _ActivityState extends State<Activity> {
 
-  Widget AppTrack(context) => AppBar(
-    toolbarHeight: 60,
-    title: Text('Body mass index', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-    titleTextStyle: TextStyle(),
-    elevation: 0,
-    backgroundColor: Color.fromARGB(220, 255, 255, 255),
-    leading: Stack(
-      alignment: Alignment.center,
-      children: [Container(
-        margin: const EdgeInsets.only(left: 20),
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
-            begin: Alignment.topCenter, 
-            end: Alignment.bottomCenter
-          ),
-          borderRadius: BorderRadius.circular(8)
-        )
-      ),
-      Container(
-        margin: const EdgeInsets.only(left: 20),
-        child: IconButton(
-          icon: SvgPicture.asset('assets/icons/Arrow - Left_light.svg', height: 16),
-          splashRadius: 16,
-          onPressed: () {
-            Navigator.pop(context);
-          }
-        )
-      )
-    ],)
-);
-
   var count = 1;
   bool countElem = false;
 
@@ -70,41 +37,42 @@ class _ActivityState extends State<Activity> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: currentIndex == 0 ? Size.fromHeight(60) : Size.fromHeight(0),
-          child: currentIndex == 0 ? AppTrack(context) : Container()),
-      body: widgetList(),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          elevation: 0,
-          height: 65,
-          backgroundColor: Colors.white,
-          indicatorColor: Colors.transparent,
-          indicatorShape: StadiumBorder()
-        ),
-        child: NavigationBar(
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          height: 60,
-          selectedIndex: currentIndex,
-          onDestinationSelected: onTap,
-          destinations: [
-            NavigationDestination(
-              label: '',
-              icon: currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100)
-            ),
-            NavigationDestination(
-              label: '',
-              icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
-            ),
-            SizedBox(width: 25),
-            NavigationDestination(
-              label: '',
-              icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
-            ),
-            NavigationDestination(
-              label: '',
-              icon: currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
-            )
+      appBar: PreferredSize(
+        preferredSize: currentIndex == 0 ? Size.fromHeight(60) : Size.fromHeight(0),
+        child: currentIndex == 0 ? App(titleApp: 'Activity Tracker') : Container()
+      ),
+    body: widgetList(),
+    bottomNavigationBar: NavigationBarTheme(
+      data: NavigationBarThemeData(
+        elevation: 0,
+        height: 65,
+        backgroundColor: Colors.white,
+        indicatorColor: Colors.transparent,
+        indicatorShape: StadiumBorder()
+      ),
+      child: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        height: 60,
+        selectedIndex: currentIndex,
+        onDestinationSelected: onTap,
+        destinations: [
+          NavigationDestination(
+            label: '',
+            icon: currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100)
+          ),
+          NavigationDestination(
+            label: '',
+            icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
+          ),
+          SizedBox(width: 25),
+          NavigationDestination(
+            label: '',
+            icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
+          ),
+          NavigationDestination(
+            label: '',
+            icon: currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
+          )
         ],)
       ),
       floatingActionButton: FloatButton(),

@@ -184,3 +184,81 @@ final days = [
     'Sa',
     'Su'
 ];
+
+class App extends StatefulWidget {
+    final String titleApp;
+
+  const App({
+    Key? key,
+    required this.titleApp,
+  }) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          toolbarHeight: 60,
+          title: Text(widget.titleApp, style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+          titleTextStyle: TextStyle(),
+          elevation: 0,
+          backgroundColor: Color.fromARGB(220, 255, 255, 255),
+          leading: Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
+                    begin: Alignment.topCenter, 
+                    end: Alignment.bottomCenter
+                  ),
+                  borderRadius: BorderRadius.circular(8)
+                )
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: IconButton(
+                  icon: SvgPicture.asset('assets/icons/Arrow - Left_light.svg', height: 16),
+                  splashRadius: 16,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }
+                )
+              )
+            ],
+          ),
+        actions: [Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 20),
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
+                begin: Alignment.topCenter, 
+                end: Alignment.bottomCenter
+              ),
+              borderRadius: BorderRadius.circular(8)
+            )
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 20),
+            child: IconButton(
+              icon: SvgPicture.asset('assets/icons/Notification_light.svg', height: 16),
+              splashRadius: 16,
+              onPressed: () {}
+            )
+          )
+        ])]
+      )
+    );
+  }
+}

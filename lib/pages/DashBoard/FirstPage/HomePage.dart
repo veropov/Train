@@ -8,6 +8,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 import 'dart:math' as math;
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
+import 'package:aga/pages/Profile/Profile_model_change.dart';
+
 
 int currentIndex = 0;
 
@@ -18,7 +20,7 @@ Widget AppMainBoards() => AppBar(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       const Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-      const Text('Stefani Wong', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+      Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
     ]),
     titleTextStyle: const TextStyle(),
     elevation: 0,
