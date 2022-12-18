@@ -187,7 +187,7 @@ final days = [
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class App extends StatefulWidget {
-    final String titleApp;
+    final Widget titleApp;
 
   const App({
     Key? key,
@@ -204,7 +204,7 @@ class _AppState extends State<App> {
     return Scaffold(
       appBar: AppBar(
           toolbarHeight: 60,
-          title: Text(widget.titleApp, style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+          title: widget.titleApp,
           titleTextStyle: TextStyle(),
           elevation: 0,
           backgroundColor: Color.fromARGB(220, 255, 255, 255),
@@ -272,7 +272,7 @@ int currentIndex = 0;
 
 class MainApp extends StatefulWidget {
   final int Ind;
-  final String titleApp;
+  final Widget titleApp;
   final Widget currentInd;
   final Widget currentInd2;
   final Widget currentInd3;

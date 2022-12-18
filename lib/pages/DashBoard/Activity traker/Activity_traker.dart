@@ -21,7 +21,7 @@ class _ActivityState extends State<Activity> {
   Widget build(BuildContext context) {
     return MainApp(
       Ind: 0, 
-      titleApp: 'Activity Tracker',
+      titleApp: Text('Activity Tracker'),
       currentInd: Tracker(), 
       currentInd2: Profile(), 
       currentInd3: Home(), 

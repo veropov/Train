@@ -21,7 +21,7 @@ class _ListTargetState extends State<ListTarget> {
   Widget build(BuildContext context) {
     return MainApp(
       Ind: 0, 
-      titleApp: 'Add Target',
+      titleApp: Text('Add Target'),
       currentInd: ListTargets(), 
       currentInd2: Profile(), 
       currentInd3: Home(), 

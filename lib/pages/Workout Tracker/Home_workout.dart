@@ -18,7 +18,7 @@ class _HomeWorkoutState extends State<HomeWorkout> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: currentIndex == 0 ? Size.fromHeight(60) : Size.fromHeight(0),
-        child: currentIndex == 0 ? App(titleApp: 'Workout Tracker') : Container()
+        child: currentIndex == 0 ? App(titleApp: Text('Workout Tracker')) : Container()
       )
     );
   }

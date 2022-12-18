@@ -24,7 +24,13 @@ class _MainBoardsState extends State<MainBoards> {
   Widget build(BuildContext context) {
     return MainApp(
       Ind: 0, 
-      titleApp: 'Welcome, $name',
+      titleApp: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
+          Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+        ]),
       currentInd: Home(), 
       currentInd2: Profile(), 
       currentInd3: Home(), 
@@ -32,7 +38,6 @@ class _MainBoardsState extends State<MainBoards> {
     );
   }
 }
-
 
 
 class Home extends StatefulWidget {

@@ -22,7 +22,7 @@ class _Page_BMIndexState extends State<Page_BMIndex> {
     return SafeArea(
       child: MainApp(
         Ind: 0, 
-        titleApp: 'Body Mass Index',
+        titleApp: Text('Body Mass Index'),
         currentInd: BodyMassIndex(), 
         currentInd2: Profile(), 
         currentInd3: Home(), 
