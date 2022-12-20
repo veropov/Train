@@ -7,6 +7,7 @@ import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 import 'package:aga/pages/DashBoard/Activity traker/Activity_progress.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
+import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
 class Activity extends StatefulWidget {
   const Activity({Key? key}) : super(key: key);
@@ -22,8 +23,10 @@ class _ActivityState extends State<Activity> {
     return MainApp(
       Ind: 0, 
       titleApp: Text('Activity Tracker'),
+      appAction: true,
+      appLeading: true,
       currentInd: Tracker(), 
-      currentInd2: Profile(), 
+      currentInd2: Workout(), 
       currentInd3: Home(), 
       currentInd4: Profile()
     );

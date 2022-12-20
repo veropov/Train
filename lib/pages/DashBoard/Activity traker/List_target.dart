@@ -8,6 +8,7 @@ import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
+import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
 class ListTarget extends StatefulWidget {
   const ListTarget({Key? key}) : super(key: key);
@@ -22,8 +23,10 @@ class _ListTargetState extends State<ListTarget> {
     return MainApp(
       Ind: 0, 
       titleApp: Text('Add Target'),
+      appAction: true,
+      appLeading: true,
       currentInd: ListTargets(), 
-      currentInd2: Profile(), 
+      currentInd2: Workout(), 
       currentInd3: Home(), 
       currentInd4: Profile()
     );

@@ -188,10 +188,14 @@ final days = [
 
 class App extends StatefulWidget {
     final Widget titleApp;
+    final bool appLeading;
+    final bool appAction;
 
   const App({
     Key? key,
     required this.titleApp,
+    required this.appLeading,
+    required this.appAction
   }) : super(key: key);
 
   @override
@@ -208,37 +212,11 @@ class _AppState extends State<App> {
           titleTextStyle: TextStyle(),
           elevation: 0,
           backgroundColor: Color.fromARGB(220, 255, 255, 255),
-          leading: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.only(left: 20),
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
-                    begin: Alignment.topCenter, 
-                    end: Alignment.bottomCenter
-                  ),
-                  borderRadius: BorderRadius.circular(8)
-                )
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 20),
-                child: IconButton(
-                  icon: SvgPicture.asset('assets/icons/Arrow - Left_light.svg', height: 16),
-                  splashRadius: 16,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }
-                )
-              )
-            ],
-          ),
+          
         actions: [Stack(
         alignment: Alignment.center,
         children: [
-          Container(
+        widget.appAction == true ? Container(
             margin: const EdgeInsets.only(right: 20),
             width: 40,
             height: 40,
@@ -249,16 +227,16 @@ class _AppState extends State<App> {
               ),
               borderRadius: BorderRadius.circular(8)
             )
-          ),
-          Container(
+          ) : Container(),
+          widget.appAction == true ? Container(
             margin: const EdgeInsets.only(right: 20),
             child: IconButton(
               icon: SvgPicture.asset('assets/icons/Notification_light.svg', height: 16),
               splashRadius: 16,
               onPressed: () {}
             )
-          )
-        ])]
+          ): Container()
+        ])] 
       )
     );
   }
@@ -273,6 +251,8 @@ int currentIndex = 0;
 class MainApp extends StatefulWidget {
   final int Ind;
   final Widget titleApp;
+  final bool appAction;
+  final bool appLeading;
   final Widget currentInd;
   final Widget currentInd2;
   final Widget currentInd3;
@@ -282,6 +262,8 @@ class MainApp extends StatefulWidget {
     Key? key,
   required this.Ind,
   required this.titleApp,
+  required this.appAction,
+  required this.appLeading,
   required this.currentInd,
   required this.currentInd2,
   required this.currentInd3,
@@ -313,7 +295,7 @@ class _MainAppState extends State<MainApp> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: currentIndex == widget.Ind ? Size.fromHeight(60) : Size.fromHeight(0),
-        child: currentIndex == widget.Ind ? App(titleApp: widget.titleApp) : Container()
+        child: currentIndex == widget.Ind ? App(titleApp: widget.titleApp, appAction: widget.appAction, appLeading: widget.appLeading) : Container()
       ),
       body: widgetList(),
       bottomNavigationBar: NavigationBarTheme(

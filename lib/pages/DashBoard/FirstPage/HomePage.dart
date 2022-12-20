@@ -7,8 +7,8 @@ import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 import 'dart:math' as math;
-import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
+import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
 
 class MainBoards extends StatefulWidget {
@@ -30,9 +30,12 @@ class _MainBoardsState extends State<MainBoards> {
         children: [
           Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
           Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-        ]),
+        ]
+      ),
+      appAction: true,
+      appLeading: false,
       currentInd: Home(), 
-      currentInd2: Profile(), 
+      currentInd2: Workout(), 
       currentInd3: Home(), 
       currentInd4: Profile()
     );

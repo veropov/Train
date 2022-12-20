@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
+import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
 
 class Page_BMIndex extends StatefulWidget {
@@ -23,8 +24,10 @@ class _Page_BMIndexState extends State<Page_BMIndex> {
       child: MainApp(
         Ind: 0, 
         titleApp: Text('Body Mass Index'),
+        appAction: true,
+        appLeading: true,
         currentInd: BodyMassIndex(), 
-        currentInd2: Profile(), 
+        currentInd2: Workout(), 
         currentInd3: Home(), 
         currentInd4: Profile()
       )

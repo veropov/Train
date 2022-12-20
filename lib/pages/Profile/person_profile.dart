@@ -4,6 +4,7 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/navBar.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
+import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
 int height = 170;
 int weight = 55;
