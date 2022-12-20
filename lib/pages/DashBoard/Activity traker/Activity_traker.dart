@@ -25,6 +25,7 @@ class _ActivityState extends State<Activity> {
       titleApp: Text('Activity Tracker'),
       appAction: true,
       appLeading: true,
+      centerTitle: true,
       currentInd: Tracker(), 
       currentInd2: Workout(), 
       currentInd3: Home(), 

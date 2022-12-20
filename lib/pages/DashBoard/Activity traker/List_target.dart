@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aga/navBar.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_sleep.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_steps.dart';
 import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
@@ -25,6 +24,7 @@ class _ListTargetState extends State<ListTarget> {
       titleApp: Text('Add Target'),
       appAction: true,
       appLeading: true,
+      centerTitle: true,
       currentInd: ListTargets(), 
       currentInd2: Workout(), 
       currentInd3: Home(), 

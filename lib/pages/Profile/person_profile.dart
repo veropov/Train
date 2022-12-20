@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aga/navBar.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
 import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
@@ -23,42 +22,10 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 60,
-          title: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-            Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-          ]),
-          titleTextStyle: const TextStyle(),
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(220, 255, 255, 255),
-          actions: [Stack(
-            alignment: Alignment.center,
-            children: [Container(
-              margin: const EdgeInsets.only(right: 20),
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [Color.fromARGB(121, 238, 238, 238), Color.fromARGB(134, 238, 233, 255)], 
-                  begin: Alignment.topCenter, 
-                  end: Alignment.bottomCenter
-                ),
-                borderRadius: BorderRadius.circular(8)
-              )
-            ),
-            Container(
-              margin: const EdgeInsets.only(right: 20),
-              child: IconButton(
-                icon: SvgPicture.asset('assets/icons/Notification_light.svg', height: 16),
-                splashRadius: 16,
-                onPressed: () {}
-              )
-            )
-          ],)
-        ],),
+        appBar: PreferredSize(
+        preferredSize: currentIndex == 4 ? Size.fromHeight(60) : Size.fromHeight(0),
+        child: currentIndex == 4 ? App(titleApp: Text('Profile'), appAction: true, appLeading: false, centerTitle: false) : Container()
+      ),
         body: ProfilePerson(age: age.toString(), height: height.toString(), weight: weight.toString()), 
       )
     );

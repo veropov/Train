@@ -26,6 +26,7 @@ class _Page_BMIndexState extends State<Page_BMIndex> {
         titleApp: Text('Body Mass Index'),
         appAction: true,
         appLeading: true,
+        centerTitle: true,
         currentInd: BodyMassIndex(), 
         currentInd2: Workout(), 
         currentInd3: Home(), 

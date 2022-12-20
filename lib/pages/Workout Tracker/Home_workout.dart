@@ -6,6 +6,8 @@ import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 import 'package:aga/transition.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
+import 'package:aga/pages/Profile/Profile_model_change.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // class HomeWorkout extends StatefulWidget {
 //   const HomeWorkout({Key? key}) : super(key: key);
@@ -38,33 +40,39 @@ class Workout extends StatefulWidget {
 class _WorkoutState extends State<Workout> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
-                    begin: Alignment.topLeft, 
-                    end: Alignment.bottomRight
-                  )
-                ),
-                child: Container(
-                  margin: EdgeInsets.only(top: 300),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
-                    color: Colors.white
-                  ),
-                  child: DayliWorkout(context)
-                ),
-              )
-            ],
-          )
-        ],
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: currentIndex == 1 ? Size.fromHeight(60) : Size.fromHeight(0),
+        child: currentIndex == 1 ? App(titleApp: Text('Workout Tracker'), appAction: true, appLeading: false, centerTitle: false,) : Container()
       ),
+        body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                      begin: Alignment.topLeft, 
+                      end: Alignment.bottomRight
+                    )
+                  ),
+                  child: Container(
+                    margin: EdgeInsets.only(top: 300),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+                      color: Colors.white
+                    ),
+                    child: DayliWorkout(context)
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      )
     );
   }
 }

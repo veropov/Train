@@ -34,6 +34,7 @@ class _MainBoardsState extends State<MainBoards> {
       ),
       appAction: true,
       appLeading: false,
+      centerTitle: false,
       currentInd: Home(), 
       currentInd2: Workout(), 
       currentInd3: Home(), 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aga/navBar.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 
