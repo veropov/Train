@@ -124,10 +124,17 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                     padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                 ),
                 onPressed: () {
-                    // name = textController[0].toString();
-                    // age = textController[1] as int;
-                    // weight = textController[2] as int;
-                    // height = textController[3] as int;
+                  var nameController = textController[0].text;
+                  var ageController = textController[1].text;
+                  var weightController = textController[2].text;
+                  var heightController = textController[3].text;
+                  setState(() {
+                    name = nameController;
+                    age = int.parse(ageController);
+                    weight = int.parse(weightController);
+                    height = int.parse(heightController);
+                  });
+
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => Profile()));
                 }, 
                 child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
