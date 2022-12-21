@@ -22,7 +22,7 @@ class _ActivityState extends State<Activity> {
   Widget build(BuildContext context) {
     return MainApp(
       Ind: 0, 
-      titleApp: Text('Activity Tracker'),
+      titleApp: Text('Activity Tracker', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
       appAction: true,
       appLeading: true,
       centerTitle: true,

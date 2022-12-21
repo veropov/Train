@@ -21,7 +21,7 @@ class _ListTargetState extends State<ListTarget> {
   Widget build(BuildContext context) {
     return MainApp(
       Ind: 0, 
-      titleApp: Text('Add Target'),
+      titleApp: Text('Add Target', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
       appAction: true,
       appLeading: true,
       centerTitle: true,

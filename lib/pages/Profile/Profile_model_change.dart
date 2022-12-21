@@ -5,6 +5,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:aga/constant.dart';
 
 String name = 'Stefani Wong';
+int height = 170;
+int weight = 55;
+int age = 18;
 
 List changes = [
   'Full name',
@@ -40,6 +43,13 @@ class TextFieldWidget extends StatefulWidget {
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
 
+final textController = [
+  TextEditingController(),
+  TextEditingController(),
+  TextEditingController(),
+  TextEditingController(),
+];
+
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
@@ -68,10 +78,17 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                       child: TextField(
                         obscureText: false,
                         textAlignVertical: TextAlignVertical.bottom,
+                        controller: textController[i],
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintStyle: kTextMain,
                           hintText: changes_2[i],
+                          suffixIcon: IconButton(
+                            padding: EdgeInsets.all(12),
+                            splashRadius: 5,
+                            splashColor: Colors.blue,
+                            onPressed: () => textController[i].clear(), 
+                            icon: Icon(Icons.close))
                         ),
                       ),
                     )
@@ -107,6 +124,10 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                     padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                 ),
                 onPressed: () {
+                    // name = textController[0].toString();
+                    // age = textController[1] as int;
+                    // weight = textController[2] as int;
+                    // height = textController[3] as int;
                   Navigator.pop(context, MaterialPageRoute(builder: (context) => Profile()));
                 }, 
                 child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))

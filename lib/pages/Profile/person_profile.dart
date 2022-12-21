@@ -5,10 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
 import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
-int height = 170;
-int weight = 55;
-int age = 18;
-
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -24,7 +20,7 @@ class _ProfileState extends State<Profile> {
       child: Scaffold(
         appBar: PreferredSize(
         preferredSize: currentIndex == 4 ? Size.fromHeight(60) : Size.fromHeight(0),
-        child: currentIndex == 4 ? App(titleApp: Text('Profile'), appAction: true, appLeading: false, centerTitle: false) : Container()
+        child: currentIndex == 4 ? App(titleApp: Text('Profile', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), appAction: true, appLeading: false, centerTitle: false) : Container()
       ),
         body: ProfilePerson(age: age.toString(), height: height.toString(), weight: weight.toString()), 
       )
@@ -74,7 +70,7 @@ class _ProfilePersonState extends State<ProfilePerson> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Stefani Wong', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack), textAlign: TextAlign.start),
+                  Text(name, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack), textAlign: TextAlign.start),
                   SizedBox(height: 5),
                   Text('Lose a Fat Program', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100), textAlign: TextAlign.start)
                 ],

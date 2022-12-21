@@ -23,7 +23,7 @@ class _Page_BMIndexState extends State<Page_BMIndex> {
     return SafeArea(
       child: MainApp(
         Ind: 0, 
-        titleApp: Text('Body Mass Index'),
+        titleApp: Text('Body Mass Index', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
         appAction: true,
         appLeading: true,
         centerTitle: true,

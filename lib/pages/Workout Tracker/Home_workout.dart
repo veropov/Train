@@ -43,7 +43,7 @@ class _WorkoutState extends State<Workout> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: currentIndex == 1 ? Size.fromHeight(60) : Size.fromHeight(0),
-        child: currentIndex == 1 ? App(titleApp: Text('Workout Tracker'), appAction: true, appLeading: false, centerTitle: false,) : Container()
+        child: currentIndex == 1 ? App(titleApp: Text('Workout Tracker', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), appAction: true, appLeading: false, centerTitle: false,) : Container()
       ),
         body: SingleChildScrollView(
         child: Column(

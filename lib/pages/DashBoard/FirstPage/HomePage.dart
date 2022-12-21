@@ -29,7 +29,7 @@ class _MainBoardsState extends State<MainBoards> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-          Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+          Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
         ]
       ),
       appAction: true,
