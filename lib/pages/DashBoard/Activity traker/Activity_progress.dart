@@ -11,6 +11,22 @@ class ActivityProgress extends StatefulWidget {
   State<ActivityProgress> createState() => _ActivityProgressState();
 }
 
+List dateWeek = [
+DateTime.monday,
+DateTime.tuesday,
+DateTime.wednesday,
+DateTime.thursday,
+DateTime.friday,
+DateTime.saturday,
+DateTime.sunday
+];
+
+ActProgress() {
+  var a = (500 + 100 + 200);
+  var b = a*0.1;
+  return b;
+}
+
 class _ActivityProgressState extends State<ActivityProgress> {
   @override
   Widget build(BuildContext context) {
@@ -41,8 +57,9 @@ class _ActivityProgressState extends State<ActivityProgress> {
                       ),
                     ),
                     Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                     width: 22,
-                    height: 90,
+                    height: dateWeek[i] == bla() ? ActProgress() : 0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       gradient: LinearGradient(
@@ -57,9 +74,14 @@ class _ActivityProgressState extends State<ActivityProgress> {
             SizedBox(height: 7),
             Text(days[i], style: kTextMain),
             SizedBox(height: 20)
-          ],)
+          ],),
+          Text(bla().toString()),
         ],),
       ),
     );
   }
 }
+
+var d = DateTime.now();
+
+bla() => d.weekday;
