@@ -320,7 +320,7 @@ Widget Notification() => Container(
                 Text('Pop-up Notification', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
               ],
             ),
-            SwitchButton()
+            SwitchButton(width: 40, heiht: 20)
           ],
         ),
       ],

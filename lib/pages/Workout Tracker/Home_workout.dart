@@ -9,27 +9,6 @@ import 'package:aga/pages/Profile/person_profile.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// class HomeWorkout extends StatefulWidget {
-//   const HomeWorkout({Key? key}) : super(key: key);
-
-//   @override
-//   State<HomeWorkout> createState() => _HomeWorkoutState();
-// }
-
-// class _HomeWorkoutState extends State<HomeWorkout> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MainApp(
-//       Ind: 1, 
-//       titleApp: Text('Workout Tracker'), 
-//       currentInd: Home(), 
-//       currentInd2: Workout(), 
-//       currentInd3: Home(), 
-//       currentInd4: Profile()
-//     );
-//   }
-// }
-
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
 
@@ -47,29 +26,43 @@ class _WorkoutState extends State<Workout> {
       ),
         body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
-                      begin: Alignment.topLeft, 
-                      end: Alignment.bottomRight
-                    )
+            SingleChildScrollView(
+              child: Stack(
+                children: [
+                  Container(
+                    height: 340,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                        begin: Alignment.topLeft, 
+                        end: Alignment.bottomRight
+                      )
+                    ),
                   ),
-                  child: Container(
+                  Container(
                     margin: EdgeInsets.only(top: 300),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
-                      color: Colors.white
+                      gradient: LinearGradient(
+                        colors: [Colors.white, Color.fromARGB(100, 255, 255, 255)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter
+                      )
                     ),
-                    child: DayliWorkout(context)
+                    child: Column(
+                      children: [
+                        DayliWorkout(context),
+                        UpcomingWorout()
+                      ],
+                    )
                   ),
-                )
-              ],
-            )
+                ],
+              ),
+            ),
           ],
         ),
       )
@@ -133,3 +126,123 @@ Widget DayliWorkout(context) => Container(
       ),
   ],)
 );
+
+
+class UpcomingWorout extends StatefulWidget {
+  const UpcomingWorout({Key? key}) : super(key: key);
+
+  @override
+  State<UpcomingWorout> createState() => _UpcomingWoroutState();
+}
+
+class _UpcomingWoroutState extends State<UpcomingWorout> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+            Text('Upcoming Workout', style: kTextH3Bold),
+            Container(
+              child: InkWell(
+                splashColor: Colors.blue,
+                child: Text('See more', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100)),
+                onTap: (() {
+                  
+                }),
+              ),
+            )
+          ],
+        ), 
+        SizedBox(height: 15),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Color.fromARGB(200, 255, 255, 255),
+            boxShadow: [
+            const BoxShadow(
+              color: Color.fromARGB(10, 15, 5, 5),
+              blurRadius: 30,
+            )] 
+          ),
+          child: ListTile(
+            tileColor: Color.fromARGB(45, 202, 221, 255),
+            title: Text('Fullbody Workout', style: kTextMain2),
+            subtitle: Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Text('Today, 03:00pm', style: kTextMainBranch),
+            ),
+            leading: Stack(children: [
+              Container(
+                width: 50,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                    begin: Alignment.topLeft, 
+                    end: Alignment.bottomRight
+                  ),
+                  borderRadius: BorderRadius.circular(100)
+                ),
+              ),
+              SvgPicture.asset('assets/images/Upcoming_vector.svg')
+            ]),
+            trailing: SwitchButton(width: 44, heiht: 22),
+            onTap: () {
+              
+            },
+          ),
+        ),
+        SizedBox(height: 15),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Color.fromARGB(200, 255, 255, 255),
+            boxShadow: [
+            const BoxShadow(
+              color: Color.fromARGB(10, 15, 5, 5),
+              blurRadius: 30,
+            )] 
+          ),
+          child: ListTile(
+            tileColor: Color.fromARGB(45, 202, 221, 255),
+            title: Text('Fullbody Workout', style: kTextMain2),
+            subtitle: Padding(
+              padding:EdgeInsets.only(top: 5),
+              child: Text('Today, 03:00pm', style: kTextMainBranch),
+            ),
+            leading: Stack(children: [
+              Container(
+                width: 50,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                  colors: [Color.fromARGB(90, 197, 139, 242), Color.fromARGB(90, 238, 164, 206)],
+                    begin: Alignment.topLeft, 
+                    end: Alignment.bottomRight
+                  ),
+                  borderRadius: BorderRadius.circular(100)
+                ),
+              ),
+              SvgPicture.asset('assets/images/Upcoming_vector_2.svg')
+            ]),
+            trailing: SwitchButton(width: 44, heiht: 22),
+            onTap: () {
+              
+            },
+          ),
+        )
+      ]),
+    );
+  }
+}

@@ -118,7 +118,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                     ListTile(
                       title: Text('Notification enabling ', style: TextStyle(fontSize: 15, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(255, 49, 49, 49))),
                       subtitle: Text('Every day', style: TextStyle(fontSize: 13, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(171, 63, 46, 216))),
-                      trailing: SwitchButton(),
+                      trailing: SwitchButton(width: 40, heiht: 20),
                       onTap: () {},
                     ),
                     Container(
@@ -130,7 +130,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                     ListTile(
                       title: Text('Notification sound', style: TextStyle(fontSize: 15, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(255, 49, 49, 49))),
                       subtitle: Text('Incoming', style: TextStyle(fontSize: 13, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Color.fromARGB(171, 63, 46, 216))),
-                      trailing: SwitchButton(),
+                      trailing: SwitchButton(width: 40, heiht: 20),
                       onTap: () {},
                     ),
                 ],),
