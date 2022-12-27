@@ -51,8 +51,8 @@ class _WorkoutState extends State<Workout> {
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
                       gradient: LinearGradient(
                         colors: [Colors.white, Color.fromARGB(50, 255, 255, 255)],
-                        begin: Alignment(0.0, -0.5),
-                        end: Alignment(0.0,-0.2)
+                        begin: Alignment(0.0, -0.9),
+                        end: Alignment(0.0,-0.7)
                       )
                     ),
                     child: Column(
@@ -79,7 +79,7 @@ class _WorkoutState extends State<Workout> {
                           ],),
                         ), 
                         UpcomingWorout(),
-                        workoutPage ? Container(height: 30) : UpcomingWorout(),
+                        workoutPage ? Container() : UpcomingWorout(),
                         WdwToTrain()
                       ],
                     )
@@ -122,7 +122,7 @@ Widget DayliWorkout(context) => Container(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      const Text('Daily Workout Schedule', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+      const Text('Daily Workout Schedule', style: kTextH3Bold),
       Container(
         width: 74,
         height: 32,
@@ -243,15 +243,36 @@ Widget UpcomingWorout() => Container(
   ]),
 );
 
+
+List <String> wdwTitle = [
+  'Fullbody Workout',
+  'Lowebody Workout',
+  'AB Workout',
+];
+
+List <String> wdwSubTitle = [
+  '11 Exercises | 32mins',
+  '12 Exercises | 40mins',
+  '14 Exercises | 20mins',
+]; 
+
+List wdwPicture = [
+  'assets/images/WdwtoTrain_1.svg',
+  'assets/images/WdwtoTrain_2.svg',
+  'assets/images/WdwtoTrain_3.svg',
+]; 
+
+
 Widget WdwToTrain() => Container(
   margin: EdgeInsets.symmetric(horizontal: 30),
   child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-    Text('What Do You Want to Train', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-    SizedBox(height: 15),
-    Container(
+    SizedBox(height: 30),
+    Text('What Do You Want to Train', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+    for (var i=0; i<wdwTitle.length; i++) Container(
+      margin: EdgeInsets.only(top: 15),
       width: double.infinity,
       height: 130,
       decoration: BoxDecoration(
@@ -270,9 +291,9 @@ Widget WdwToTrain() => Container(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Fullbody Workout'),
+              Text(wdwTitle[i], style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
               SizedBox(height: 5),
-              Text('11 Exercises | 32mins'),
+              Text(wdwSubTitle[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100),),
               SizedBox(height: 15),
               Container(
                 width: 94,
@@ -307,7 +328,7 @@ Widget WdwToTrain() => Container(
                   borderRadius: BorderRadius.circular(100)
                 )
               ),
-              SvgPicture.asset('assets/images/WdwtoTrain_1.svg')
+              SvgPicture.asset(wdwPicture[i])
             ],
           )
       ]),
