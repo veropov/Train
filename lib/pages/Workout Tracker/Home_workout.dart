@@ -80,7 +80,7 @@ class _WorkoutState extends State<Workout> {
                         ), 
                         UpcomingWorout(),
                         workoutPage ? Container(height: 30) : UpcomingWorout(),
-                        Text('da')
+                        WdwToTrain()
                       ],
                     )
                   ),
@@ -152,105 +152,165 @@ Widget DayliWorkout(context) => Container(
 );
 
 
-class UpcomingWorout extends StatefulWidget {
-  const UpcomingWorout({Key? key}) : super(key: key);
+Widget UpcomingWorout() => Container(
+  margin: EdgeInsets.symmetric(horizontal: 30),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+    SizedBox(height: 15),
+    Container(
+      alignment: Alignment.center,
+      width: double.infinity,
+      height: 80,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Color.fromARGB(255, 255, 255, 255),
+        boxShadow: [
+        const BoxShadow(
+          color: Color.fromARGB(10, 15, 5, 5),
+          blurRadius: 30,
+        )] 
+      ),
+      child: ListTile(
+        tileColor: Color.fromARGB(45, 202, 221, 255),
+        title: Text('Fullbody Workout', style: kTextMain2),
+        subtitle: Padding(
+          padding: EdgeInsets.only(top: 5),
+          child: Text('Today, 03:00pm', style: kTextMainBranch),
+        ),
+        leading: Stack(children: [
+          Container(
+            width: 50,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+              colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                begin: Alignment.topLeft, 
+                end: Alignment.bottomRight
+              ),
+              borderRadius: BorderRadius.circular(100)
+            ),
+          ),
+          SvgPicture.asset('assets/images/Upcoming_vector.svg')
+        ]),
+        trailing: SwitchButton(width: 44, heiht: 22),
+        onTap: () {
+          
+        },
+      ),
+    ),
+    SizedBox(height: 15),
+    Container(
+      alignment: Alignment.center,
+      width: double.infinity,
+      height: 80,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Color.fromARGB(255, 255, 255, 255),
+        boxShadow: [
+        const BoxShadow(
+          color: Color.fromARGB(10, 15, 5, 5),
+          blurRadius: 30,
+        )] 
+      ),
+      child: ListTile(
+        tileColor: Color.fromARGB(45, 202, 221, 255),
+        title: Text('Fullbody Workout', style: kTextMain2),
+        subtitle: Padding(
+          padding:EdgeInsets.only(top: 5),
+          child: Text('Today, 03:00pm', style: kTextMainBranch),
+        ),
+        leading: Stack(children: [
+          Container(
+            width: 50,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+              colors: [Color.fromARGB(90, 197, 139, 242), Color.fromARGB(90, 238, 164, 206)],
+                begin: Alignment.topLeft, 
+                end: Alignment.bottomRight
+              ),
+              borderRadius: BorderRadius.circular(100)
+            ),
+          ),
+          SvgPicture.asset('assets/images/Upcoming_vector_2.svg')
+        ]),
+        trailing: SwitchButton(width: 44, heiht: 22),
+        onTap: () {
+          
+        },
+      ),
+    )
+  ]),
+);
 
-  @override
-  State<UpcomingWorout> createState() => _UpcomingWoroutState();
-}
-
-class _UpcomingWoroutState extends State<UpcomingWorout> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+Widget WdwToTrain() => Container(
+  margin: EdgeInsets.symmetric(horizontal: 30),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+    Text('What Do You Want to Train', style: const TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+    SizedBox(height: 15),
+    Container(
+      width: double.infinity,
+      height: 130,
+      decoration: BoxDecoration(
+      gradient: const LinearGradient(
+        colors: [Color.fromARGB(255, 229, 241, 255), const Color.fromARGB(255, 216, 226, 255)], 
+          begin: Alignment.topLeft, 
+          end: Alignment.bottomRight
+        ),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-        SizedBox(height: 15),
-        Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Color.fromARGB(255, 255, 255, 255),
-            boxShadow: [
-            const BoxShadow(
-              color: Color.fromARGB(10, 15, 5, 5),
-              blurRadius: 30,
-            )] 
-          ),
-          child: ListTile(
-            tileColor: Color.fromARGB(45, 202, 221, 255),
-            title: Text('Fullbody Workout', style: kTextMain2),
-            subtitle: Padding(
-              padding: EdgeInsets.only(top: 5),
-              child: Text('Today, 03:00pm', style: kTextMainBranch),
-            ),
-            leading: Stack(children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Fullbody Workout'),
+              SizedBox(height: 5),
+              Text('11 Exercises | 32mins'),
+              SizedBox(height: 15),
               Container(
-                width: 50,
+                width: 94,
+                height: 35,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
-                    begin: Alignment.topLeft, 
-                    end: Alignment.bottomRight
-                  ),
-                  borderRadius: BorderRadius.circular(100)
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50)
                 ),
-              ),
-              SvgPicture.asset('assets/images/Upcoming_vector.svg')
-            ]),
-            trailing: SwitchButton(width: 44, heiht: 22),
-            onTap: () {
-              
-            },
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    primary: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding: const EdgeInsets.all(5)
+                  ),
+                  child: Text('View more', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 92, 177, 247))),
+                  onPressed: () {
+                    
+                  },
+                ),
+              )
+            ],
           ),
-        ),
-        SizedBox(height: 15),
-        Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Color.fromARGB(255, 255, 255, 255),
-            boxShadow: [
-            const BoxShadow(
-              color: Color.fromARGB(10, 15, 5, 5),
-              blurRadius: 30,
-            )] 
-          ),
-          child: ListTile(
-            tileColor: Color.fromARGB(45, 202, 221, 255),
-            title: Text('Fullbody Workout', style: kTextMain2),
-            subtitle: Padding(
-              padding:EdgeInsets.only(top: 5),
-              child: Text('Today, 03:00pm', style: kTextMainBranch),
-            ),
-            leading: Stack(children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
               Container(
-                width: 50,
+                width: 90,
+                height: 90,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                  colors: [Color.fromARGB(90, 197, 139, 242), Color.fromARGB(90, 238, 164, 206)],
-                    begin: Alignment.topLeft, 
-                    end: Alignment.bottomRight
-                  ),
+                  color: Color.fromARGB(140, 255, 255, 255),
                   borderRadius: BorderRadius.circular(100)
-                ),
+                )
               ),
-              SvgPicture.asset('assets/images/Upcoming_vector_2.svg')
-            ]),
-            trailing: SwitchButton(width: 44, heiht: 22),
-            onTap: () {
-              
-            },
-          ),
-        )
+              SvgPicture.asset('assets/images/WdwtoTrain_1.svg')
+            ],
+          )
       ]),
-    );
-  }
-}
+    )
+  ]),
+);
