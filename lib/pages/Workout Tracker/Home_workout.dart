@@ -16,6 +16,8 @@ class Workout extends StatefulWidget {
   State<Workout> createState() => _WorkoutState();
 }
 
+bool workoutPage = true;
+
 class _WorkoutState extends State<Workout> {
   @override
   Widget build(BuildContext context) {
@@ -48,15 +50,37 @@ class _WorkoutState extends State<Workout> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
                       gradient: LinearGradient(
-                        colors: [Colors.white, Color.fromARGB(100, 255, 255, 255)],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter
+                        colors: [Colors.white, Color.fromARGB(50, 255, 255, 255)],
+                        begin: Alignment(0.0, -0.5),
+                        end: Alignment(0.0,-0.2)
                       )
                     ),
                     child: Column(
                       children: [
                         DayliWorkout(context),
-                        UpcomingWorout()
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 30),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                            Text('Upcoming Workout', style: kTextH3Bold),
+                            Container(
+                              child: InkWell(
+                                splashColor: Colors.blue,
+                                child: Text('See more', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100)),
+                                onTap: (() {
+                                  setState(() {
+                                    workoutPage = !workoutPage;
+                                  });
+                                }),
+                              ),
+                            )
+                          ],),
+                        ), 
+                        UpcomingWorout(),
+                        workoutPage ? Container(height: 30) : UpcomingWorout(),
+                        Text('da')
                       ],
                     )
                   ),
@@ -144,22 +168,6 @@ class _UpcomingWoroutState extends State<UpcomingWorout> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-            Text('Upcoming Workout', style: kTextH3Bold),
-            Container(
-              child: InkWell(
-                splashColor: Colors.blue,
-                child: Text('See more', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100)),
-                onTap: (() {
-                  
-                }),
-              ),
-            )
-          ],
-        ), 
         SizedBox(height: 15),
         Container(
           alignment: Alignment.center,
@@ -167,7 +175,7 @@ class _UpcomingWoroutState extends State<UpcomingWorout> {
           height: 80,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Color.fromARGB(200, 255, 255, 255),
+            color: Color.fromARGB(255, 255, 255, 255),
             boxShadow: [
             const BoxShadow(
               color: Color.fromARGB(10, 15, 5, 5),
@@ -208,7 +216,7 @@ class _UpcomingWoroutState extends State<UpcomingWorout> {
           height: 80,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Color.fromARGB(200, 255, 255, 255),
+            color: Color.fromARGB(255, 255, 255, 255),
             boxShadow: [
             const BoxShadow(
               color: Color.fromARGB(10, 15, 5, 5),
