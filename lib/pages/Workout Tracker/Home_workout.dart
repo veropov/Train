@@ -8,6 +8,7 @@ import 'package:aga/transition.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aga/pages/Workout Tracker/Fullbody_workout.dart';
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -122,7 +123,7 @@ Widget DayliWorkout(context) => Container(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      const Text('Daily Workout Schedule', style: kTextH3Bold),
+      const Text('Daily Workout Schedule', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
       Container(
         width: 74,
         height: 32,
@@ -256,82 +257,103 @@ List <String> wdwSubTitle = [
   '14 Exercises | 20mins',
 ]; 
 
-List wdwPicture = [
+List <String> wdwPicture = [
   'assets/images/WdwtoTrain_1.svg',
   'assets/images/WdwtoTrain_2.svg',
   'assets/images/WdwtoTrain_3.svg',
 ]; 
 
+List <Widget> vieMore = [
+  Fullbody(),
+  Fullbody(),
+  Fullbody(),
+];
 
-Widget WdwToTrain() => Container(
-  margin: EdgeInsets.symmetric(horizontal: 30),
-  child: Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-    SizedBox(height: 30),
-    Text('What Do You Want to Train', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-    for (var i=0; i<wdwTitle.length; i++) Container(
-      margin: EdgeInsets.only(top: 15),
-      width: double.infinity,
-      height: 130,
-      decoration: BoxDecoration(
-      gradient: const LinearGradient(
-        colors: [Color.fromARGB(255, 229, 241, 255), const Color.fromARGB(255, 216, 226, 255)], 
-          begin: Alignment.topLeft, 
-          end: Alignment.bottomRight
-        ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
+
+class WdwToTrain extends StatefulWidget {
+  const WdwToTrain({Key? key}) : super(key: key);
+
+  @override
+  State<WdwToTrain> createState() => _WdwToTrainState();
+}
+
+
+class _WdwToTrainState extends State<WdwToTrain> {
+  @override
+  
+  Widget build(BuildContext context) {
+
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(wdwTitle[i], style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
-              SizedBox(height: 5),
-              Text(wdwSubTitle[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100),),
-              SizedBox(height: 15),
-              Container(
-                width: 94,
-                height: 35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(50)
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: const StadiumBorder(),
-                    primary: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    padding: const EdgeInsets.all(5)
-                  ),
-                  child: Text('View more', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 92, 177, 247))),
-                  onPressed: () {
-                    
-                  },
-                ),
-              )
-            ],
+        SizedBox(height: 30),
+        Text('What Do You Want to Train', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+        for (var i=0; i<wdwTitle.length; i++) Container(
+          margin: EdgeInsets.only(top: 15),
+          width: double.infinity,
+          height: 130,
+          decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color.fromARGB(255, 229, 241, 255), const Color.fromARGB(255, 216, 226, 255)], 
+              begin: Alignment.topLeft, 
+              end: Alignment.bottomRight
+            ),
+            borderRadius: BorderRadius.circular(20),
           ),
-          Stack(
-            alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 90,
-                height: 90,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(140, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(100)
-                )
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(wdwTitle[i], style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
+                  SizedBox(height: 5),
+                  Text(wdwSubTitle[i], style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100),),
+                  SizedBox(height: 15),
+                  Container(
+                    width: 94,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50)
+                    ),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        primary: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        padding: const EdgeInsets.all(5)
+                      ),
+                      child: Text('View more', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 92, 177, 247))),
+                      onPressed: () {
+                        Navigator.push(context, Transition(child: vieMore[i]));
+                      },
+                    ),
+                  )
+                ],
               ),
-              SvgPicture.asset(wdwPicture[i])
-            ],
-          )
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 90,
+                    height: 90,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(140, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(100)
+                    )
+                  ),
+                  SvgPicture.asset(wdwPicture[i])
+                ],
+              )
+          ]),
+        )
       ]),
-    )
-  ]),
-);
+    );
+  }
+}

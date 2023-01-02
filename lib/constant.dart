@@ -1,5 +1,5 @@
 import 'dart:collection';
-
+import 'package:aga/transition.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -70,6 +70,54 @@ DropdownMenuItem<String> buidMenuItem(String item) => DropdownMenuItem(
   value: item,
   child: Text(item, style: kTextMain)
 );
+
+//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button
+//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button
+//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button
+
+class CheckButton extends StatefulWidget {
+  final String title;
+  final dynamic onChange;
+  const CheckButton({
+    required this.onChange,
+    required this.title,
+    Key? key
+  }) : super(key: key);
+
+  @override
+  State<CheckButton> createState() => _CheckButtonState();
+}
+
+class _CheckButtonState extends State<CheckButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 74,
+      height: 32,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [const Color.fromARGB(255, 154, 195, 254), const Color.fromARGB(255, 149, 174, 254)], 
+          begin: Alignment.topLeft, 
+          end: Alignment.bottomRight
+        ),
+        borderRadius: BorderRadius.circular(50)
+      ),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: const StadiumBorder(),
+          onPrimary: Colors.white,
+          primary: Colors.transparent,
+          shadowColor: Colors.transparent,
+          padding: const EdgeInsets.all(5)
+        ),
+        child: Text(widget.title, style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
+        onPressed: () {
+          widget.onChange;
+        },
+      )
+    );
+  }
+}
 
 //Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button
 //Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button//Switch-Button
@@ -281,7 +329,7 @@ class _AppState extends State<App> {
 //BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar
 //BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar//BottomBar
 
-int currentIndex = 0;
+int currentIndex = 0; //При входе в приложение Навбар на первом (начальном) экране
 
 class MainApp extends StatefulWidget {
   final int Ind;
@@ -385,3 +433,95 @@ Widget FloatButton() => SizedBox.fromSize(
   onPressed: () {},
   )
 );
+
+//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer
+//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer
+//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer//ScrollTimer
+
+class ScrollTimer extends StatefulWidget {
+  int x;
+  int y;
+  ScrollTimer({
+    required this.x,
+    required this.y,
+    Key? key
+  }) : super(key: key);
+
+  @override
+  State<ScrollTimer> createState() => _ScrollTimerState();
+}
+
+class _ScrollTimerState extends State<ScrollTimer> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: 80,
+          height: 35,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [const Color.fromARGB(255, 154, 195, 254), const Color.fromARGB(255, 149, 174, 254)], 
+              begin: Alignment.topLeft, 
+              end: Alignment.bottomRight
+            ),
+            borderRadius: BorderRadius.circular(50)
+          ),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: const StadiumBorder(),
+              onPrimary: Colors.white,
+              primary: Colors.transparent,
+              shadowColor: Colors.transparent,
+              padding: const EdgeInsets.all(5)
+            ),
+            child: Text('+ 100', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
+            onPressed: () {
+              setState(() {
+                widget.x = widget.x+1;
+                widget.y = widget.x * 100;
+              });
+            },
+          )
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 30),
+          child: Text(widget.y.toString(), style: TextStyle(fontSize: 50, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"))
+        ),
+        Container(
+          width: 80,
+          height: 35,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [const Color.fromARGB(255, 154, 195, 254), const Color.fromARGB(255, 149, 174, 254)], 
+              begin: Alignment.topLeft, 
+              end: Alignment.bottomRight
+            ),
+            borderRadius: BorderRadius.circular(50)
+          ),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: const StadiumBorder(),
+              onPrimary: Colors.white,
+              primary: Colors.transparent,
+              shadowColor: Colors.transparent,
+              padding: const EdgeInsets.all(5)
+            ),
+            child: Text('- 100', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
+            onPressed: () {
+              setState(() {
+                widget.x = widget.x-1;
+                if (widget.x<=0) {
+                  widget.x=0;
+                }
+                widget.y = widget.x * 100;
+              });
+            },
+          )
+        ),
+      ],
+    );
+  }
+}
