@@ -9,9 +9,7 @@ import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 
   List CasSteps = [ 
     for (var i=10; i<=500; i++)
-    if (i<10) Text('${i*100}', style: TextStyle(fontSize: 65, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center)
-      else if (i<100) Text('${i*100}', style: TextStyle(fontSize: 55, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center)
-      else Text('${i*100}', style: TextStyle(fontSize: 45, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center),
+    i * 100
   ];
 
 
@@ -22,16 +20,15 @@ class Aga extends StatefulWidget {
   State<Aga> createState() => _AgaState();
 }
 
-
 int kindex = 0;
-var bla = CasSteps[0];
+var textIndex = CasSteps[0];
 
 class _AgaState extends State<Aga> {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
       itemCount: CasSteps.length, 
-      itemBuilder: (context, index, realIndex) => CasSteps[index],
+      itemBuilder: (context, index, realIndex) => Text('${CasSteps[index]}', style: TextStyle(fontSize: 65, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center),
       options: CarouselOptions(
         enableInfiniteScroll: false,
         height: 180,
@@ -39,7 +36,7 @@ class _AgaState extends State<Aga> {
         scrollDirection: Axis.vertical,
         onPageChanged: (index, reason) =>
           setState(() {
-            kindex == index;
+            kindex = index;
           }
         )
       ),
@@ -56,8 +53,6 @@ class ChangeTargetSteps extends StatefulWidget {
 
 class _ChangeTargetState extends State<ChangeTargetSteps> {
 
-
-
   List _targetBool = [
     false, 
     false, 
@@ -67,19 +62,6 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
     false, 
     false
   ];
-
-
-  Widget Case() => CarouselSlider.builder(
-    options: CarouselOptions(
-      enableInfiniteScroll: false,
-      height: 180,
-      enlargeCenterPage: true,
-      scrollDirection: Axis.vertical,
-    ),
-    itemCount: CasSteps.length,
-    itemBuilder: (context, index, realIndex) => CasSteps[index],
-  );
-
 
   @override
   Widget build(BuildContext context) {
@@ -172,22 +154,6 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                   ],),
                 )
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  onPrimary: Color.fromARGB(255, 49, 49, 49),
-                  shadowColor: Colors.transparent,
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
-                  
-                ),
-                onPressed: () {
-                  setState(() {
-                    bla = CasSteps[kindex];
-                  });
-                }, 
-                child: Text('Back', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
-              ),
-              bla,
               Container(
               margin: EdgeInsets.only(bottom: 40),
               child: Row(
@@ -216,6 +182,9 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                   ),
                   onPressed: () {
+                    setState(() {
+                      textIndex = CasSteps[kindex];
+                    });
                     Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                   }, 
                   child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
