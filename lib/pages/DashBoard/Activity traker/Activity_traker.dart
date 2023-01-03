@@ -10,6 +10,7 @@ import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
 import 'package:aga/pages/DashBoard/Activity traker/Change_target/ChangeTarget_steps.dart';
 
+
 class Activity extends StatefulWidget {
   const Activity({Key? key}) : super(key: key);
 
@@ -100,8 +101,9 @@ class _TrackerState extends State<Tracker> {
                   Wrap(
                     alignment: WrapAlignment.spaceBetween,
                     children: [
-                    for (var i=0; i<TargetWidget.length; i++) TargetWidget[i]
-                    ],
+                      for (var i=0; i<targetWidget.length; i++) 
+                      targetWidget[i]
+                    ]
                   ),
                 ],
               )
@@ -113,14 +115,17 @@ class _TrackerState extends State<Tracker> {
   }
 }
 
-List TargetWidget = [
-  StepTarget(),
-  WaterTarget(),
-  StepTarget(),
-  WaterTarget(),
+List suka = [
+  400,
+  '700',
+  Text('100')
 ];
 
-StepTarget() => Container(
+List targetWidget = [
+  StepTarget(textIndex),
+];
+
+StepTarget(bring) => Container(
   margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
   width: 130,
   height: 60,
@@ -138,7 +143,7 @@ StepTarget() => Container(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('${textIndex.toString()}', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
+          Text(bring.toString(), style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
           Text('Foot Steps', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
         ],
       )
@@ -163,7 +168,7 @@ WaterTarget() => Container(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('${textIndex.toString()}', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
+          Text('10', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
           Text('Water Intake', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
         ],
       )

@@ -6,6 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
 
+import '../Activity_traker.dart';
+
 
   List CasSteps = [ 
     for (var i=10; i<=500; i++)
@@ -184,8 +186,12 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                   onPressed: () {
                     setState(() {
                       textIndex = CasSteps[kindex];
+                      suka.any((element) => element == 400) ? Container() : targetWidget.add(StepTarget(textIndex));
+                      // targetWidget.any((element) => element == StepTarget(textIndex)) ? Container() : targetWidget.add(StepTarget(textIndex));
+                      targetWidget[0] = StepTarget(textIndex);
+
+                      Navigator.push(context, Transition(child: Activity()));
                     });
-                    Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
                   }, 
                   child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
                 ],
