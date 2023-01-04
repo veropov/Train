@@ -1,3 +1,4 @@
+import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_steps.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
@@ -5,6 +6,25 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
+
+import '../Activity_traker.dart';
+
+  List Cas = [ 
+    for (var i=0; i<24; i++)
+    i<10 ? '0$i' : i
+  ];
+
+    List Cas2 = [ 
+    for (var i=0; i<60; i++)
+      i<10 ? '0$i' : i
+  ];
+
+  int kindexSleep = 0;
+  int lindexSleep = 0;
+
+  var textIndexSleep = Cas[0];
+  var textIndexSleep2 = Cas2[0];
+
 
 class ChangeTarget extends StatefulWidget {
   const ChangeTarget({Key? key}) : super(key: key);
@@ -25,18 +45,6 @@ class _ChangeTargetState extends State<ChangeTarget> {
     false
   ];
 
-  var Cas = [ 
-    for (var i=0; i<24; i++)
-      if (i<10) Text('0' + '$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right,)
-      else Text('$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right),
-  ];
-
-    var Cas2 = [ 
-    for (var i=0; i<60; i++)
-      if (i<10) Text('0' + '$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left,)
-      else Text('$i', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left),
-  ];
-
   Widget Case(widthScreen, heightScreen) => Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
@@ -50,9 +58,12 @@ class _ChangeTargetState extends State<ChangeTarget> {
             height: 150,
             enlargeCenterPage: true,
             scrollDirection: Axis.vertical,
+            onPageChanged: (index, reason) => setState((){
+              kindexSleep = index;
+            }) 
           ),
           itemCount: Cas.length,
-          itemBuilder: (context, index, realIndex) => Cas[index],
+          itemBuilder: (context, index, realIndex) => Text('${Cas[index]}', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right,)
         ),
       ),
        SizedBox(
@@ -88,9 +99,12 @@ class _ChangeTargetState extends State<ChangeTarget> {
             height: 150,
             enlargeCenterPage: true,
             scrollDirection: Axis.vertical,
+            onPageChanged: (index, reason) => setState(() {
+              lindexSleep = index;
+            })
           ),
           itemCount: Cas2.length,
-          itemBuilder: (context, index, realIndex) => Cas2[index],
+          itemBuilder: (context, index, realIndex) => Text('${Cas2[index]}', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left)
         ),
       ),
     ],
@@ -212,7 +226,11 @@ class _ChangeTargetState extends State<ChangeTarget> {
                     padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)
                 ),
                 onPressed: () {
-                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                  textIndexSleep = Cas[kindexSleep];
+                  textIndexSleep2 = Cas[lindexSleep];
+                  mapTarget.putIfAbsent('Sleep target', () => SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()}'));
+
+                  Navigator.push(context, Transition(child: Activity()));
                 }, 
                 child: Text('Save', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
               ],

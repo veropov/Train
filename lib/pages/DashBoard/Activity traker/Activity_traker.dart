@@ -1,3 +1,4 @@
+import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_sleep.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
@@ -101,7 +102,7 @@ class _TrackerState extends State<Tracker> {
                   Wrap(
                     alignment: WrapAlignment.spaceBetween,
                     children: [
-                      for (var item in map.entries) 
+                      for (var item in mapTarget.entries)
                       item.value
                     ]
                   ),
@@ -115,14 +116,14 @@ class _TrackerState extends State<Tracker> {
   }
 }
 
-var map = {
-  
-  'Water target' : WaterTarget()
-};
+//Список виджетов в Today Target//Список виджетов в Today Target
+//Список виджетов в Today Target//Список виджетов в Today Target
+//Список виджетов в Today Target//Список виджетов в Today Target
 
-List targetWidget = [
-  StepTarget(textIndex),
-];
+Map <String, Widget> mapTarget = {
+  'Water target' : WaterTarget(),
+  'Step target' : StepTarget(textIndex),
+};
 
 StepTarget(bring) => Container(
   margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
@@ -132,21 +133,24 @@ StepTarget(bring) => Container(
     color: Colors.white,
     borderRadius: BorderRadius.circular(8)
   ),
-  child: Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      SvgPicture.asset('assets/images/target_boots.svg', height: 30),
-      SizedBox(width: 12),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(bring.toString(), style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
-          Text('Foot Steps', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
-        ],
-      )
-  ],)
+  child: Container(
+    margin: EdgeInsets.only(left: 10),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SvgPicture.asset('assets/images/target_boots.svg', height: 30),
+        SizedBox(width: 12),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(bring.toString(), style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
+            Text('Foot Steps', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
+          ],
+        )
+    ],),
+  )
 );
 
 WaterTarget() => Container(
@@ -157,22 +161,57 @@ WaterTarget() => Container(
     color: Colors.white,
     borderRadius: BorderRadius.circular(8)
   ),
-  child: Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      SvgPicture.asset('assets/images/target_glass.svg', height: 30),
-      SizedBox(width: 12),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('10', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
-          Text('Water Intake', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
-        ],
-      )
-  ],)
+  child: Container(
+    margin: EdgeInsets.only(left: 10),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SvgPicture.asset('assets/images/target_glass.svg', height: 30),
+        SizedBox(width: 12),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('10', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
+            Text('Water Intake', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
+          ],
+        )
+    ],),
+  )
 );
+
+Widget SleepTarget(bring) => Container(
+  margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
+  width: 130,
+  height: 60,
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(8)
+  ),
+  child: Container(
+    margin: EdgeInsets.only(left: 10),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SvgPicture.asset('assets/images/target_sleep.svg', height: 30),
+        SizedBox(width: 12),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(bring, style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
+            Text('Sleep time', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
+          ],
+        )
+    ],),
+  )
+);
+
+//Прогресс бар активности//Прогресс бар активности
+//Прогресс бар активности//Прогресс бар активности
+//Прогресс бар активности//Прогресс бар активности
 
 Widget ActProgress() => Container(
   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),

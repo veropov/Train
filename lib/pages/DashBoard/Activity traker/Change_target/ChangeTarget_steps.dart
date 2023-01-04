@@ -187,9 +187,9 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                     setState(() {
                       textIndex = CasSteps[kindex];
                       //Проверка, добавлен ли виджет подсчета шагов. Если не добавлен - добавляем
-                      map.putIfAbsent('Step target', () => StepTarget(textIndex));
+                      mapTarget.putIfAbsent('Step target', () => StepTarget(textIndex));
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
-                      map['Step target'] = StepTarget(textIndex);
+                      mapTarget['Step target'] = StepTarget(textIndex);
                       
                       Navigator.push(context, Transition(child: Activity()));
                     });
