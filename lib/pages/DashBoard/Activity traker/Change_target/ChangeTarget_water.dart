@@ -5,16 +5,46 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
+
 import '../Activity_traker.dart';
 
 
-List CasSteps = [ 
-  for (var i=10; i<=500; i++)
-  i * 100
-];
+  List CasSteps = [ 
+    for (var i=10; i<=500; i++)
+    i * 100
+  ];
+
+
+class Aga extends StatefulWidget {
+  const Aga({Key? key}) : super(key: key);
+
+  @override
+  State<Aga> createState() => _AgaState();
+}
 
 int kindex = 0;
 var textIndex = CasSteps[0];
+
+class _AgaState extends State<Aga> {
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider.builder(
+      itemCount: CasSteps.length, 
+      itemBuilder: (context, index, realIndex) => Text('${CasSteps[index]}', style: TextStyle(fontSize: 65, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center),
+      options: CarouselOptions(
+        enableInfiniteScroll: false,
+        height: 180,
+        enlargeCenterPage: true,
+        scrollDirection: Axis.vertical,
+        onPageChanged: (index, reason) =>
+          setState(() {
+            kindex = index;
+          }
+        )
+      ),
+    );
+  }
+}
 
 class ChangeTargetSteps extends StatefulWidget {
   const ChangeTargetSteps({Key? key}) : super(key: key);
@@ -35,22 +65,6 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
     false
   ];
 
-  Widget StepTargetCarousel() => CarouselSlider.builder(
-    itemCount: CasSteps.length, 
-    itemBuilder: (context, index, realIndex) => Text('${CasSteps[index]}', style: TextStyle(fontSize: 65, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center),
-    options: CarouselOptions(
-      enableInfiniteScroll: false,
-      height: 180,
-      enlargeCenterPage: true,
-      scrollDirection: Axis.vertical,
-      onPageChanged: (index, reason) =>
-        setState(() {
-          kindex = index;
-        }
-      )
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
   final heightScreen = MediaQuery.of(context).size.height;
@@ -68,7 +82,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                 alignment: Alignment.center,
                 height: heightScreen*0.35,
                 color: Colors.transparent,
-                  child: StepTargetCarousel(),
+                  child: Aga(),
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 15),

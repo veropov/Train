@@ -6,7 +6,6 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
-
 import '../Activity_traker.dart';
 
   List Cas = [ 
@@ -40,14 +39,14 @@ import '../Activity_traker.dart';
   var textkIndexSleep2 = Las2[0];
 
 
-class ChangeTarget extends StatefulWidget {
-  const ChangeTarget({Key? key}) : super(key: key);
+class ChangeTargetSleep extends StatefulWidget {
+  const ChangeTargetSleep({Key? key}) : super(key: key);
 
   @override
-  State<ChangeTarget> createState() => _ChangeTargetState();
+  State<ChangeTargetSleep> createState() => _ChangeTargetSleepState();
 }
 
-class _ChangeTargetState extends State<ChangeTarget> {
+class _ChangeTargetSleepState extends State<ChangeTargetSleep> {
 
   final _targetBool = [
     false, 
@@ -58,8 +57,9 @@ class _ChangeTargetState extends State<ChangeTarget> {
     false, 
     false
   ];
+  
 
-  Widget Case(widthScreen, heightScreen) => Row(
+  Widget TargetSleep(widthScreen, heightScreen) => Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -206,7 +206,7 @@ class _ChangeTargetState extends State<ChangeTarget> {
             Container(
               height: heightScreen*0.35,
               color: Colors.transparent,
-                child: Case(widthScreen, heightScreen),
+                child: TargetSleep(widthScreen, heightScreen),
             ),
             Container(
               width: double.infinity,

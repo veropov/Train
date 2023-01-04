@@ -83,7 +83,7 @@ class _ListTargetsState extends State<ListTargets> {
           tileColor: Color.fromARGB(45, 202, 221, 255),
           title: Text('Sleep time', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
           onTap: () {
-            Navigator.push(context, Transition(child: ChangeTarget()));
+            Navigator.push(context, Transition(child: ChangeTargetSleep()));
           }
         )
       ]
