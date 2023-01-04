@@ -101,8 +101,8 @@ class _TrackerState extends State<Tracker> {
                   Wrap(
                     alignment: WrapAlignment.spaceBetween,
                     children: [
-                      for (var i=0; i<targetWidget.length; i++) 
-                      targetWidget[i]
+                      for (var item in map.entries) 
+                      item.value
                     ]
                   ),
                 ],
@@ -115,11 +115,10 @@ class _TrackerState extends State<Tracker> {
   }
 }
 
-List suka = [
-  400,
-  '700',
-  Text('100')
-];
+var map = {
+  
+  'Water target' : WaterTarget()
+};
 
 List targetWidget = [
   StepTarget(textIndex),
