@@ -81,7 +81,7 @@ class _ListTargetsState extends State<ListTargets> {
           leading: SvgPicture.asset('assets/images/target_sleep.svg', height: 35),
           trailing: SvgPicture.asset(''),
           tileColor: Color.fromARGB(45, 202, 221, 255),
-          title: Text('Sleep', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
+          title: Text('Sleep time', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
           onTap: () {
             Navigator.push(context, Transition(child: ChangeTarget()));
           }

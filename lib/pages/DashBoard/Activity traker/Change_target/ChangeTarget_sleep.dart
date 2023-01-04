@@ -14,16 +14,30 @@ import '../Activity_traker.dart';
     i<10 ? '0$i' : i
   ];
 
-    List Cas2 = [ 
-    for (var i=0; i<60; i++)
-      i<10 ? '0$i' : i
+  List Las2 = [ 
+    for (var i=0; i<6; i++)
+      i==0 ? '0${i*10}' : i*10
+  ];
+
+  List Las = [ 
+    for (var i=0; i<24; i++)
+    i<10 ? '0$i' : i
+  ];
+
+  List Cas2 = [ 
+    for (var i=0; i<6; i++)
+      i==0 ? '0${i*10}' : i*10
   ];
 
   int kindexSleep = 0;
   int lindexSleep = 0;
+  int sindexSleep = 0;
+  int mindexSleep = 0;
 
   var textIndexSleep = Cas[0];
   var textIndexSleep2 = Cas2[0];
+  var textkIndexSleep = Las[0];
+  var textkIndexSleep2 = Las2[0];
 
 
 class ChangeTarget extends StatefulWidget {
@@ -51,8 +65,8 @@ class _ChangeTargetState extends State<ChangeTarget> {
     children: [
       Container(
         alignment: Alignment.centerRight,
-        width: widthScreen * 0.4,
-        height: heightScreen*0.4,
+        width: widthScreen * 0.2,
+        height: heightScreen*0.2,
         child: CarouselSlider.builder(
           options: CarouselOptions(
             height: 150,
@@ -63,17 +77,17 @@ class _ChangeTargetState extends State<ChangeTarget> {
             }) 
           ),
           itemCount: Cas.length,
-          itemBuilder: (context, index, realIndex) => Text('${Cas[index]}', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right,)
+          itemBuilder: (context, index, realIndex) => Text('${Cas[index]}', style: TextStyle(fontSize: 40, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right,)
         ),
       ),
-       SizedBox(
+      SizedBox(
         width: 15,
          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 8,
-              height: 8,
+              width: 4,
+              height: 4,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
                 color: Color.fromARGB(255, 75, 75, 75)
@@ -81,19 +95,19 @@ class _ChangeTargetState extends State<ChangeTarget> {
             ),
             SizedBox(height: 10),
             Container(
-              width: 8,
-              height: 8,
+              width: 4,
+              height: 4,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
                 color: Color.fromARGB(255, 75, 75, 75)
               ),
             ),
-      ],),
-       ),
+        ],),
+      ),
       Container(
         alignment: Alignment.centerLeft,
-        width: widthScreen * 0.4,
-        height: heightScreen*0.4,
+        width: widthScreen * 0.2,
+        height: heightScreen*0.2,
         child: CarouselSlider.builder(
           options: CarouselOptions(
             height: 150,
@@ -104,7 +118,73 @@ class _ChangeTargetState extends State<ChangeTarget> {
             })
           ),
           itemCount: Cas2.length,
-          itemBuilder: (context, index, realIndex) => Text('${Cas2[index]}', style: TextStyle(fontSize: 80, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left)
+          itemBuilder: (context, index, realIndex) => Text('${Cas2[index]}', style: TextStyle(fontSize: 40, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left)
+        ),
+      ),
+      Container(
+        width: 20,
+        height: 1.5,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          color: Color.fromARGB(255, 75, 75, 75)
+        ),
+      ),
+      Container(
+        alignment: Alignment.centerRight,
+        width: widthScreen * 0.2,
+        height: heightScreen*0.2,
+        child: CarouselSlider.builder(
+          options: CarouselOptions(
+            height: 150,
+            enlargeCenterPage: true,
+            scrollDirection: Axis.vertical,
+            onPageChanged: (index, reason) => setState((){
+              sindexSleep = index;
+            }) 
+          ),
+          itemCount: Las.length,
+          itemBuilder: (context, index, realIndex) => Text('${Las[index]}', style: TextStyle(fontSize: 40, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.right,)
+        ),
+      ),
+      SizedBox(
+        width: 15,
+         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 4,
+              height: 4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Color.fromARGB(255, 75, 75, 75)
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: 4,
+              height: 4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Color.fromARGB(255, 75, 75, 75)
+              ),
+            ),
+        ],),
+      ),
+      Container(
+        alignment: Alignment.centerLeft,
+        width: widthScreen * 0.2,
+        height: heightScreen*0.2,
+        child: CarouselSlider.builder(
+          options: CarouselOptions(
+            height: 150,
+            enlargeCenterPage: true,
+            scrollDirection: Axis.vertical,
+            onPageChanged: (index, reason) => setState(() {
+              mindexSleep = index;
+            })
+          ),
+          itemCount: Las2.length,
+          itemBuilder: (context, index, realIndex) => Text('${Las2[index]}', style: TextStyle(fontSize: 40, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.left)
         ),
       ),
     ],
@@ -228,7 +308,11 @@ class _ChangeTargetState extends State<ChangeTarget> {
                 onPressed: () {
                   textIndexSleep = Cas[kindexSleep];
                   textIndexSleep2 = Cas[lindexSleep];
-                  mapTarget.putIfAbsent('Sleep target', () => SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()}'));
+                  textkIndexSleep = Las[sindexSleep];
+                  textkIndexSleep2 = Las[mindexSleep];
+                  mapTarget.putIfAbsent('Sleep target', () => 
+                    SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()} — ${textkIndexSleep.toString()}:${textkIndexSleep2.toString()}'));
+                  mapTarget['Sleep target'] = SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()} — ${textkIndexSleep.toString()}:${textkIndexSleep2.toString()}');
 
                   Navigator.push(context, Transition(child: Activity()));
                 }, 
