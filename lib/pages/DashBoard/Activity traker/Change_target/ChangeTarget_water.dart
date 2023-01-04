@@ -5,55 +5,25 @@ import 'package:aga/transition.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
-
 import '../Activity_traker.dart';
 
 
-  List CasSteps = [ 
-    for (var i=10; i<=500; i++)
-    i * 100
-  ];
+List CasWater = [ 
+  for (var i=1; i<=10; i++)
+  i
+];
 
+int windex = 0;
+var textWaterIndex = CasWater[0];
 
-class Aga extends StatefulWidget {
-  const Aga({Key? key}) : super(key: key);
-
-  @override
-  State<Aga> createState() => _AgaState();
-}
-
-int kindex = 0;
-var textIndex = CasSteps[0];
-
-class _AgaState extends State<Aga> {
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      itemCount: CasSteps.length, 
-      itemBuilder: (context, index, realIndex) => Text('${CasSteps[index]}', style: TextStyle(fontSize: 65, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center),
-      options: CarouselOptions(
-        enableInfiniteScroll: false,
-        height: 180,
-        enlargeCenterPage: true,
-        scrollDirection: Axis.vertical,
-        onPageChanged: (index, reason) =>
-          setState(() {
-            kindex = index;
-          }
-        )
-      ),
-    );
-  }
-}
-
-class ChangeTargetSteps extends StatefulWidget {
-  const ChangeTargetSteps({Key? key}) : super(key: key);
+class ChangeTargetWater extends StatefulWidget {
+  const ChangeTargetWater({Key? key}) : super(key: key);
 
   @override
-  State<ChangeTargetSteps> createState() => _ChangeTargetState();
+  State<ChangeTargetWater> createState() => _ChangeTargetWaterState();
 }
 
-class _ChangeTargetState extends State<ChangeTargetSteps> {
+class _ChangeTargetWaterState extends State<ChangeTargetWater> {
 
   List _targetBool = [
     false, 
@@ -64,6 +34,22 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
     false, 
     false
   ];
+
+  Widget StepTargetCarousel() => CarouselSlider.builder(
+    itemCount: CasWater.length, 
+    itemBuilder: (context, index, realIndex) => Text('${CasWater[index]}', style: TextStyle(fontSize: 65, height: 1.5, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 115, 148, 255), fontFamily: "Poppins"), textAlign: TextAlign.center),
+    options: CarouselOptions(
+      enableInfiniteScroll: false,
+      height: 180,
+      enlargeCenterPage: true,
+      scrollDirection: Axis.vertical,
+      onPageChanged: (index, reason) =>
+        setState(() {
+          windex = index;
+        }
+      )
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +68,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                 alignment: Alignment.center,
                 height: heightScreen*0.35,
                 color: Colors.transparent,
-                  child: Aga(),
+                  child: StepTargetCarousel(),
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 15),
@@ -185,11 +171,11 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                   ),
                   onPressed: () {
                     setState(() {
-                      textIndex = CasSteps[kindex];
+                      textWaterIndex = CasWater[windex];
                       //Проверка, добавлен ли виджет подсчета шагов. Если не добавлен - добавляем
-                      mapTarget.putIfAbsent('Step target', () => StepTarget(textIndex));
+                      mapTarget.putIfAbsent('Water target', () => WaterTarget(textWaterIndex));
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
-                      mapTarget['Step target'] = StepTarget(textIndex);
+                      mapTarget['Water target'] = WaterTarget(textWaterIndex);
                       
                       Navigator.push(context, Transition(child: Activity()));
                     });

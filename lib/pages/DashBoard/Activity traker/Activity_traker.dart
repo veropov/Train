@@ -1,4 +1,5 @@
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_sleep.dart';
+import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_water.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
@@ -121,7 +122,7 @@ class _TrackerState extends State<Tracker> {
 //Список виджетов в Today Target//Список виджетов в Today Target
 
 Map <String, Widget> mapTarget = {
-  'Water target' : WaterTarget(),
+  'Water target' : WaterTarget(textWaterIndex),
   'Step target' : StepTarget(textIndex),
 };
 
@@ -153,7 +154,7 @@ StepTarget(bring) => Container(
   )
 );
 
-WaterTarget() => Container(
+WaterTarget(bring) => Container(
   margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
   width: 130,
   height: 60,
@@ -173,7 +174,7 @@ WaterTarget() => Container(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('10', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
+            Text(bring.toString() + 'L', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
             Text('Water Intake', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
           ],
         )
