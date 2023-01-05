@@ -4,6 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../constant.dart';
+import '../../../transition.dart';
+import 'Activity_traker.dart';
+import 'Change_target/ChangeTarget_steps.dart';
+
+  Widget stepNavigator(context) => InkWell(
+    child: SvgPicture.asset('assets/icons/Edit Square_light.svg', height: 25, color: Colors.blue),
+    onTap: (() => Navigator.push(context, Transition(child: ChangeTargetSteps())))
+  );
+
+  Widget stepDelete(context) => InkWell(
+    child: SvgPicture.asset('assets/icons/Delete_light.svg', height: 25, color: Colors.blue),
+    onTap: (() => mapTarget.remove('Step target'))
+  );
+
+  Widget stepBack(context, stepBool) => InkWell(
+    child: SvgPicture.asset('assets/icons/Arrow - Left Square_light.svg', height: 25, color: Colors.blue),
+    onTap: (() => stepBool = false)
+  );
 
 class StepTarget extends StatefulWidget {
   final int bring;
@@ -21,14 +39,16 @@ class _StepTargetState extends State<StepTarget> {
   bool stepBool = false;
 
   int stepIndex = 0;
-  List stepIcon = [
-    SvgPicture.asset('assets/icons/Edit Square_light.svg', height: 25, color: Colors.blue),
-    SvgPicture.asset('assets/icons/Delete_light.svg', height: 25, color: Colors.blue),
-    SvgPicture.asset('assets/icons/Arrow - Left Square_light.svg', height: 25, color: Colors.blue)
-  ];
 
   @override
   Widget build(BuildContext context) {
+
+  List stepIcon = [
+    stepNavigator(context),
+    stepDelete(context),
+    stepBack(context, stepBool)
+  ];
+
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
       child: InkWell(
@@ -49,7 +69,8 @@ class _StepTargetState extends State<StepTarget> {
           ),
           child: CarouselSlider.builder(
             itemCount: stepIcon.length, 
-            itemBuilder: ((context, index, realIndex) => stepIcon[index]), 
+            itemBuilder: ((context, index, realIndex) => stepIcon[index]
+            ),
             options: CarouselOptions(
               height: 25,
               enlargeCenterPage: true,
