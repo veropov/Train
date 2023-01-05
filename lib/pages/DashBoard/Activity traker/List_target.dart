@@ -1,3 +1,4 @@
+import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_calories.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
@@ -75,7 +76,9 @@ class _ListTargetsState extends State<ListTargets> {
           trailing: SvgPicture.asset(''),
           tileColor: Color.fromARGB(45, 202, 221, 255),
           title: Text('Burn calories', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, Transition(child: ChangeTargetCalories()));
+          },
         ),
         SizedBox(height: 5),     
         ListTile(

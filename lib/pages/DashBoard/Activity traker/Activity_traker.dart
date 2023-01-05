@@ -1,3 +1,4 @@
+import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_calories.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_sleep.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_water.dart';
 import 'package:flutter/material.dart';
@@ -204,6 +205,34 @@ Widget SleepTarget(bring) => Container(
           children: [
             Text(bring, style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
             Text('Sleep time', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
+          ],
+        )
+    ],),
+  )
+);
+
+Widget CaloriesTarget(bring) => Container(
+  margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
+  width: 130,
+  height: 60,
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(8)
+  ),
+  child: Container(
+    margin: EdgeInsets.only(left: 10),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SvgPicture.asset('assets/images/target_calories.svg', height: 30),
+        SizedBox(width: 12),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(bring.toString(), style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
+            Text('Burn calories', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
           ],
         )
     ],),
