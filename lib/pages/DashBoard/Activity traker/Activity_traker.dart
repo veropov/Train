@@ -1,6 +1,7 @@
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_calories.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_sleep.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_water.dart';
+import 'package:aga/pages/DashBoard/Activity%20traker/targets.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:aga/transition.dart';
@@ -49,7 +50,6 @@ class Tracker extends StatefulWidget {
 class _TrackerState extends State<Tracker> {
   @override
   Widget build(BuildContext context) {
-
     final widthScreen = MediaQuery.of(context).size.width;
 
     return SingleChildScrollView(
@@ -118,45 +118,18 @@ class _TrackerState extends State<Tracker> {
   }
 }
 
-//Список виджетов в Today Target//Список виджетов в Today Target
-//Список виджетов в Today Target//Список виджетов в Today Target
-//Список виджетов в Today Target//Список виджетов в Today Target
 
 Map <String, Widget> mapTarget = {
   'Water target' : WaterTarget(textWaterIndex),
-  'Step target' : StepTarget(textIndex),
+  'Step target' : StepTarget(bring: textIndex),
 };
 
-StepTarget(bring) => Container(
-  margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
-  width: 130,
-  height: 60,
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(8)
-  ),
-  child: Container(
-    margin: EdgeInsets.only(left: 10),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        SvgPicture.asset('assets/images/target_boots.svg', height: 30),
-        SizedBox(width: 12),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(bring.toString(), style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, color: Color.fromARGB(255, 126, 145, 253), fontFamily: "Poppins")),
-            Text('Foot Steps', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins"))
-          ],
-        )
-    ],),
-  )
-);
+//Список виджетов в Today Target//Список виджетов в Today Target
+//Список виджетов в Today Target//Список виджетов в Today Target
+//Список виджетов в Today Target//Список виджетов в Today Target
 
 WaterTarget(bring) => Container(
-  margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
+  margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
   width: 130,
   height: 60,
   decoration: BoxDecoration(
@@ -238,6 +211,7 @@ Widget CaloriesTarget(bring) => Container(
     ],),
   )
 );
+
 
 //Прогресс бар активности//Прогресс бар активности
 //Прогресс бар активности//Прогресс бар активности

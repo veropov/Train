@@ -1,3 +1,4 @@
+import 'package:aga/pages/DashBoard/Activity%20traker/targets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
@@ -173,9 +174,9 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                     setState(() {
                       textIndex = CasSteps[kindex];
                       //Проверка, добавлен ли виджет подсчета шагов. Если не добавлен - добавляем
-                      mapTarget.putIfAbsent('Step target', () => StepTarget(textIndex));
+                      mapTarget.putIfAbsent('Step target', () => StepTarget(bring: textIndex));
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
-                      mapTarget['Step target'] = StepTarget(textIndex);
+                      mapTarget['Step target'] = StepTarget(bring: textIndex);
                       
                       Navigator.push(context, Transition(child: Activity()));
                     });
