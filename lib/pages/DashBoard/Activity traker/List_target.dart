@@ -1,3 +1,4 @@
+import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_calories.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
@@ -48,7 +49,7 @@ class _ListTargetsState extends State<ListTargets> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        ListTile(
+        mapTarget.containsKey('Water target') ? Container() : ListTile(
           contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
           leading: SvgPicture.asset('assets/images/target_glass.svg', height: 35),
           trailing: SvgPicture.asset(''),
@@ -59,7 +60,7 @@ class _ListTargetsState extends State<ListTargets> {
           },
         ),
         SizedBox(height: 5),
-        ListTile(
+        mapTarget.containsKey('Step target') ? Container() : ListTile(
           contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
           leading: SvgPicture.asset('assets/images/target_boots.svg', height: 35),
           trailing: SvgPicture.asset(''),
@@ -70,7 +71,7 @@ class _ListTargetsState extends State<ListTargets> {
           },
         ),
         SizedBox(height: 5),
-        ListTile(
+        mapTarget.containsKey('Calories target') ? Container() : ListTile(
           contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
           leading: SvgPicture.asset('assets/images/target_calories.svg', height: 38),
           trailing: SvgPicture.asset(''),
@@ -81,7 +82,7 @@ class _ListTargetsState extends State<ListTargets> {
           },
         ),
         SizedBox(height: 5),     
-        ListTile(
+        mapTarget.containsKey('Sleep target') ? Container() : ListTile(
           contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
           leading: SvgPicture.asset('assets/images/target_sleep.svg', height: 35),
           trailing: SvgPicture.asset(''),
