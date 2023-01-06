@@ -102,7 +102,7 @@ class _TrackerState extends State<Tracker> {
                   ],),
                   SizedBox(height: 15),
                   Wrap(
-                    alignment: WrapAlignment.spaceBetween,
+                    alignment: WrapAlignment.center,
                     children: [
                       for (var item in mapTarget.entries)
                       item.value
@@ -129,7 +129,7 @@ Map <String, Widget> mapTarget = {
 //Список виджетов в Today Target//Список виджетов в Today Target
 
 WaterTarget(bring) => Container(
-  margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+  margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 20),
   width: 130,
   height: 60,
   decoration: BoxDecoration(
