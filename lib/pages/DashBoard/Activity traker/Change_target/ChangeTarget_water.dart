@@ -157,7 +157,7 @@ class _ChangeTargetWaterState extends State<ChangeTargetWater> {
                       
                     ),
                     onPressed: () {
-                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets()));
                     }, 
                     child: Text('Back', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                   ),
@@ -177,7 +177,7 @@ class _ChangeTargetWaterState extends State<ChangeTargetWater> {
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
                       mapTarget['Water target'] = WaterTarget(textWaterIndex);
                       
-                      Navigator.push(context, Transition(child: Activity()));
+                      Navigator.push(context, Transition(child: Tracker()));
                     });
                   }, 
                   child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))

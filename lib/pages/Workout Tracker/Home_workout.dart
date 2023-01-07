@@ -10,6 +10,9 @@ import 'package:aga/pages/Profile/Profile_model_change.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/Workout Tracker/Fullbody_workout.dart';
 
+import '../../appbar.dart';
+import '../../bottom_navigation.dart';
+
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
 
@@ -24,73 +27,75 @@ class _WorkoutState extends State<Workout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: currentIndex == 1 ? Size.fromHeight(60) : Size.fromHeight(0),
-        child: currentIndex == 1 ? App(titleApp: Text('Workout Tracker', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), appAction: true, appLeading: false, centerTitle: false,) : Container()
+        preferredSize: Size.fromHeight(0),
+        child: App(
+          titleApp: Text('Workout Tracker', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), 
+          appAction: true, 
+          appLeading: false, 
+          centerTitle: false,
+        )
       ),
-        body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SingleChildScrollView(
-              child: Stack(
-                children: [
-                  Container(
-                    height: 340,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
-                        begin: Alignment.topLeft, 
-                        end: Alignment.bottomRight
-                      )
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 300),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
-                      gradient: LinearGradient(
-                        colors: [Colors.white, Color.fromARGB(50, 255, 255, 255)],
-                        begin: Alignment(0.0, -0.9),
-                        end: Alignment(0.0,-0.7)
-                      )
-                    ),
-                    child: Column(
-                      children: [
-                        DayliWorkout(context),
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 30),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                            Text('Upcoming Workout', style: kTextH3Bold),
-                            Container(
-                              child: InkWell(
-                                splashColor: Colors.blue,
-                                child: Text('See more', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100)),
-                                onTap: (() {
-                                  setState(() {
-                                    workoutPage = !workoutPage;
-                                  });
-                                }),
-                              ),
-                            )
-                          ],),
-                        ), 
-                        UpcomingWorout(),
-                        workoutPage ? Container() : UpcomingWorout(),
-                        WdwToTrain()
-                      ],
+      body: SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SingleChildScrollView(
+            child: Stack(
+              children: [
+                Container(
+                  height: 340,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
+                      begin: Alignment.topLeft, 
+                      end: Alignment.bottomRight
                     )
                   ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      )
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 300),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+                    gradient: LinearGradient(
+                      colors: [Colors.white, Color.fromARGB(50, 255, 255, 255)],
+                      begin: Alignment(0.0, -0.9),
+                      end: Alignment(0.0,-0.7)
+                    )
+                  ),
+                  child: Column(children: [
+                    DayliWorkout(context),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                        Text('Upcoming Workout', style: kTextH3Bold),
+                        Container(
+                          child: InkWell(
+                            splashColor: Colors.blue,
+                            child: Text('See more', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100)),
+                            onTap: (() {
+                              setState(() {
+                                workoutPage = !workoutPage;
+                              });
+                            }),
+                          ),
+                        )
+                      ],),
+                    ), 
+                    UpcomingWorout(),
+                    workoutPage ? Container() : UpcomingWorout(),
+                    WdwToTrain()
+                  ],)
+                ),
+            ],),
+          ),
+      ],),
+      ),
+      bottomNavigationBar: NavBottomBar()
     );
   }
 }
@@ -264,9 +269,9 @@ List <String> wdwPicture = [
 ]; 
 
 List <Widget> vieMore = [
-  Fullbody(),
-  Fullbody(),
-  Fullbody(),
+  Fullbody_workout(),
+  Fullbody_workout(),
+  Fullbody_workout(),
 ];
 
 

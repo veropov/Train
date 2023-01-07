@@ -1,3 +1,4 @@
+import 'package:aga/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -6,42 +7,10 @@ import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
-import 'dart:math' as math;
 import 'package:aga/pages/Profile/Profile_model_change.dart';
 import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 
-
-class MainBoards extends StatefulWidget {
-  const MainBoards({Key? key,}) : super(key: key);
-
-  @override
-  State<MainBoards> createState() => _MainBoardsState();
-}
-
-class _MainBoardsState extends State<MainBoards> {
-  @override
-  
-  Widget build(BuildContext context) {
-    return MainApp(
-      Ind: 0, 
-      titleApp: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-          Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-        ]
-      ),
-      appAction: true,
-      appLeading: false,
-      centerTitle: false,
-      currentInd: Home(), 
-      currentInd2: Workout(), 
-      currentInd3: Home(), 
-      currentInd4: Profile()
-    );
-  }
-}
+import '../../../bottom_navigation.dart';
 
 
 class Home extends StatefulWidget {
@@ -54,116 +23,119 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-
-final widthScreen = MediaQuery.of(context).size.width;
-
-    var present = (weight/math.pow(height, 2))*100;
-    var percenting = (present * 100).round();
-
-  BMIndex() { 
-    if (percenting <= 18) {
-      return const Text(' underweight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins"));
-    } else if (percenting>=19 && percenting <=25) {
-      return const Text(' normal weight', style: const TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins"));
-    } else {
-      return const Text(' overweight', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: kWhite, fontFamily: "Poppins"));
-    }
-  }
-
-    return SingleChildScrollView(child: 
-      Column(
+  final widthScreen = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: PreferredSize(
+      preferredSize: Size.fromHeight(0),
+        child: App(
+        titleApp: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BMI(BMIndex, present, percenting, context),
-          TodayTarget(context),
-          HeartRate(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 30, right: 15, top: 30),
-                  width: widthScreen*0.4,
-                  height: 315,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(200, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      const BoxShadow(
-                        color: const Color.fromARGB(20, 0, 0, 0),
-                        blurRadius: 40,
-                        offset: Offset(0,10)
-                      )
-                    ]
-                  ),
-                  child: InkWell(
-                    highlightColor: const Color.fromARGB(255, 234, 236, 255),
-                    splashColor: const Color.fromARGB(255, 118, 103, 255),
-                    borderRadius: BorderRadius.circular(20),
-                    radius: 500,
-                    onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        //DATE OF WATER
-                        //DATE OF WATER
-                        //DATE OF WATER
-                        Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(left: 15, right: 10),
-                              width: 20,
-                              height: 275,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 233, 233, 233),
-                                borderRadius: BorderRadius.circular(30)
-                              ),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(left: 15, right: 10),
-                              width: 20,
-                              height: 170,
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(255, 180, 192, 254)], 
-                                  begin: Alignment.topLeft, 
-                                  end: Alignment.bottomRight
-                                ),
-                                borderRadius: BorderRadius.circular(30)
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 20),
-                            const Text('Water Intake', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
-                            const SizedBox(height: 5),
-                            const Text('4 Liters', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
-                            const SizedBox(height: 10),
-                            const Text('Real time updates', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-                            const SizedBox(height: 5),
-                            //QUANITY OF WATER
-                            //QUANITY OF WATER
-                            //QUANITY OF WATER
-                            QuanityWater(),
-                        ],)
-                    ],)
-                  )
-                ),
-                SleepWidget(widthScreen)
-            ],)
-          ],)
-        ],
+          Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
+          Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+          ]
+        ),
+        appLeading: false, 
+        appAction: true, 
+        centerTitle: false)
       ),
+      body: SingleChildScrollView(child: 
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            BMI(BMIndex, present, percenting, context),
+            TodayTarget(context),
+            HeartRate(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(left: 30, right: 15, top: 30),
+                    width: widthScreen*0.4,
+                    height: 315,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(200, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        const BoxShadow(
+                          color: const Color.fromARGB(20, 0, 0, 0),
+                          blurRadius: 40,
+                          offset: Offset(0,10)
+                        )
+                      ]
+                    ),
+                    child: InkWell(
+                      highlightColor: const Color.fromARGB(255, 234, 236, 255),
+                      splashColor: const Color.fromARGB(255, 118, 103, 255),
+                      borderRadius: BorderRadius.circular(20),
+                      radius: 500,
+                      onTap: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          //DATE OF WATER
+                          //DATE OF WATER
+                          //DATE OF WATER
+                          Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(left: 15, right: 10),
+                                width: 20,
+                                height: 275,
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 233, 233, 233),
+                                  borderRadius: BorderRadius.circular(30)
+                                ),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 15, right: 10),
+                                width: 20,
+                                height: 170,
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(255, 180, 192, 254)], 
+                                    begin: Alignment.topLeft, 
+                                    end: Alignment.bottomRight
+                                  ),
+                                  borderRadius: BorderRadius.circular(30)
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 20),
+                              const Text('Water Intake', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack)),
+                              const SizedBox(height: 5),
+                              const Text('4 Liters', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins", color: Color.fromARGB(255, 126, 145, 253))),
+                              const SizedBox(height: 10),
+                              const Text('Real time updates', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
+                              const SizedBox(height: 5),
+                              //QUANITY OF WATER
+                              //QUANITY OF WATER
+                              //QUANITY OF WATER
+                              QuanityWater(),
+                          ],)
+                      ],)
+                    )
+                  ),
+                  SleepWidget(widthScreen)
+              ],)
+            ],)
+          ],
+        ),
+      ),
+      bottomNavigationBar: NavBottomBar()
     );
   }
 }
@@ -233,8 +205,7 @@ Widget BMI(BMIndex, present, percenting, context) => Stack(
               ),
               child: const Text('View More', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins")),
               onPressed: () {
-                Navigator.push(context, Transition(child: const Page_BMIndex())
-                );
+                Navigator.push(context, Transition(child: BodyMassIndex()));
               },
             )
           )
@@ -324,7 +295,7 @@ Widget TodayTarget(context) => Column(
               ),
               child: const Text('Check', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
               onPressed: () {
-                Navigator.push(context, Transition(child: Activity()));
+                Navigator.push(context, Transition(child: Tracker()));
               },
             )
           ),

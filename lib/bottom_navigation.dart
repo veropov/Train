@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:aga/constant.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:aga/transition.dart';
-import 'package:aga/pages/Profile/person_profile.dart';
-import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
-import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
+import 'appbar.dart';
+import 'constant.dart';
 
+int currentIndex = 0; //При входе в приложение Навбар на первом (начальном) экране
 
-class BoardFirstPage extends StatefulWidget {
-  const BoardFirstPage({Key? key}) : super(key: key);
+class NavBottomBar extends StatefulWidget {
+  const NavBottomBar({Key? key}) : super(key: key);
 
   @override
-  State<BoardFirstPage> createState() => _BoardFirstPageState();
+  State<NavBottomBar> createState() => _NavBottomBarState();
 }
 
-class _BoardFirstPageState extends State<BoardFirstPage> {
-
+class _NavBottomBarState extends State<NavBottomBar> {
   @override
+  
   Widget build(BuildContext context) {
 
-    void onTap(int index) {
+  void onTap(int index) {
     setState(() {
-      currentIndex = index;
+      if (index == 0) Navigator.pushNamed(context, '/Home');
+      if (index == 1) Navigator.pushNamed(context, '/Workout');
+      if (index == 4) Navigator.pushNamed(context, '/Profile');
     });
   }
 

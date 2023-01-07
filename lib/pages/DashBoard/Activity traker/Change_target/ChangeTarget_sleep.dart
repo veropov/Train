@@ -294,7 +294,7 @@ class _ChangeTargetSleepState extends State<ChangeTargetSleep> {
                     
                 ),
                 onPressed: () {
-                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets()));
                 }, 
                 child: Text('Back', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
                 SizedBox(width: 45),
@@ -314,7 +314,7 @@ class _ChangeTargetSleepState extends State<ChangeTargetSleep> {
                     SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()} — ${textkIndexSleep.toString()}:${textkIndexSleep2.toString()}'));
                   mapTarget['Sleep target'] = SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()} — ${textkIndexSleep.toString()}:${textkIndexSleep2.toString()}');
 
-                  Navigator.push(context, Transition(child: Activity()));
+                  Navigator.push(context, Transition(child: Tracker()));
                 }, 
                 child: Text('Save', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
               ],

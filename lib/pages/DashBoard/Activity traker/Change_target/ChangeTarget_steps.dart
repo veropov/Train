@@ -158,7 +158,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                       
                     ),
                     onPressed: () {
-                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTarget()));
+                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets()));
                     }, 
                     child: Text('Back', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                   ),
@@ -178,7 +178,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
                       mapTarget['Step target'] = StepTarget(bring: textIndex);
                       
-                      Navigator.push(context, Transition(child: Activity()));
+                      Navigator.push(context, Transition(child: Tracker()));
                     });
                   }, 
                   child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))

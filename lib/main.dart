@@ -2,11 +2,8 @@
 
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:flutter/material.dart';
-import 'package:aga/icons/person_icons.dart';
-import 'package:aga/constant.dart';
-import 'package:aga/pages/onBoarding/firstPage.dart';
-import 'package:aga/pages/DashBoard/Activity traker/List_target.dart';
-import 'package:aga/pages/DashBoard/FirstPage/DashBoard_firstPage.dart';
+import 'pages/Profile/person_profile.dart';
+import 'pages/Workout Tracker/Home_workout.dart';
 
 
 void main() => runApp(fitnestX());
@@ -19,10 +16,16 @@ class fitnestX extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FitnestX',
+      routes: {
+        '/Home': (context) => Home(),
+        '/Workout': (context) => Workout(),
+        '/Profile': (context) => Profile()
+
+      },
       theme: ThemeData(
 
       ),
-        home: MainBoards(),
+      home: Home(),
     );
   }
 }

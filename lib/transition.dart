@@ -21,10 +21,20 @@ Transition( {
       ).animate(animation),
       child: child,
     );
-    },
+  },
 
     pageBuilder:(context, animation, secondaryAnimation) {
       return child;
     }
   );
 }
+
+// class TransitionRoute extends Navigator {
+//   final Widget child;
+
+//     TransitionRoute({required this.child,
+//   }) : super (
+//     onGenerateInitialRoutes: Navigator.pushReplacementNamed(context, routeName)
+  
+//   )
+// }
