@@ -9,8 +9,9 @@ import 'Activity_traker.dart';
 import 'Change_target/ChangeTarget_steps.dart';
 
 class StepTarget extends StatefulWidget {
+  final Function? roadRouter;
   final int bring;
-  const StepTarget({
+  const StepTarget(this.roadRouter, {
     required this.bring,
     Key? key
   }) : super(key: key);
@@ -54,7 +55,7 @@ class _StepTargetState extends State<StepTarget> {
               mapTarget.remove('Step target');
             } 
             else if (stepIndex == 1) stepBool = false;
-            else if (stepIndex == 2) Navigator.push(context, Transition(child: ChangeTargetSteps()));
+            else if (stepIndex == 2) Navigator.push(context, Transition(child: ChangeTargetSteps(widget.roadRouter)));
           });
         },
         child: Container(

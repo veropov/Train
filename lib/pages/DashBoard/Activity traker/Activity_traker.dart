@@ -12,7 +12,8 @@ import 'package:aga/pages/DashBoard/Activity traker/Change_target/ChangeTarget_s
 import '../../../bottom_navigation.dart';
 
 class Tracker extends StatefulWidget {
-  const Tracker({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const Tracker(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<Tracker> createState() => _TrackerState();
@@ -25,7 +26,7 @@ class _TrackerState extends State<Tracker> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: Size.fromHeight(60),
         child: App(
           titleApp: Text('Activity Tracker', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
           appAction: true,
@@ -61,7 +62,7 @@ class _TrackerState extends State<Tracker> {
                           borderRadius: BorderRadius.circular(8),
                           highlightColor: Color.fromARGB(255, 28, 89, 255),
                           onTap: () {
-                          Navigator.push(context, Transition(child: ListTargets()));
+                          Navigator.push(context, Transition(child: ListTargets(widget.roadRouter)));
                         },
                         child: Container(
                           width: 30,
@@ -96,7 +97,9 @@ class _TrackerState extends State<Tracker> {
             ],
           ),
       ),
-      bottomNavigationBar: NavBottomBar()
+      bottomNavigationBar: NavBottomBar(widget.roadRouter),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
@@ -104,7 +107,7 @@ class _TrackerState extends State<Tracker> {
 
 Map <String, Widget> mapTarget = {
   'Water target' : WaterTarget(textWaterIndex),
-  'Step target' : StepTarget(bring: textIndex),
+  'Step target' : StepTarget(bring: textIndex, null),
 };
 
 //Список виджетов в Today Target//Список виджетов в Today Target

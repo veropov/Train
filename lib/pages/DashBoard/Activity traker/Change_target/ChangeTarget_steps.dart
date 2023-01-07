@@ -18,7 +18,8 @@ int kindex = 0;
 var textIndex = CasSteps[0];
 
 class ChangeTargetSteps extends StatefulWidget {
-  const ChangeTargetSteps({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const ChangeTargetSteps(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<ChangeTargetSteps> createState() => _ChangeTargetState();
@@ -158,7 +159,7 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                       
                     ),
                     onPressed: () {
-                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets()));
+                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets(widget.roadRouter)));
                     }, 
                     child: Text('Back', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                   ),
@@ -174,11 +175,11 @@ class _ChangeTargetState extends State<ChangeTargetSteps> {
                     setState(() {
                       textIndex = CasSteps[kindex];
                       //Проверка, добавлен ли виджет подсчета шагов. Если не добавлен - добавляем
-                      mapTarget.putIfAbsent('Step target', () => StepTarget(bring: textIndex));
+                      mapTarget.putIfAbsent('Step target', () => StepTarget(bring: textIndex, widget.roadRouter));
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
-                      mapTarget['Step target'] = StepTarget(bring: textIndex);
+                      mapTarget['Step target'] = StepTarget(bring: textIndex, widget.roadRouter);
                       
-                      Navigator.push(context, Transition(child: Tracker()));
+                      Navigator.push(context, Transition(child: Tracker(widget.roadRouter)));
                     });
                   }, 
                   child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))

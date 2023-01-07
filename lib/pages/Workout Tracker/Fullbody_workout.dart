@@ -1,4 +1,5 @@
 import 'package:aga/appbar.dart';
+import 'package:aga/bottom_navigation.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,7 +8,8 @@ import 'package:aga/pages/Profile/person_profile.dart';
 
 
 class Fullbody_workout extends StatefulWidget {
-  const Fullbody_workout({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const Fullbody_workout(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<Fullbody_workout> createState() => _Fullbody_workoutState();
@@ -18,7 +20,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: Size.fromHeight(60),
         child: App(
           titleApp: Text(''),
           appAction: true,
@@ -91,6 +93,9 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
           ],
         ),
       ),
+      bottomNavigationBar: NavBottomBar(widget.roadRouter),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }

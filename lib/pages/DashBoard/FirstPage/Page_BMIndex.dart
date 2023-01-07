@@ -20,7 +20,8 @@ BMIndex() {
 }
 
 class BodyMassIndex extends StatefulWidget {
-  const BodyMassIndex({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const BodyMassIndex(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<BodyMassIndex> createState() => _BodyMassIndexState();
@@ -115,7 +116,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
           ),
         ],),
       ),
-      bottomNavigationBar: NavBottomBar(),
+      bottomNavigationBar: NavBottomBar(widget.roadRouter),
     );
   }
 }

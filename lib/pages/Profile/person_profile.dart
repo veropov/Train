@@ -10,7 +10,8 @@ import '../../bottom_navigation.dart';
 
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const Profile(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -22,7 +23,7 @@ class _ProfileState extends State<Profile> {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: Size.fromHeight(60),
         child: App(
           titleApp: Text('Profile', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), 
           appAction: true, 
@@ -30,7 +31,9 @@ class _ProfileState extends State<Profile> {
           centerTitle: false)
         ),
         body: ProfilePerson(age: age.toString(), height: height.toString(), weight: weight.toString()), 
-        bottomNavigationBar: NavBottomBar()
+        bottomNavigationBar: NavBottomBar(widget.roadRouter),
+        floatingActionButton: FloatButton(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       )
     );
   }
@@ -104,7 +107,7 @@ class _ProfilePersonState extends State<ProfilePerson> {
                     elevation: 0,
                   ),
                   onPressed: () {
-                    Navigator.push(context, Transition(child: TextFieldWidget(
+                    Navigator.push(context, Transition(child: TextFieldWidget(null,
                       ageChange: widget.age, 
                       weightChange: widget.weight, 
                       heightChange: widget.height, 

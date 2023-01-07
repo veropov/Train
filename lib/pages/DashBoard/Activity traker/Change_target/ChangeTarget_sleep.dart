@@ -40,7 +40,8 @@ import '../Activity_traker.dart';
 
 
 class ChangeTargetSleep extends StatefulWidget {
-  const ChangeTargetSleep({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const ChangeTargetSleep(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<ChangeTargetSleep> createState() => _ChangeTargetSleepState();
@@ -294,7 +295,7 @@ class _ChangeTargetSleepState extends State<ChangeTargetSleep> {
                     
                 ),
                 onPressed: () {
-                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets()));
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets(widget.roadRouter)));
                 }, 
                 child: Text('Back', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
                 SizedBox(width: 45),
@@ -314,7 +315,7 @@ class _ChangeTargetSleepState extends State<ChangeTargetSleep> {
                     SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()} — ${textkIndexSleep.toString()}:${textkIndexSleep2.toString()}'));
                   mapTarget['Sleep target'] = SleepTarget('${textIndexSleep.toString()}:${textIndexSleep2.toString()} — ${textkIndexSleep.toString()}:${textkIndexSleep2.toString()}');
 
-                  Navigator.push(context, Transition(child: Tracker()));
+                  Navigator.push(context, Transition(child: Tracker(widget.roadRouter)));
                 }, 
                 child: Text('Save', style: TextStyle(fontSize: 22, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
               ],

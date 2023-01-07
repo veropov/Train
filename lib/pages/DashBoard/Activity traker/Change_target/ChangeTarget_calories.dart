@@ -17,7 +17,8 @@ int indexCalories = 0;
 var textIndexCalories = StepsCalories[0];
 
 class ChangeTargetCalories extends StatefulWidget {
-  const ChangeTargetCalories({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const ChangeTargetCalories(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<ChangeTargetCalories> createState() => _ChangeTargetCaloriesState();
@@ -157,7 +158,7 @@ class _ChangeTargetCaloriesState extends State<ChangeTargetCalories> {
                       
                     ),
                     onPressed: () {
-                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets()));
+                      Navigator.pop(context, MaterialPageRoute(builder: (context) => ListTargets(widget.roadRouter)));
                     }, 
                     child: Text('Back', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))
                   ),
@@ -177,7 +178,7 @@ class _ChangeTargetCaloriesState extends State<ChangeTargetCalories> {
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
                       mapTarget['Calories target'] = CaloriesTarget(textIndexCalories);
                       
-                      Navigator.push(context, Transition(child: Tracker()));
+                      Navigator.push(context, Transition(child: Tracker(widget.roadRouter)));
                     });
                   }, 
                   child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))

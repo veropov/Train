@@ -13,7 +13,8 @@ import 'package:aga/pages/Workout Tracker/Home_workout.dart';
 import 'Change_target/ChangeTarget_water.dart';
 
 class ListTargets extends StatefulWidget {
-  const ListTargets({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const ListTargets(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<ListTargets> createState() => _ListTargetsState();
@@ -24,7 +25,7 @@ class _ListTargetsState extends State<ListTargets> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: Size.fromHeight(60),
         child: App(titleApp: Text('Add Target', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
           appAction: true,
           appLeading: true,
@@ -40,7 +41,7 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Water Intake', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetWater()));
+              Navigator.push(context, Transition(child: ChangeTargetWater(widget.roadRouter)));
             },
           ),
           SizedBox(height: 5),
@@ -51,7 +52,7 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Foot Steps', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetSteps()));
+              Navigator.push(context, Transition(child: ChangeTargetSteps(widget.roadRouter)));
             },
           ),
           SizedBox(height: 5),
@@ -62,7 +63,7 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Burn calories', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetCalories()));
+              Navigator.push(context, Transition(child: ChangeTargetCalories(widget.roadRouter)));
             },
           ),
           SizedBox(height: 5),     
@@ -73,7 +74,7 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Sleep time', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetSleep()));
+              Navigator.push(context, Transition(child: ChangeTargetSleep(widget.roadRouter)));
             }
           )
         ]

@@ -1,3 +1,7 @@
+import 'package:aga/main.dart';
+import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
+import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
+import 'package:aga/transition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'appbar.dart';
@@ -6,7 +10,8 @@ import 'constant.dart';
 int currentIndex = 0; //При входе в приложение Навбар на первом (начальном) экране
 
 class NavBottomBar extends StatefulWidget {
-  const NavBottomBar({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const NavBottomBar(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<NavBottomBar> createState() => _NavBottomBarState();
@@ -17,16 +22,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
   
   Widget build(BuildContext context) {
 
-  void onTap(int index) {
-    setState(() {
-      if (index == 0) Navigator.pushNamed(context, '/Home');
-      if (index == 1) Navigator.pushNamed(context, '/Workout');
-      if (index == 4) Navigator.pushNamed(context, '/Profile');
-    });
-  }
-
-    return Scaffold(
-      bottomNavigationBar: NavigationBarTheme(
+    return NavigationBarTheme(
       data: NavigationBarThemeData(
         elevation: 0,
         height: 65,
@@ -38,29 +34,93 @@ class _NavBottomBarState extends State<NavBottomBar> {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         height: 60,
         selectedIndex: currentIndex,
-        onDestinationSelected: onTap,
         destinations: [
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100)
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  onPrimary: Color.fromARGB(120, 199, 179, 214),
+                  primary: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  animationDuration: Duration(milliseconds: 5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentIndex = 0;
+                    widget.roadRouter!(AllRoutes.home);
+                  });
+                }, 
+                child: Container()
+              )
+            ]
           ),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  onPrimary: Color.fromARGB(120, 199, 179, 214),
+                  primary: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  animationDuration: Duration(milliseconds: 5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentIndex = 1;
+                    widget.roadRouter!(AllRoutes.workout);
+                  });
+                }, 
+                child: Container()
+              )
+            ]
           ),
           SizedBox(width: 25),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  onPrimary: Color.fromARGB(120, 199, 179, 214),
+                  primary: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  animationDuration: Duration(milliseconds: 5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentIndex = 3;
+                    widget.roadRouter!(AllRoutes.photo);
+                  });
+                }, 
+                child: Container()
+              )
+            ]
           ),
-          NavigationDestination(
-            label: '',
-            icon: currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  onPrimary: Color.fromARGB(120, 199, 179, 214),
+                  primary: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  animationDuration: Duration(milliseconds: 5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentIndex = 4;
+                    widget.roadRouter!(AllRoutes.profile);
+                  });
+                }, 
+                child: Container()
+              )
+            ]
           )
       ],)
-    ),
-      floatingActionButton: FloatButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
@@ -76,3 +136,31 @@ Widget FloatButton() => SizedBox.fromSize(
   onPressed: () {},
   )
 );
+
+
+
+// NavigationBar(
+//         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+//         height: 60,
+//         selectedIndex: currentIndex,
+//         onDestinationSelected: onTap,
+//         destinations: [
+//           NavigationDestination(
+//             label: '',
+//             icon: currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100)
+//           ),
+//           NavigationDestination(
+//             label: '',
+//             icon: currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100)
+//           ),
+//           SizedBox(width: 25),
+//           NavigationDestination(
+//             label: '',
+//             icon: currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100)
+//           ),
+//           NavigationDestination(
+//             label: '',
+//             icon: currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100)
+//           )
+//       ],)
+

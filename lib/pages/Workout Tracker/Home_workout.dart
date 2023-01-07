@@ -14,7 +14,8 @@ import '../../appbar.dart';
 import '../../bottom_navigation.dart';
 
 class Workout extends StatefulWidget {
-  const Workout({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const Workout(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<Workout> createState() => _WorkoutState();
@@ -27,7 +28,7 @@ class _WorkoutState extends State<Workout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: Size.fromHeight(60),
         child: App(
           titleApp: Text('Workout Tracker', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), 
           appAction: true, 
@@ -95,7 +96,9 @@ class _WorkoutState extends State<Workout> {
           ),
       ],),
       ),
-      bottomNavigationBar: NavBottomBar()
+      bottomNavigationBar: NavBottomBar(widget.roadRouter),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
@@ -269,9 +272,9 @@ List <String> wdwPicture = [
 ]; 
 
 List <Widget> vieMore = [
-  Fullbody_workout(),
-  Fullbody_workout(),
-  Fullbody_workout(),
+  Fullbody_workout(null),
+  Fullbody_workout(null),
+  Fullbody_workout(null),
 ];
 
 

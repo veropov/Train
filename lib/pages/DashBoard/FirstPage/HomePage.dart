@@ -14,7 +14,8 @@ import '../../../bottom_navigation.dart';
 
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const Home(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
   final widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
-      preferredSize: Size.fromHeight(0),
+      preferredSize: Size.fromHeight(60),
         child: App(
         titleApp: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -135,7 +136,9 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      bottomNavigationBar: NavBottomBar()
+      bottomNavigationBar: NavBottomBar(widget.roadRouter),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
@@ -205,7 +208,7 @@ Widget BMI(BMIndex, present, percenting, context) => Stack(
               ),
               child: const Text('View More', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins")),
               onPressed: () {
-                Navigator.push(context, Transition(child: BodyMassIndex()));
+                // Navigator.push(context, Transition(child: BodyMassIndex()));
               },
             )
           )
@@ -295,7 +298,7 @@ Widget TodayTarget(context) => Column(
               ),
               child: const Text('Check', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
               onPressed: () {
-                Navigator.push(context, Transition(child: Tracker()));
+                Navigator.push(context, Transition(child: Tracker(null)));
               },
             )
           ),

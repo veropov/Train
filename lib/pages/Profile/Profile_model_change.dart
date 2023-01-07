@@ -24,13 +24,14 @@ List changes_2 = [
 ];
 
 class TextFieldWidget extends StatefulWidget {
+  final Function? roadRouter;
   final String nameChange;
   final String heightChange;
   final String weightChange;
   final String ageChange;
   final ValueChanged<String> onChanged;
 
-  const TextFieldWidget({
+  const TextFieldWidget(this.roadRouter, {
     Key? key,
   required this.nameChange,
   required this.heightChange,
@@ -112,7 +113,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                     
                 ),
                 onPressed: () {
-                  Navigator.pop(context, MaterialPageRoute(builder: (context) => Profile()));
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => Profile(widget.roadRouter)));
                 }, 
                 child: Text('Back', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins"))),
                 SizedBox(width: 45),
@@ -135,7 +136,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                     height = int.parse(heightController);
                   });
 
-                  Navigator.pop(context, MaterialPageRoute(builder: (context) => Profile()));
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => Profile(widget.roadRouter)));
                 }, 
                 child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))
               ],

@@ -75,7 +75,7 @@ class LoginWelcome extends StatelessWidget {
                   shadowColor: Colors.transparent
                 ),
                 onPressed: () {
-                  Navigator.pushReplacement(context, Transition(child: Home()));
+                  Navigator.pushReplacement(context, Transition(child: Home(null)));
                 },
                 child: Text('Confirm', style: kTextButton),
               )
