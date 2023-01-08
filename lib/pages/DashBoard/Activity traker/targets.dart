@@ -9,9 +9,8 @@ import 'Activity_traker.dart';
 import 'Change_target/ChangeTarget_steps.dart';
 
 class StepTarget extends StatefulWidget {
-  final Function? roadRouter;
   final int bring;
-  const StepTarget(this.roadRouter, {
+  const StepTarget({
     required this.bring,
     Key? key
   }) : super(key: key);
@@ -29,6 +28,12 @@ class _StepTargetState extends State<StepTarget> {
 
   @override
   Widget build(BuildContext context) {
+
+  void roadRouter(route, thisRouter) {
+    setState(() {
+      thisRouter = route;
+    });
+  }
 
   List stepIcon = [
     SvgPicture.asset('assets/icons/Delete_light.svg', height: 25, color: Colors.blue),
@@ -55,7 +60,7 @@ class _StepTargetState extends State<StepTarget> {
               mapTarget.remove('Step target');
             } 
             else if (stepIndex == 1) stepBool = false;
-            else if (stepIndex == 2) Navigator.push(context, Transition(child: ChangeTargetSteps(widget.roadRouter)));
+            else if (stepIndex == 2) Navigator.push(context, Transition(child: ChangeTargetSteps(roadRouter)));
           });
         },
         child: Container(

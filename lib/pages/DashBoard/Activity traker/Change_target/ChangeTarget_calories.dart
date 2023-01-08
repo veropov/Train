@@ -1,3 +1,4 @@
+import 'package:aga/main.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
@@ -178,7 +179,7 @@ class _ChangeTargetCaloriesState extends State<ChangeTargetCalories> {
                       //Если виджет уже добавлен, обновляем кол-во шагов [textIndex = CasSteps[kindex]]
                       mapTarget['Calories target'] = CaloriesTarget(textIndexCalories);
                       
-                      Navigator.push(context, Transition(child: Tracker(widget.roadRouter)));
+                      widget.roadRouter!(AllRoutes.todayTarget);
                     });
                   }, 
                   child: Text('Save', style: TextStyle(fontSize: 18, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")))

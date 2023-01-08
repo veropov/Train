@@ -1,4 +1,5 @@
 import 'package:aga/appbar.dart';
+import 'package:aga/main.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_water.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/targets.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,7 @@ class _TrackerState extends State<Tracker> {
                           borderRadius: BorderRadius.circular(8),
                           highlightColor: Color.fromARGB(255, 28, 89, 255),
                           onTap: () {
-                          Navigator.push(context, Transition(child: ListTargets(widget.roadRouter)));
+                            widget.roadRouter!(AllRoutes.changeTarget);
                         },
                         child: Container(
                           width: 30,
@@ -104,10 +105,9 @@ class _TrackerState extends State<Tracker> {
   }
 }
 
-
 Map <String, Widget> mapTarget = {
   'Water target' : WaterTarget(textWaterIndex),
-  'Step target' : StepTarget(bring: textIndex, null),
+  'Step target' : StepTarget(bring: textIndex),
 };
 
 //Список виджетов в Today Target//Список виджетов в Today Target

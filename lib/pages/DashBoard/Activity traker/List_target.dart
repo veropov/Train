@@ -1,4 +1,5 @@
 import 'package:aga/appbar.dart';
+import 'package:aga/main.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_calories.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,9 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Water Intake', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetWater(widget.roadRouter)));
+              setState(() {
+                widget.roadRouter!(AllRoutes.changeWater);
+              });
             },
           ),
           SizedBox(height: 5),
@@ -52,7 +55,9 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Foot Steps', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetSteps(widget.roadRouter)));
+              setState(() {
+                widget.roadRouter!(AllRoutes.changeStep);
+              });
             },
           ),
           SizedBox(height: 5),
@@ -63,7 +68,9 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Burn calories', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetCalories(widget.roadRouter)));
+              setState(() {
+                widget.roadRouter!(AllRoutes.changeCalories);
+              });
             },
           ),
           SizedBox(height: 5),     
@@ -74,8 +81,10 @@ class _ListTargetsState extends State<ListTargets> {
             tileColor: Color.fromARGB(45, 202, 221, 255),
             title: Text('Sleep time', style: TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins")),
             onTap: () {
-              Navigator.push(context, Transition(child: ChangeTargetSleep(widget.roadRouter)));
-            }
+              setState(() {
+                widget.roadRouter!(AllRoutes.changeSleep);
+              });
+            },
           )
         ]
       ),

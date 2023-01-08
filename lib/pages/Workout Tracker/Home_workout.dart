@@ -1,3 +1,4 @@
+import 'package:aga/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -89,7 +90,7 @@ class _WorkoutState extends State<Workout> {
                     ), 
                     UpcomingWorout(),
                     workoutPage ? Container() : UpcomingWorout(),
-                    WdwToTrain()
+                    WdwToTrain(widget.roadRouter)
                   ],)
                 ),
             ],),
@@ -271,15 +272,16 @@ List <String> wdwPicture = [
   'assets/images/WdwtoTrain_3.svg',
 ]; 
 
-List <Widget> vieMore = [
-  Fullbody_workout(null),
-  Fullbody_workout(null),
-  Fullbody_workout(null),
+List <String> vieMore = [
+  AllRoutes.fullbodyWorkout,
+  AllRoutes.fullbodyWorkout,
+  AllRoutes.fullbodyWorkout,
 ];
 
 
 class WdwToTrain extends StatefulWidget {
-  const WdwToTrain({Key? key}) : super(key: key);
+  final Function? roadRouter;
+  const WdwToTrain(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
   State<WdwToTrain> createState() => _WdwToTrainState();
@@ -339,7 +341,9 @@ class _WdwToTrainState extends State<WdwToTrain> {
                       ),
                       child: Text('View more', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 92, 177, 247))),
                       onPressed: () {
-                        Navigator.push(context, Transition(child: vieMore[i]));
+                        setState(() {
+                          widget.roadRouter!(vieMore[i]);
+                        });
                       },
                     ),
                   )

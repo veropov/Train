@@ -36,7 +36,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
 
     return Scaffold(
       appBar: PreferredSize(
-      preferredSize: Size.fromHeight(0),
+      preferredSize: Size.fromHeight(60),
         child: App(
           titleApp: Text('Body Mass Index', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
           appAction: true,
@@ -117,6 +117,8 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
         ],),
       ),
       bottomNavigationBar: NavBottomBar(widget.roadRouter),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
