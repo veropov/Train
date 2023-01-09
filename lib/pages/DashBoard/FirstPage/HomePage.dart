@@ -33,17 +33,19 @@ class _HomeState extends State<Home> {
       appBar: PreferredSize(
       preferredSize: Size.fromHeight(60),
         child: App(
-        titleApp: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
-          Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
-          ]
-        ),
-        appLeading: false, 
-        appAction: true, 
-        centerTitle: false)
+          titleApp: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Welcome,', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)),
+            Text(name, style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))),
+            ]
+          ),
+          appLeading: false, 
+          appAction: true, 
+          centerTitle: false,
+          Navigator: false,
+        )
       ),
       body: SingleChildScrollView(child: 
         Column(

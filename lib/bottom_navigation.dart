@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'appbar.dart';
 import 'constant.dart';
+import 'pages/Profile/person_profile.dart';
 
 int currentIndex = 0; //При входе в приложение Навбар на первом (начальном) экране
 
@@ -38,7 +39,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100),
+              thisRouter == AllRoutes.home ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),
@@ -59,7 +60,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100),
+              thisRouter == AllRoutes.workout ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),
@@ -81,7 +82,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100),
+              thisRouter == AllRoutes.photo ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),
@@ -102,7 +103,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100),
+              thisRouter == AllRoutes.profile ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),

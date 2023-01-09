@@ -31,6 +31,7 @@ class _ListTargetsState extends State<ListTargets> {
           appAction: true,
           appLeading: true,
           centerTitle: true,
+          Navigator: true,
         ),
       ),
       body: ListView(

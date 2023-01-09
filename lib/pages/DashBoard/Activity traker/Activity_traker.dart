@@ -33,6 +33,7 @@ class _TrackerState extends State<Tracker> {
           appAction: true,
           appLeading: true,
           centerTitle: true,
+          Navigator: true,
         )
       ),
       body: SingleChildScrollView(
@@ -63,7 +64,7 @@ class _TrackerState extends State<Tracker> {
                           borderRadius: BorderRadius.circular(8),
                           highlightColor: Color.fromARGB(255, 28, 89, 255),
                           onTap: () {
-                            widget.roadRouter!(AllRoutes.changeTarget);
+                            Navigator.push(context, Transition(child: ListTargets(widget.roadRouter)));
                         },
                         child: Container(
                           width: 30,

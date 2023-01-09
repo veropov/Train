@@ -26,6 +26,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
           appAction: true,
           appLeading: true,
           centerTitle: true,
+          Navigator: true,
         )
       ),
       body: SingleChildScrollView(

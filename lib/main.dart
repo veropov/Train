@@ -30,6 +30,8 @@ class AllRoutes {
   static String changeSleep = '/ch_sleep';
 }
 
+  String thisRouter = AllRoutes.home;
+
 void main() => runApp(fitnestX());
 
 class fitnestX extends StatefulWidget {
@@ -40,7 +42,6 @@ class fitnestX extends StatefulWidget {
 }
 
 class _fitnestXState extends State<fitnestX> {
-  String thisRouter = AllRoutes.home;
   bool is404 = false;
 
   void roadRouter(route) {
@@ -56,22 +57,15 @@ class _fitnestXState extends State<fitnestX> {
       title: 'FitnestX',
       theme: ThemeData(),
       home: Navigator(pages: [
-        if (thisRouter == AllRoutes.home) MaterialPage(child: Home(roadRouter)),
+        MaterialPage(child: Home(roadRouter)),
         if (thisRouter == AllRoutes.workout) MaterialPage(child: Workout(roadRouter)),
         if (thisRouter == AllRoutes.profile) MaterialPage(child: Profile(roadRouter)),
-        if (thisRouter == AllRoutes.BodyMassIndex) MaterialPage(child: BodyMassIndex(roadRouter)),
-        if (thisRouter == AllRoutes.todayTarget) MaterialPage(child: Tracker(roadRouter)),
-        if (thisRouter == AllRoutes.fullbodyWorkout) MaterialPage(child: Fullbody_workout(roadRouter)),
-        if (thisRouter == AllRoutes.changeTarget) MaterialPage(child: ListTargets(roadRouter)),
-
-        if (thisRouter == AllRoutes.changeStep) MaterialPage(child: ChangeTargetSteps(roadRouter)),
-        if (thisRouter == AllRoutes.changeWater) MaterialPage(child: ChangeTargetWater(roadRouter)),
-        if (thisRouter == AllRoutes.changeCalories) MaterialPage(child: ChangeTargetCalories(roadRouter)),
-        if (thisRouter == AllRoutes.changeSleep) MaterialPage(child: ChangeTargetSleep(roadRouter)),
       ],
         onPopPage: (route, result) {
-          if (!route.didPop(result)) false;
-          return true;
+          setState(() {
+              thisRouter = AllRoutes.home;
+          });
+          return route.didPop(result);
         },
       ),
     );

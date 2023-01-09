@@ -1,3 +1,4 @@
+import 'package:aga/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -6,7 +7,7 @@ class App extends StatefulWidget {
     final bool appLeading;
     final bool appAction;
     final bool centerTitle;
-    final Object? Navigator;
+    final bool Navigator;
 
   const App({
     Key? key,
@@ -14,7 +15,7 @@ class App extends StatefulWidget {
     required this.appLeading,
     required this.appAction,
     required this.centerTitle,
-    this.Navigator,
+    required this.Navigator,
   }) : super(key: key);
 
   @override
@@ -52,7 +53,9 @@ class _AppState extends State<App> {
               icon: SvgPicture.asset('assets/icons/Arrow - Left_light.svg', height: 16),
               splashRadius: 16,
               onPressed: () {
-                widget.Navigator;
+                setState(() {
+                  if (widget.Navigator == true) Navigator.of(context).pop();
+                });
               }
             )
           )

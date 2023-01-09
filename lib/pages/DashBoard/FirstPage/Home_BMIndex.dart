@@ -1,6 +1,7 @@
 
 import 'package:aga/constant.dart';
 import 'package:aga/main.dart';
+import 'package:aga/transition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -83,9 +84,7 @@ class _Home_BMIState extends State<Home_BMI> {
                   ),
                   child: const Text('View More', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w700, fontFamily: "Poppins")),
                   onPressed: () {
-                    setState(() {
-                      widget.roadRouter!(AllRoutes.BodyMassIndex);
-                    });
+                      Navigator.push(context, Transition(child: BodyMassIndex(widget.roadRouter)));
                   },
                 )
               )

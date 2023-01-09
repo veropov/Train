@@ -27,8 +27,10 @@ class _ProfileState extends State<Profile> {
         child: App(
           titleApp: Text('Profile', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), 
           appAction: true, 
-          appLeading: false, 
-          centerTitle: false)
+          appLeading: true, 
+          centerTitle: true,
+          Navigator: true,
+          )
         ),
         body: ProfilePerson(age: age.toString(), height: height.toString(), weight: weight.toString()), 
         bottomNavigationBar: NavBottomBar(widget.roadRouter),

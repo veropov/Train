@@ -1,6 +1,8 @@
 import 'package:aga/appbar.dart';
 import 'package:aga/bottom_navigation.dart';
+import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/Profile_model_change.dart';
+import 'package:aga/transition.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,6 +44,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
           appAction: true,
           appLeading: true,
           centerTitle: true,
+          Navigator: true,
         )
       ),
       body: SingleChildScrollView(

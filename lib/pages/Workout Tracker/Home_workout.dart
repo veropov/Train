@@ -35,6 +35,7 @@ class _WorkoutState extends State<Workout> {
           appAction: true, 
           appLeading: false, 
           centerTitle: false,
+          Navigator: true,
         )
       ),
       body: SingleChildScrollView(
@@ -272,12 +273,6 @@ List <String> wdwPicture = [
   'assets/images/WdwtoTrain_3.svg',
 ]; 
 
-List <String> vieMore = [
-  AllRoutes.fullbodyWorkout,
-  AllRoutes.fullbodyWorkout,
-  AllRoutes.fullbodyWorkout,
-];
-
 
 class WdwToTrain extends StatefulWidget {
   final Function? roadRouter;
@@ -292,6 +287,12 @@ class _WdwToTrainState extends State<WdwToTrain> {
   @override
   
   Widget build(BuildContext context) {
+
+  List vieMore = [
+    Fullbody_workout(widget.roadRouter),
+    Fullbody_workout(widget.roadRouter),
+    Fullbody_workout(widget.roadRouter),
+  ];
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 30),
@@ -342,7 +343,7 @@ class _WdwToTrainState extends State<WdwToTrain> {
                       child: Text('View more', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 92, 177, 247))),
                       onPressed: () {
                         setState(() {
-                          widget.roadRouter!(vieMore[i]);
+                          Navigator.push(context, Transition(child: Fullbody_workout(widget.roadRouter)));
                         });
                       },
                     ),

@@ -60,7 +60,7 @@ class _TodayTargetState extends State<TodayTarget> {
                   child: const Text('Check', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
                   onPressed: () {
                     setState(() {
-                      widget.roadRouter!(AllRoutes.todayTarget);
+                      Navigator.push(context, Transition(child: Tracker(widget.roadRouter)));
                     });
                   },
                 )
