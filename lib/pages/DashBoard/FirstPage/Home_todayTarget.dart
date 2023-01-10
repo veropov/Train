@@ -1,3 +1,4 @@
+import 'package:aga/constant.dart';
 import 'package:aga/main.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:aga/transition.dart';
@@ -25,11 +26,7 @@ class _TodayTargetState extends State<TodayTarget> {
           height: 60,
           width: double.infinity,
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [Color.fromARGB(255, 229, 241, 255), const Color.fromARGB(255, 216, 226, 255)], 
-              begin: Alignment.topLeft, 
-              end: Alignment.bottomRight
-            ),
+            gradient: kBrandColor,
             borderRadius: BorderRadius.circular(16)
           ),
           child: Row(

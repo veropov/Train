@@ -33,8 +33,8 @@ class _WorkoutState extends State<Workout> {
         child: App(
           titleApp: Text('Workout Tracker', style: const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 44, 44, 44))), 
           appAction: true, 
-          appLeading: false, 
-          centerTitle: false,
+          appLeading: true, 
+          centerTitle: true,
           Navigator: true,
         )
       ),
@@ -122,11 +122,7 @@ Widget DayliWorkout(context) => Container(
   height: 60,
   width: double.infinity,
   decoration: BoxDecoration(
-    gradient: const LinearGradient(
-      colors: [Color.fromARGB(255, 229, 241, 255), const Color.fromARGB(255, 216, 226, 255)], 
-      begin: Alignment.topLeft, 
-      end: Alignment.bottomRight
-    ),
+    gradient: kBrandColor,
     borderRadius: BorderRadius.circular(16)
   ),
   child: Row(
@@ -307,11 +303,7 @@ class _WdwToTrainState extends State<WdwToTrain> {
           width: double.infinity,
           height: 130,
           decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color.fromARGB(255, 229, 241, 255), const Color.fromARGB(255, 216, 226, 255)], 
-              begin: Alignment.topLeft, 
-              end: Alignment.bottomRight
-            ),
+          gradient: kBrandColor,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(

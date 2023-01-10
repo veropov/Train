@@ -8,11 +8,10 @@ import 'package:flutter_svg/svg.dart';
 //Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors
 //Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors//Colors
 
-const kBrandColor = BoxDecoration(gradient: LinearGradient(
-  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
-  begin: Alignment.topLeft, 
-  end: Alignment.bottomRight
-  )
+const kBrandColor =  LinearGradient(
+  colors: [Color.fromARGB(200, 229, 241, 255), const Color.fromARGB(200, 216, 226, 255)], 
+    begin: Alignment.topLeft, 
+    end: Alignment.bottomRight
 );
 
 const kSecondColor = BoxDecoration(gradient: LinearGradient(
@@ -51,6 +50,7 @@ const kTextH2Medium = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeigh
 const kTextMainBold = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins");
 const kTextMain2 = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack);
 const kTextMain = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kBlack);
+const kTextMainGray = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100);
 const kTextMainBranch = TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100);
 
 //Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button//Button

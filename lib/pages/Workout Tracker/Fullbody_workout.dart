@@ -6,6 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 
+import 'Workout_item/Workout_schedule.dart';
+
 
 class Fullbody_workout extends StatefulWidget {
   final Function? roadRouter;
@@ -41,22 +43,14 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                     height: 340,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 149, 174, 254)], 
-                        begin: Alignment.topLeft, 
-                        end: Alignment.bottomRight
-                      )
+                      gradient: kBrandColor
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 300),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
-                      gradient: LinearGradient(
-                        colors: [Color.fromARGB(255, 252, 252, 252), Color.fromARGB(50, 255, 255, 255)],
-                        begin: Alignment(0.0, -0.75),
-                        end: Alignment(0.0,-0.72)
-                      )
+                      color: Color.fromARGB(255, 255, 255, 255)
                     ),
                     child: Column(
                       children: [
@@ -66,25 +60,51 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                            Text('Upcoming Workout', style: kTextH3Bold),
-                            Container(
-                              child: InkWell(
-                                splashColor: Colors.blue,
-                                child: Text('See more', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100)),
-                                onTap: (() {
-                                  
-                                }),
-                              ),
-                            )
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Upcoming Workout', style: kTextH3Bold),
+                                SizedBox(height: 5),
+                                Text('11 Exercises | 32mins | 320 Calories Burn', style: kTextMainGray)
+                              ],
+                            ),
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Container(
+                                  width: 34,
+                                  height: 34,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white,
+                                    boxShadow: [const BoxShadow(
+                                      color: Color.fromARGB(12, 15, 8, 8),
+                                      blurRadius: 10,
+                                    )] 
+                                  ),
+                                  child: Container(
+                                    margin: EdgeInsets.all(6),
+                                    child: SvgPicture.asset('assets/images/Workout_Heart.svg', height: 16))
+                                ),
+                                SizedBox(
+                                  width: 34,
+                                  height: 34,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.transparent,
+                                      onPrimary: Color.fromARGB(50, 255, 79, 79),
+                                      shadowColor: Colors.transparent
+                                    ),
+                                    onPressed: () {}, 
+                                    child: Text('')),
+                                )
+                              ],
+                            ),
                           ],),
                         ), 
-                        Container(
-                          margin: EdgeInsets.only(top: 20, bottom: 50),
-                          child: ScrollTimer(
-                            x: 1, 
-                            y: 100
-                          ),
-                        )
+                        SizedBox(height: 20),
+                        Schedule_check(time: 10),
                       ],
                     )
                   ),

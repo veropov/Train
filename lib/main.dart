@@ -58,15 +58,14 @@ class _fitnestXState extends State<fitnestX> {
       theme: ThemeData(),
       home: Navigator(pages: [
         MaterialPage(child: Home(roadRouter)),
-        if (thisRouter == AllRoutes.workout) MaterialPage(child: Workout(roadRouter)),
-        if (thisRouter == AllRoutes.profile) MaterialPage(child: Profile(roadRouter)),
+        if (thisRouter == AllRoutes.workout) MaterialPage(child: Workout(roadRouter))
+        else if (thisRouter == AllRoutes.profile) MaterialPage(child: Profile(roadRouter)),
+
       ],
-        onPopPage: (route, result) {
-          setState(() {
-              thisRouter = AllRoutes.home;
-          });
-          return route.didPop(result);
-        },
+      onPopPage: ((route, result) {
+        return route.didPop(result);
+      }),
+        
       ),
     );
   }

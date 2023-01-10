@@ -1,4 +1,5 @@
 import 'package:aga/appbar.dart';
+import 'package:aga/bottom_navigation.dart';
 import 'package:aga/main.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Activity_traker.dart';
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_calories.dart';
@@ -89,6 +90,9 @@ class _ListTargetsState extends State<ListTargets> {
           )
         ]
       ),
+      bottomNavigationBar: NavBottomBar(widget.roadRouter),
+      floatingActionButton: FloatButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }

@@ -42,11 +42,7 @@ class _TrackerState extends State<Tracker> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color.fromARGB(121, 218, 235, 255), Color.fromARGB(108, 206, 217, 255)], 
-                  begin: Alignment.topLeft, 
-                  end: Alignment.bottomRight
-                ),
+                gradient: kBrandColor,
                 borderRadius: BorderRadius.circular(22)
               ),
                 child: Column(

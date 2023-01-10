@@ -39,7 +39,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              thisRouter == AllRoutes.home ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100),
+              currentIndex == 0 ? SvgPicture.asset('assets/icons/Home_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Home_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),
@@ -60,7 +60,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              thisRouter == AllRoutes.workout ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100),
+              currentIndex == 1 ? SvgPicture.asset('assets/icons/Activity_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Activity_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),
@@ -82,7 +82,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              thisRouter == AllRoutes.photo ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100),
+              currentIndex == 3 ? SvgPicture.asset('assets/icons/Camera_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Camera_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),
@@ -103,7 +103,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
           Stack(
             alignment: Alignment.center,
             children: [
-              thisRouter == AllRoutes.profile ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100),
+              currentIndex == 4 ? SvgPicture.asset('assets/icons/Profile_fill.svg', height: 26, color: shadowPurple) : SvgPicture.asset('assets/icons/Profile_light.svg', height: 24, color: kGray100),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   onPrimary: Color.fromARGB(120, 199, 179, 214),
@@ -115,6 +115,7 @@ class _NavBottomBarState extends State<NavBottomBar> {
                   setState(() {
                     currentIndex = 4;
                     widget.roadRouter!(AllRoutes.profile);
+
                   });
                 }, 
                 child: Container()
