@@ -14,11 +14,10 @@ const kBrandColor =  LinearGradient(
     end: Alignment.bottomRight
 );
 
-const kSecondColor = BoxDecoration(gradient: LinearGradient(
-  colors: [Color.fromARGB(255, 197, 139, 242), Color.fromARGB(76, 197, 139, 242)],
+const kSecondColor = LinearGradient(
+  colors: [Color.fromARGB(50, 197, 139, 242), Color.fromARGB(50, 238, 164, 206)],
   begin: Alignment.topLeft, 
   end: Alignment.bottomRight
-  )
 );
 
 const kBlack = Color.fromARGB(255, 44, 44, 44);

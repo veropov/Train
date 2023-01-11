@@ -1,23 +1,21 @@
-
 import 'package:aga/constant.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Schedule_check extends StatefulWidget {
-  final int time;
-  const Schedule_check({
-      required this.time,
-      Key? key
-    }) : super(key: key);
+class Difficulity_check extends StatefulWidget {
+  final String hard;
+  const Difficulity_check({
+    required this.hard,
+    Key? key
+  }) : super(key: key);
 
   @override
-  State<Schedule_check> createState() => _Schedule_checkState();
+  State<Difficulity_check> createState() => _Difficulity_checkState();
 }
 
-class _Schedule_checkState extends State<Schedule_check> {
+class _Difficulity_checkState extends State<Difficulity_check> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -27,7 +25,7 @@ class _Schedule_checkState extends State<Schedule_check> {
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-            gradient: kBrandColor,
+            gradient: kSecondColor,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
@@ -39,16 +37,16 @@ class _Schedule_checkState extends State<Schedule_check> {
                 margin: EdgeInsets.only(left: 15),
                 child: Row(
                   children: [
-                  SvgPicture.asset('assets/icons/Calendar_light.svg', height: 22, color: kGray100),
+                  SvgPicture.asset('assets/icons/Swap.svg', height: 16, color: kGray100),
                   SizedBox(width: 10),
-                  Text('Schedule Workout', style: kTextMainGray),
+                  Text('Difficulity', style: kTextMainGray),
                 ],),
               ),
               Container(
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(right: 15),
                 child: Row(children: [
-                  Text(widget.time.toString(), style: kTextMainGray),
+                  Text(widget.hard, style: kTextMainGray),
                   SizedBox(width: 10),
                   SvgPicture.asset('assets/icons/Arrow - Right 2_light.svg', height: 16, color: kGray100)
                 ],),

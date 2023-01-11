@@ -1,6 +1,8 @@
 import 'package:aga/appbar.dart';
 import 'package:aga/bottom_navigation.dart';
 import 'package:aga/constant.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_difficulity.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_needs_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
@@ -105,6 +107,10 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                         ), 
                         SizedBox(height: 20),
                         Schedule_check(time: 10),
+                        SizedBox(height: 15),
+                        Difficulity_check(hard: 'Beginner'),
+                        SizedBox(height: 30),
+                        NeedItem()
                       ],
                     )
                   ),
