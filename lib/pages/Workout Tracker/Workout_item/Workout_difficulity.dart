@@ -6,7 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class Difficulity_check extends StatefulWidget {
   final String hard;
-  const Difficulity_check({
+  final Function? roadRouter;
+  const Difficulity_check(this.roadRouter, {
     required this.hard,
     Key? key
   }) : super(key: key);
@@ -64,7 +65,7 @@ class _Difficulity_checkState extends State<Difficulity_check> {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: Colors.transparent,
-              onPrimary: Colors.white,
+              onPrimary: Color.fromARGB(255, 201, 201, 201),
               shadowColor: Colors.transparent,
             ),
             onPressed: () {

@@ -1,5 +1,7 @@
 
 import 'package:aga/constant.dart';
+import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
+import 'package:aga/transition.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -7,8 +9,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Schedule_check extends StatefulWidget {
+  final Function? roadRouter;
   final int time;
-  const Schedule_check({
+  const Schedule_check(this.roadRouter, {
       required this.time,
       Key? key
     }) : super(key: key);
@@ -66,11 +69,11 @@ class _Schedule_checkState extends State<Schedule_check> {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: Colors.transparent,
-              onPrimary: Colors.white,
+              onPrimary: Color.fromARGB(255, 201, 201, 201),
               shadowColor: Colors.transparent,
             ),
             onPressed: () {
-
+              Navigator.push(context, Transition(child: BodyMassIndex(widget.roadRouter)));
             }, 
             child: Text('')
           ),
