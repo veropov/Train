@@ -10,6 +10,11 @@ import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 
 import 'Workout_item/Workout_schedule.dart';
+import 'Workout_item/Workout_unlock_Set.dart';
+
+bool finishSet = false;
+bool finishSet2 = false;
+bool finishSet3 = false;
 
 
 class Fullbody_workout extends StatefulWidget {
@@ -24,9 +29,9 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
-        child: App(
+        child: const App(
           titleApp: Text(''),
           appAction: true,
           appLeading: true,
@@ -45,20 +50,20 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                   Container(
                     height: 340,
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: kBrandColor
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 300),
-                    decoration: BoxDecoration(
+                    margin: const EdgeInsets.only(top: 300),
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
                       color: Color.fromARGB(255, 255, 255, 255)
                     ),
                     child: Column(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 30, right: 30, top: 40),
+                          margin: const EdgeInsets.only(left: 30, right: 30, top: 40),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,9 +72,9 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Upcoming Workout', style: kTextH3Bold),
-                                SizedBox(height: 5),
-                                Text('11 Exercises | 32mins | 320 Calories Burn', style: kTextMainGray)
+                                const Text('Upcoming Workout', style: kTextH3Bold),
+                                const SizedBox(height: 5),
+                                const Text('11 Exercises | 32mins | 320 Calories Burn', style: kTextMainGray)
                               ],
                             ),
                             Stack(
@@ -87,7 +92,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                                     )] 
                                   ),
                                   child: Container(
-                                    margin: EdgeInsets.all(6),
+                                    margin: const EdgeInsets.all(6),
                                     child: SvgPicture.asset('assets/images/Workout_Heart.svg', height: 16))
                                 ),
                                 SizedBox(
@@ -96,24 +101,50 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       primary: Colors.transparent,
-                                      onPrimary: Color.fromARGB(50, 255, 79, 79),
+                                      onPrimary: const Color.fromARGB(50, 255, 79, 79),
                                       shadowColor: Colors.transparent
                                     ),
                                     onPressed: () {}, 
-                                    child: Text('')),
+                                    child: const Text('')),
                                 )
                               ],
                             ),
                           ],),
                         ), 
-                        SizedBox(height: 20),
+                        //Проверка даты тренировок//Проверка даты тренировок//Проверка даты тренировок
+                        const SizedBox(height: 20),
                         Schedule_check(time: 10, widget.roadRouter),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
+                        //Выбор сложности тренировок//Выбор сложности тренировок//Выбор сложности тренировок
                         Difficulity_check(hard: 'Beginner', widget.roadRouter),
-                        SizedBox(height: 30),
+                        const SizedBox(height: 30),
+                        //Кол-во тренировочных предметов//Кол-во тренировочных предметов//Кол-во тренировочных предметов
                         NeedItem(widget.roadRouter),
-                        SizedBox(height: 30),
-                        Sets(widget.roadRouter)
+                        const SizedBox(height: 30),
+                        //Виды упражнений//Виды упражнений//Виды упражнений
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 30),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Text('Exercises', style: kTextH3Bold),
+                              const Text('3 Sets', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray30))
+                          ],),
+                        ),
+                        const SizedBox(height: 20),
+                        Sets(set: 1, widget.roadRouter),
+                        SetButton(unlock: finishSet),
+                        //Закончили первый сет//Закончили первый сет//Закончили первый сет
+                        finishSet ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 1, unlock: finishSet),
+                        finishSet ? SetButton(unlock: finishSet2) : Container(),
+                        //Закончили второй сет//Закончили второй сет//Закончили второй сет
+                        finishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 2, unlock: finishSet2),
+                        finishSet2 ? SetButton(unlock: finishSet3) : Container(),
+                        //Закончили третий сет//Закончили третий сет//Закончили третий сет
+                        const SizedBox(height: 50)
                       ],
                     )
                   ),
@@ -129,3 +160,5 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
     );
   }
 }
+
+

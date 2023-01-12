@@ -79,9 +79,15 @@ DropdownMenuItem<String> buidMenuItem(String item) => DropdownMenuItem(
 class CheckButton extends StatefulWidget {
   final String title;
   final dynamic onChange;
+  final double width;
+  final double height;
+  final TextStyle? style;
   const CheckButton({
     required this.onChange,
     required this.title,
+    required this.width,
+    required this.height,
+    this.style,
     Key? key
   }) : super(key: key);
 
@@ -93,8 +99,8 @@ class _CheckButtonState extends State<CheckButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 74,
-      height: 32,
+      width: widget.width,
+      height: widget.height,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [const Color.fromARGB(255, 154, 195, 254), const Color.fromARGB(255, 149, 174, 254)], 
@@ -111,7 +117,7 @@ class _CheckButtonState extends State<CheckButton> {
           shadowColor: Colors.transparent,
           padding: const EdgeInsets.all(5)
         ),
-        child: Text(widget.title, style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins")),
+        child: Text(widget.title, style: widget.style),
         onPressed: () {
           widget.onChange;
         },

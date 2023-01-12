@@ -7,8 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Sets extends StatefulWidget {
+  final int set;
   final Function? roadRouter;
-  const Sets(this.roadRouter, {Key? key}) : super(key: key);
+  const Sets(this.roadRouter, {
+    required this.set,
+    Key? key
+  }) : super(key: key);
 
   @override
   State<Sets> createState() => _SetsState();
@@ -23,14 +27,7 @@ class _SetsState extends State<Sets> {
       children: [
         Container(
           margin: EdgeInsets.symmetric(horizontal: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Exercises', style: kTextH3Bold),
-              Text('3 Sets', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray30))
-          ],),
-        ),
+          child: Text('Set ${widget.set}', style: kTextMain2)),
         SizedBox(height: 15),
         for (var i=0; i<setsSubTitle_01.length; i++) SetsList(title: setsTitle_01[i], subTitle: setsSubTitle_01[i], picture: setsPicture_01[i], navigator: setNavigator[i])
       ],
@@ -56,14 +53,14 @@ List setsTitle_01 = [
   'Rest and Drink',
 ];
 
-List setsSubTitle_01 = [
-  '05:00',
-  '12x',
-  '15x',
-  '20x',
-  '00:53',
-  '02:00',
-];
+Map setsSubTitle_01 = {
+  0 : 5,
+  1 : 12,
+  2 : 15,
+  3 : 20,
+  4 : 53,
+  5 : 2,
+};
 
 List setNavigator = [
   BodyMassIndex(roadRouter),
@@ -76,7 +73,7 @@ List setNavigator = [
 
 class SetsList extends StatefulWidget {
   final String title;
-  final String subTitle;
+  final int subTitle;
   final String picture;
   final dynamic navigator;
   const SetsList({
@@ -100,7 +97,7 @@ class _SetsListState extends State<SetsList> {
           margin: EdgeInsets.symmetric(horizontal: 15),
           child: ListTile(
             title: Text(widget.title, style: kTextMain3),
-            subtitle: Text(widget.subTitle, style: kTextMain2Gray),
+            subtitle: Text(widget.subTitle.toString(), style: kTextMain2Gray),
             leading: Container(
               width: 50,
               height: 60,
