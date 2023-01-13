@@ -14,6 +14,12 @@ const kBrandColor =  LinearGradient(
     end: Alignment.bottomRight
 );
 
+const kBrandMain =  LinearGradient(
+  colors: [Color.fromARGB(255, 146, 164, 253), Color.fromARGB(255, 157, 206, 255)], 
+    begin: Alignment.topLeft, 
+    end: Alignment.bottomRight
+);
+
 const kSecondColor = LinearGradient(
   colors: [Color.fromARGB(50, 197, 139, 242), Color.fromARGB(50, 238, 164, 206)],
   begin: Alignment.topLeft, 
@@ -196,11 +202,11 @@ class _SwitchButtonState extends State<SwitchButton> {
                   )
                 ]
               ),
-            child: SizedBox(
-              width: 25,
-              height: 25,
+              child: SizedBox(
+                width: 25,
+                height: 25,
+              ),
             ),
-          ),
           ) : Transform.translate(offset: Offset(-10, 0), child: 
           Container(
               alignment: Alignment.centerLeft,

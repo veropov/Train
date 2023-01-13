@@ -10,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/Profile/person_profile.dart';
 
+import 'Home_workout.dart';
 import 'Workout_item/Workout_schedule.dart';
 import 'Workout_item/Workout_unlock_Set.dart';
 
@@ -52,8 +53,22 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                     height: 340,
                     width: double.infinity,
                     decoration: const BoxDecoration(
-                      gradient: kBrandColor
+                      gradient: kBrandMain
                     ),
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                      Transform.translate(offset: Offset(0, 70), child: Container(
+                          width: 280,
+                          height: 280,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(300),
+                            gradient: kBrandColor
+                          )
+                        )),
+                        SvgPicture.asset(wdwPicture[0], height: 300),
+                      ],
+                    )
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 300),
