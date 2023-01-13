@@ -4,6 +4,7 @@ import 'package:aga/constant.dart';
 import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_difficulity.dart';
 import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_needs_item.dart';
 import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_sets.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
@@ -62,55 +63,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                     ),
                     child: Column(
                       children: [
-                        Container(
-                          margin: const EdgeInsets.only(left: 30, right: 30, top: 40),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text('Upcoming Workout', style: kTextH3Bold),
-                                const SizedBox(height: 5),
-                                const Text('11 Exercises | 32mins | 320 Calories Burn', style: kTextMainGray)
-                              ],
-                            ),
-                            Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Container(
-                                  width: 34,
-                                  height: 34,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    boxShadow: [const BoxShadow(
-                                      color: Color.fromARGB(12, 15, 8, 8),
-                                      blurRadius: 10,
-                                    )] 
-                                  ),
-                                  child: Container(
-                                    margin: const EdgeInsets.all(6),
-                                    child: SvgPicture.asset('assets/images/Workout_Heart.svg', height: 16))
-                                ),
-                                SizedBox(
-                                  width: 34,
-                                  height: 34,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Colors.transparent,
-                                      onPrimary: const Color.fromARGB(50, 255, 79, 79),
-                                      shadowColor: Colors.transparent
-                                    ),
-                                    onPressed: () {}, 
-                                    child: const Text('')),
-                                )
-                              ],
-                            ),
-                          ],),
-                        ), 
+                        TitleWorkout(title: 'Fullbody Workout', subTitle: '11 Exercises | 32mins | 320 Calories Burn'),
                         //Проверка даты тренировок//Проверка даты тренировок//Проверка даты тренировок
                         const SizedBox(height: 20),
                         Schedule_check(time: 10, widget.roadRouter),

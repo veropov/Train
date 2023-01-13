@@ -36,12 +36,12 @@ class _SetsState extends State<Sets> {
 }
 
 List setsPicture_01 = [
-  'assets/images/sets/set1.jpg',
-  'assets/images/sets/set2.png',
-  'assets/images/sets/set3.png',
-  'assets/images/sets/set4.png',
-  'assets/images/sets/set5.png',
-  'assets/images/sets/set6.png',
+  'assets/sets/set1.jpg',
+  'assets/sets/set2.png',
+  'assets/sets/set3.png',
+  'assets/sets/set4.png',
+  'assets/sets/set5.png',
+  'assets/sets/set6.png',
 ];
 
 List setsTitle_01 = [
