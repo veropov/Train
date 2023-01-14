@@ -11,20 +11,20 @@ import 'Home_workout.dart';
 import 'Workout_item/Workout_schedule.dart';
 import 'Workout_item/Workout_unlock_Set.dart';
 
-bool fullFinishSet1 = true;
-bool fullFinishSet2 = false;
-bool fullFinishSet3 = false;
 
+bool lowFinishSet1 = false;
+bool lowFinishSet2 = false;
+bool lowFinishSet3 = false;
 
-class Fullbody_workout extends StatefulWidget {
+class Lowebody_Workout extends StatefulWidget {
   final Function? roadRouter;
-  const Fullbody_workout(this.roadRouter, {Key? key}) : super(key: key);
+  const Lowebody_Workout(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
-  State<Fullbody_workout> createState() => _Fullbody_workoutState();
+  State<Lowebody_Workout> createState() => _Lowebody_WorkoutState();
 }
 
-class _Fullbody_workoutState extends State<Fullbody_workout> {
+class _Lowebody_WorkoutState extends State<Lowebody_Workout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +63,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                             gradient: kBrandColor
                           )
                         )),
-                        SvgPicture.asset(wdwPicture[0], height: 300),
+                        SvgPicture.asset(wdwPicture[1], height: 300),
                       ],
                     )
                   ),
@@ -75,7 +75,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                     ),
                     child: Column(
                       children: [
-                        TitleWorkout(title: wdwTitle[0], subTitle: '${wdwSubTitle[0]} | 320 Calories Burn'),
+                        TitleWorkout(title: wdwTitle[1], subTitle: '${wdwSubTitle[1]} | 320 Calories Burn'),
                         //Проверка даты тренировок//Проверка даты тренировок//Проверка даты тренировок
                         const SizedBox(height: 20),
                         Schedule_check(time: 10, widget.roadRouter),
@@ -99,15 +99,15 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                         ),
                         const SizedBox(height: 20),
                         Sets(set: 1, widget.roadRouter),
-                        SetButton(unlock: fullFinishSet1),
+                        SetButton(unlock: lowFinishSet1),
                         //Закончили первый сет//Закончили первый сет//Закончили первый сет
-                        fullFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
-                        UnlockSet(widget.roadRouter, unclockSet: 1, unlock: fullFinishSet1),
-                        fullFinishSet1 ? SetButton(unlock: fullFinishSet2) : Container(),
+                        lowFinishSet1 ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 1, unlock: lowFinishSet1),
+                        lowFinishSet1 ? SetButton(unlock: lowFinishSet2) : Container(),
                         //Закончили второй сет//Закончили второй сет//Закончили второй сет
-                        fullFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
-                        UnlockSet(widget.roadRouter, unclockSet: 2, unlock: fullFinishSet2),
-                        fullFinishSet2 ? SetButton(unlock: fullFinishSet3) : Container(),
+                        lowFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 2, unlock: lowFinishSet2),
+                        lowFinishSet2 ? SetButton(unlock: lowFinishSet3) : Container(),
                         //Закончили третий сет//Закончили третий сет//Закончили третий сет
                         const SizedBox(height: 50)
                       ],
@@ -125,5 +125,3 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
     );
   }
 }
-
-

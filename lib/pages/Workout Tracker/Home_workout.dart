@@ -1,4 +1,5 @@
 import 'package:aga/main.dart';
+import 'package:aga/pages/Workout%20Tracker/Lowebody_workout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,6 +14,7 @@ import 'package:aga/pages/Workout Tracker/Fullbody_workout.dart';
 
 import '../../appbar.dart';
 import '../../bottom_navigation.dart';
+import 'AB_workout.dart';
 
 class Workout extends StatefulWidget {
   final Function? roadRouter;
@@ -286,8 +288,8 @@ class _WdwToTrainState extends State<WdwToTrain> {
 
   List vieMore = [
     Fullbody_workout(widget.roadRouter),
-    Fullbody_workout(widget.roadRouter),
-    Fullbody_workout(widget.roadRouter),
+    Lowebody_Workout(widget.roadRouter),
+    AB_Workout(widget.roadRouter),
   ];
 
     return Container(
@@ -335,7 +337,7 @@ class _WdwToTrainState extends State<WdwToTrain> {
                       child: Text('View more', style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: Color.fromARGB(255, 92, 177, 247))),
                       onPressed: () {
                         setState(() {
-                          Navigator.push(context, Transition(child: Fullbody_workout(widget.roadRouter)));
+                          Navigator.push(context, Transition(child: vieMore[i]));
                         });
                       },
                     ),

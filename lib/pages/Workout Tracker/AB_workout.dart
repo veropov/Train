@@ -11,20 +11,20 @@ import 'Home_workout.dart';
 import 'Workout_item/Workout_schedule.dart';
 import 'Workout_item/Workout_unlock_Set.dart';
 
-bool fullFinishSet1 = true;
-bool fullFinishSet2 = false;
-bool fullFinishSet3 = false;
 
+bool abFinishSet1 = false;
+bool abFinishSet2 = false;
+bool abFinishSet3 = false;
 
-class Fullbody_workout extends StatefulWidget {
+class AB_Workout extends StatefulWidget {
   final Function? roadRouter;
-  const Fullbody_workout(this.roadRouter, {Key? key}) : super(key: key);
+  const AB_Workout(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
-  State<Fullbody_workout> createState() => _Fullbody_workoutState();
+  State<AB_Workout> createState() => _AB_WorkoutState();
 }
 
-class _Fullbody_workoutState extends State<Fullbody_workout> {
+class _AB_WorkoutState extends State<AB_Workout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +63,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                             gradient: kBrandColor
                           )
                         )),
-                        SvgPicture.asset(wdwPicture[0], height: 300),
+                        SvgPicture.asset(wdwPicture[2], height: 300),
                       ],
                     )
                   ),
@@ -75,7 +75,7 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                     ),
                     child: Column(
                       children: [
-                        TitleWorkout(title: wdwTitle[0], subTitle: '${wdwSubTitle[0]} | 320 Calories Burn'),
+                        TitleWorkout(title: wdwTitle[2], subTitle: '${wdwSubTitle[2]} | 320 Calories Burn'),
                         //Проверка даты тренировок//Проверка даты тренировок//Проверка даты тренировок
                         const SizedBox(height: 20),
                         Schedule_check(time: 10, widget.roadRouter),
@@ -99,15 +99,15 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
                         ),
                         const SizedBox(height: 20),
                         Sets(set: 1, widget.roadRouter),
-                        SetButton(unlock: fullFinishSet1),
+                        SetButton(unlock: abFinishSet1),
                         //Закончили первый сет//Закончили первый сет//Закончили первый сет
-                        fullFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
-                        UnlockSet(widget.roadRouter, unclockSet: 1, unlock: fullFinishSet1),
-                        fullFinishSet1 ? SetButton(unlock: fullFinishSet2) : Container(),
+                        abFinishSet1 ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 1, unlock: abFinishSet1),
+                        abFinishSet1 ? SetButton(unlock: abFinishSet2) : Container(),
                         //Закончили второй сет//Закончили второй сет//Закончили второй сет
-                        fullFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
-                        UnlockSet(widget.roadRouter, unclockSet: 2, unlock: fullFinishSet2),
-                        fullFinishSet2 ? SetButton(unlock: fullFinishSet3) : Container(),
+                        abFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 2, unlock: abFinishSet2),
+                        abFinishSet2 ? SetButton(unlock: abFinishSet3) : Container(),
                         //Закончили третий сет//Закончили третий сет//Закончили третий сет
                         const SizedBox(height: 50)
                       ],
@@ -125,5 +125,3 @@ class _Fullbody_workoutState extends State<Fullbody_workout> {
     );
   }
 }
-
-
