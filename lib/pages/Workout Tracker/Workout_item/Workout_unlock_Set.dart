@@ -3,8 +3,6 @@ import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_sets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../Fullbody_workout.dart';
-
 class UnlockSet extends StatefulWidget {
   final bool unlock;
   final int unclockSet;

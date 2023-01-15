@@ -7,24 +7,24 @@ import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_sets.dart';
 import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'Home_workout.dart';
-import 'Workout_item/Workout_schedule.dart';
-import 'Workout_item/Workout_unlock_Set.dart';
+import '../Home_workout.dart';
+import '../Workout_item/Workout_schedule.dart';
+import '../Workout_item/Workout_unlock_Set.dart';
 
 
-bool abFinishSet1 = false;
-bool abFinishSet2 = false;
-bool abFinishSet3 = false;
+bool lowFinishSet1 = false;
+bool lowFinishSet2 = false;
+bool lowFinishSet3 = false;
 
-class AB_Workout extends StatefulWidget {
+class Lowebody_Workout extends StatefulWidget {
   final Function? roadRouter;
-  const AB_Workout(this.roadRouter, {Key? key}) : super(key: key);
+  const Lowebody_Workout(this.roadRouter, {Key? key}) : super(key: key);
 
   @override
-  State<AB_Workout> createState() => _AB_WorkoutState();
+  State<Lowebody_Workout> createState() => _Lowebody_WorkoutState();
 }
 
-class _AB_WorkoutState extends State<AB_Workout> {
+class _Lowebody_WorkoutState extends State<Lowebody_Workout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +63,7 @@ class _AB_WorkoutState extends State<AB_Workout> {
                             gradient: kBrandColor
                           )
                         )),
-                        SvgPicture.asset(wdwPicture[2], height: 300),
+                        SvgPicture.asset(wdwPicture[1], height: 300),
                       ],
                     )
                   ),
@@ -75,7 +75,7 @@ class _AB_WorkoutState extends State<AB_Workout> {
                     ),
                     child: Column(
                       children: [
-                        TitleWorkout(title: wdwTitle[2], subTitle: '${wdwSubTitle[2]} | 320 Calories Burn'),
+                        TitleWorkout(title: wdwTitle[1], subTitle: '${wdwSubTitle[1]} | 320 Calories Burn'),
                         //Проверка даты тренировок//Проверка даты тренировок//Проверка даты тренировок
                         const SizedBox(height: 20),
                         Schedule_check(time: 10, widget.roadRouter),
@@ -99,15 +99,15 @@ class _AB_WorkoutState extends State<AB_Workout> {
                         ),
                         const SizedBox(height: 20),
                         Sets(set: 1, widget.roadRouter),
-                        SetButton(unlock: abFinishSet1),
+                        SetButton(unlock: lowFinishSet1),
                         //Закончили первый сет//Закончили первый сет//Закончили первый сет
-                        abFinishSet1 ? SizedBox(height: 20) : SizedBox(height: 0),
-                        UnlockSet(widget.roadRouter, unclockSet: 1, unlock: abFinishSet1),
-                        abFinishSet1 ? SetButton(unlock: abFinishSet2) : Container(),
+                        lowFinishSet1 ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 1, unlock: lowFinishSet1),
+                        lowFinishSet1 ? SetButton(unlock: lowFinishSet2) : Container(),
                         //Закончили второй сет//Закончили второй сет//Закончили второй сет
-                        abFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
-                        UnlockSet(widget.roadRouter, unclockSet: 2, unlock: abFinishSet2),
-                        abFinishSet2 ? SetButton(unlock: abFinishSet3) : Container(),
+                        lowFinishSet2 ? SizedBox(height: 20) : SizedBox(height: 0),
+                        UnlockSet(widget.roadRouter, unclockSet: 2, unlock: lowFinishSet2),
+                        lowFinishSet2 ? SetButton(unlock: lowFinishSet3) : Container(),
                         //Закончили третий сет//Закончили третий сет//Закончили третий сет
                         const SizedBox(height: 50)
                       ],

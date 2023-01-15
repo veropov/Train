@@ -1,6 +1,7 @@
 import 'package:aga/constant.dart';
 import 'package:aga/main.dart';
 import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout%20wdw%20to%20train/Descriptions/Descriptions_main.dart';
 import 'package:aga/transition.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -63,12 +64,12 @@ Map setsSubTitle_01 = {
 };
 
 List setNavigator = [
-  BodyMassIndex(roadRouter),
-  BodyMassIndex(roadRouter),
-  BodyMassIndex(roadRouter),
-  BodyMassIndex(roadRouter),
-  BodyMassIndex(roadRouter),
-  BodyMassIndex(roadRouter),
+  Description(),
+  Description(),
+  Description(),
+  Description(),
+  Description(),
+  Description(),
 ];
 
 class SetsList extends StatefulWidget {

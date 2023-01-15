@@ -7,11 +7,12 @@ import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_sets.dart';
 import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'Home_workout.dart';
-import 'Workout_item/Workout_schedule.dart';
-import 'Workout_item/Workout_unlock_Set.dart';
+import '../Home_workout.dart';
+import '../Workout_item/Workout_schedule.dart';
+import '../Workout_item/Workout_unlock_Set.dart';
 
-bool fullFinishSet1 = true;
+
+bool fullFinishSet1 = false;
 bool fullFinishSet2 = false;
 bool fullFinishSet3 = false;
 

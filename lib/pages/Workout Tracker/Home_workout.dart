@@ -1,20 +1,13 @@
 import 'package:aga/main.dart';
-import 'package:aga/pages/Workout%20Tracker/Lowebody_workout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:aga/constant.dart';
-import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
-import 'package:aga/pages/Profile/person_profile.dart';
 import 'package:aga/transition.dart';
-import 'package:aga/pages/Profile/person_profile.dart';
-import 'package:aga/pages/Profile/Profile_model_change.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aga/pages/Workout Tracker/Fullbody_workout.dart';
-
 import '../../appbar.dart';
 import '../../bottom_navigation.dart';
-import 'AB_workout.dart';
+import 'Workout wdw to train/AB_workout.dart';
+import 'Workout wdw to train/Fullbody_workout.dart';
+import 'Workout wdw to train/Lowebody_workout.dart';
 
 class Workout extends StatefulWidget {
   final Function? roadRouter;
