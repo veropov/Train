@@ -7,6 +7,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../Workout wdw to train/Descriptions/List_Description.dart';
+
 class Sets extends StatefulWidget {
   final int set;
   final Function? roadRouter;
@@ -64,12 +66,12 @@ Map setsSubTitle_01 = {
 };
 
 List setNavigator = [
-  Description(),
-  Description(),
-  Description(),
-  Description(),
-  Description(),
-  Description(),
+  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0),
+  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1),
+  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2),
+  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0),
+  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1),
+  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2),
 ];
 
 class SetsList extends StatefulWidget {

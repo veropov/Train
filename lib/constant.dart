@@ -52,6 +52,7 @@ const kTextButton = TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.
 const kTextH3 = TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w400, color: kBlack, fontFamily: "Poppins");
 const kTextH3Bold = TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w600, color: kBlack, fontFamily: "Poppins");
 const kTextH2Medium = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, color: kGray100, fontFamily: "Poppins");
+const kTextH2MediumBlack = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, color: kBlack, fontFamily: "Poppins");
 const kTextMainBold = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600, fontFamily: "Poppins");
 const kTextMain3 = TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack);
 const kTextMain2 = TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kBlack);

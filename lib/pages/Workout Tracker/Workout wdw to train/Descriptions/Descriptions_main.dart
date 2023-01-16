@@ -2,9 +2,26 @@ import 'package:aga/appbar.dart';
 import 'package:aga/constant.dart';
 import 'package:flutter/material.dart';
 
+import 'List_Description.dart';
+
 
 class Description extends StatefulWidget {
-  const Description({Key? key}) : super(key: key);
+  final String name;
+  final String description;
+  final String subDescription;
+  final List number;
+  final List title;
+  final List subTitle;
+
+  const Description({
+    required this.name,
+    required this.description,
+    required this.subDescription,
+    required this.number,
+    required this.title,
+    required this.subTitle,
+    Key? key
+  }) : super(key: key);
 
   @override
   State<Description> createState() => _DescriptionState();
@@ -30,12 +47,12 @@ class _DescriptionState extends State<Description> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 30),
+            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Jumping Jack', style: kTextH3Bold),
+                Text(widget.name, style: kTextH3Bold),
                 SizedBox(height: 5),
                 Text('Easy | 390 Calories Burn', style: kTextMainGray),
                 SizedBox(height: 30),
@@ -48,8 +65,8 @@ class _DescriptionState extends State<Description> {
                       text: TextSpan(
                         style: kTextMainGray,
                         children: [
-                          TextSpan(text: 'A jumping jack, also known as a star jump and called a side-straddle hop in the US military, is a physical jumping exercise performed by jumping to a position with the legs spread wide. ', ),
-                          TextSpan(text: onTap ? 'However, not everyone can perform jumps. It is forbidden to jump for those who have back or spine injuries. Such exercises are not recommended for people with cardiovascular diseases, with problems of ligaments, joints or varicose veins, as well as if they are overweight.' : null),
+                          TextSpan(text: widget.description, ),
+                          TextSpan(text: onTap ? widget.subDescription : null),
                         ]
                       )
                     ),
@@ -62,7 +79,18 @@ class _DescriptionState extends State<Description> {
                       child: onTap ? Container() : Text('Read more...', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: Colors.blue)),
                     ),
                   ],
-                )
+                ),
+                SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('How To Do It', style: kTextH3Bold),
+                    Text('${widget.number.last} Steps', style: TextStyle(fontSize: 12, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray30))
+                  ],
+                ),
+                SizedBox(height: 15),
+                for (var i = 0; i<number1.length; i++) DescriptionText(widget.number[i], widget.title[i], widget.subTitle[i]),
               ],
             ),
           ),
@@ -71,3 +99,54 @@ class _DescriptionState extends State<Description> {
     );
   }
 }
+
+Widget DescriptionText(int number, String title, String subTitle) => Container(
+  margin: EdgeInsets.only(bottom: 30),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(number.toString(), style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, color: shadowPurple, fontFamily: "Poppins")),
+      SizedBox(width: 15),
+      Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              border: Border.all(width: 1.2, color: shadowPurple),
+              borderRadius: BorderRadius.circular(100)
+            ),
+          ),
+          Container(
+            width: 10,
+            height: 10,
+            decoration: BoxDecoration(
+              color: shadowPurple,
+              borderRadius: BorderRadius.circular(100)
+            ),
+          ),
+        ],
+      ),
+      SizedBox(width: 15),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: kTextH2MediumBlack),
+          SizedBox(height: 5),
+          SizedBox(
+            width: 250,
+            child: Wrap(
+              children: [
+                Text(subTitle, style: kTextMainGray, textAlign: TextAlign.justify,),
+              ],
+            ),
+          ),
+        ],
+      )
+    ],
+  )
+);
