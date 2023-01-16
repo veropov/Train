@@ -9,6 +9,7 @@ class Description extends StatefulWidget {
   final String name;
   final String description;
   final String subDescription;
+  final String picture;
   final List number;
   final List title;
   final List subTitle;
@@ -17,6 +18,7 @@ class Description extends StatefulWidget {
     required this.name,
     required this.description,
     required this.subDescription,
+    required this.picture,
     required this.number,
     required this.title,
     required this.subTitle,
@@ -52,6 +54,16 @@ class _DescriptionState extends State<Description> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(22),
+                    gradient: kBrandColor
+                  ),
+                  child: Image.asset(widget.picture, fit: BoxFit.cover,),
+                ),
+                SizedBox(height: 15),
                 Text(widget.name, style: kTextH3Bold),
                 SizedBox(height: 5),
                 Text('Easy | 390 Calories Burn', style: kTextMainGray),
@@ -90,7 +102,7 @@ class _DescriptionState extends State<Description> {
                   ],
                 ),
                 SizedBox(height: 15),
-                for (var i = 0; i<number1.length; i++) DescriptionText(widget.number[i], widget.title[i], widget.subTitle[i]),
+                for (var i = 0; i<widget.number.length; i++) DescriptionText(widget.number[i], widget.title[i], widget.subTitle[i]),
               ],
             ),
           ),

@@ -40,11 +40,11 @@ class _SetsState extends State<Sets> {
 
 List setsPicture_01 = [
   'assets/sets/set1.jpg',
-  'assets/sets/set2.png',
-  'assets/sets/set3.png',
-  'assets/sets/set4.png',
-  'assets/sets/set5.png',
-  'assets/sets/set6.png',
+  'assets/sets/set2.jpg',
+  'assets/sets/set3.jpg',
+  'assets/sets/set4.jpg',
+  'assets/sets/set5.jpg',
+  'assets/sets/set6.jpg',
 ];
 
 List setsTitle_01 = [
@@ -66,12 +66,12 @@ Map setsSubTitle_01 = {
 };
 
 List setNavigator = [
-  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0),
-  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1),
-  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2),
-  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0),
-  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1),
-  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2),
+  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0, picture: picture),
+  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1, picture: picture1),
+  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2, picture: picture2),
+  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0, picture: picture3),
+  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1, picture: picture4),
+  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2, picture: picture5),
 ];
 
 class SetsList extends StatefulWidget {
@@ -101,15 +101,7 @@ class _SetsListState extends State<SetsList> {
           child: ListTile(
             title: Text(widget.title, style: kTextMain3),
             subtitle: Text(widget.subTitle.toString(), style: kTextMain2Gray),
-            leading: Container(
-              width: 50,
-              height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Color.fromARGB(255, 243, 243, 243)
-              ),
-              child: Image.asset(widget.picture)
-            ),
+            leading: Image.asset(widget.picture, fit: BoxFit.contain,),
             trailing: SvgPicture.asset('assets/icons/Arrow - Right Circle_light.svg', color: kGray100)
           ),
         ),
