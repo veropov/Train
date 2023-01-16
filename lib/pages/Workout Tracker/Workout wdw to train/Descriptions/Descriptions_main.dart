@@ -1,5 +1,6 @@
 import 'package:aga/appbar.dart';
 import 'package:aga/constant.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'List_Description.dart';
@@ -35,6 +36,9 @@ class _DescriptionState extends State<Description> {
 
   @override
   Widget build(BuildContext context) {
+    double heightScreen = MediaQuery.of(context).size.height;
+    double widthScreen = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
@@ -103,6 +107,37 @@ class _DescriptionState extends State<Description> {
                 ),
                 SizedBox(height: 15),
                 for (var i = 0; i<widget.number.length; i++) DescriptionText(widget.number[i], widget.title[i], widget.subTitle[i]),
+                Text('Custom Repetitions', style: kTextH3Bold),
+                SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      width: widthScreen*0.6,
+                      child: CarouselSlider.builder(
+                        itemCount: repetitions0.length, 
+                        itemBuilder: ((context, index, realIndex) => repetitions0[index]), 
+                        options: CarouselOptions(
+                          enlargeCenterPage: true,
+                          scrollDirection: Axis.vertical,
+                          viewportFraction: 0.35,
+                          enableInfiniteScroll: false,
+                          initialPage: 6,
+                          height: 150,
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                            });
+                          },
+                        )
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20),
+                      child: Text('minutes', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)))
+                  ],
+                )
               ],
             ),
           ),
@@ -153,7 +188,7 @@ Widget DescriptionText(int number, String title, String subTitle) => Container(
             width: 250,
             child: Wrap(
               children: [
-                Text(subTitle, style: kTextMainGray, textAlign: TextAlign.justify,),
+                Text(subTitle, style: kTextMainGray, textAlign: TextAlign.justify),
               ],
             ),
           ),
