@@ -1,6 +1,7 @@
 import 'package:aga/constant.dart';
 import 'package:aga/main.dart';
 import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout%20wdw%20to%20train/Descriptions/Carousel_description.dart';
 import 'package:aga/pages/Workout%20Tracker/Workout%20wdw%20to%20train/Descriptions/Descriptions_main.dart';
 import 'package:aga/transition.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -19,11 +20,23 @@ class Sets extends StatefulWidget {
 
   @override
   State<Sets> createState() => _SetsState();
+  
 }
 
 class _SetsState extends State<Sets> {
   @override
+  
   Widget build(BuildContext context) {
+
+List setNavigator = [
+  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0, picture: picture, widget.roadRouter, numberPage: numKindex[0]),
+  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1, picture: picture1, widget.roadRouter, numberPage: numKindex[1]),
+  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2, picture: picture2, widget.roadRouter, numberPage: numKindex[2]),
+  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0, picture: picture3, widget.roadRouter, numberPage: numKindex[3]),
+  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1, picture: picture4, widget.roadRouter, numberPage: numKindex[4]),
+  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2, picture: picture5, widget.roadRouter, numberPage: numKindex[5]),
+];
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,27 +69,19 @@ List setsTitle_01 = [
   'Rest and Drink',
 ];
 
-Map setsSubTitle_01 = {
-  0 : 5,
-  1 : 12,
-  2 : 15,
-  3 : 20,
-  4 : 53,
-  5 : 2,
-};
-
-List setNavigator = [
-  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0, picture: picture),
-  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1, picture: picture1),
-  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2, picture: picture2),
-  Description(name: name0, description: description0, subDescription: subDescription0, number: number0, title: title0, subTitle: subTitle0, picture: picture3),
-  Description(name: name1, description: description1, subDescription: subDescription1, number: number1, title: title1, subTitle: subTitle1, picture: picture4),
-  Description(name: name2, description: description2, subDescription: subDescription2, number: number2, title: title2, subTitle: subTitle2, picture: picture5),
+List <dynamic> setsSubTitle_01 = [
+  'Press time',
+  'Press time',
+  'Press time',
+  'Press time',
+  'Press time',
+  'Press time',
 ];
+
 
 class SetsList extends StatefulWidget {
   final String title;
-  final int subTitle;
+  final dynamic subTitle;
   final String picture;
   final dynamic navigator;
   const SetsList({

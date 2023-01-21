@@ -1,5 +1,10 @@
 import 'package:aga/appbar.dart';
+import 'package:aga/bottom_navigation.dart';
 import 'package:aga/constant.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout%20wdw%20to%20train/Descriptions/Carousel_description.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout%20wdw%20to%20train/Fullbody_workout.dart';
+import 'package:aga/pages/Workout%20Tracker/Workout_item/Workout_sets.dart';
+import 'package:aga/transition.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +12,8 @@ import 'List_Description.dart';
 
 
 class Description extends StatefulWidget {
+  final Function? roadRouter;
+
   final String name;
   final String description;
   final String subDescription;
@@ -14,8 +21,9 @@ class Description extends StatefulWidget {
   final List number;
   final List title;
   final List subTitle;
+  final int numberPage;
 
-  const Description({
+  const Description(this.roadRouter, {
     required this.name,
     required this.description,
     required this.subDescription,
@@ -23,6 +31,7 @@ class Description extends StatefulWidget {
     required this.number,
     required this.title,
     required this.subTitle,
+    required this.numberPage,
     Key? key
   }) : super(key: key);
 
@@ -59,7 +68,6 @@ class _DescriptionState extends State<Description> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(22),
@@ -115,33 +123,58 @@ class _DescriptionState extends State<Description> {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      width: widthScreen*0.6,
-                      child: CarouselSlider.builder(
-                        itemCount: repetitions0.length, 
-                        itemBuilder: ((context, index, realIndex) => repetitions0[index]), 
-                        options: CarouselOptions(
-                          enlargeCenterPage: true,
-                          scrollDirection: Axis.vertical,
-                          viewportFraction: 0.35,
-                          enableInfiniteScroll: false,
-                          initialPage: 6,
-                          height: 150,
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                            });
-                          },
-                        )
-                      ),
+                      width: widthScreen*0.5,
+                      child: TimeSlider(
+                        sec: secSlider,
+                        min: min,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            kindex[widget.numberPage] = index;
+                          });
+                        },
+                      )
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 20),
                       child: Text('minutes', style: TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w400, fontFamily: "Poppins", color: kGray100)))
                   ],
-                )
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [const Color.fromARGB(255, 154, 195, 254), const Color.fromARGB(255, 149, 174, 254)], 
+                      begin: Alignment.topLeft, 
+                      end: Alignment.bottomRight
+                    ),
+                    borderRadius: BorderRadius.circular(50)
+                  ),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: const StadiumBorder(),
+                      onPrimary: Colors.white,
+                      primary: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      padding: const EdgeInsets.all(5)
+                    ),
+                    child: Text('Save', style: kTextButton),
+                    onPressed: () {
+                      setState(() {
+                        Navigator.pop(context);
+                        timeIndex = sec[kindex[widget.numberPage]];
+                        setsSubTitle_01[widget.numberPage] = '$timeIndex sec';
+                      });
+                    },
+                  )
+                ),
               ],
             ),
           ),
         ),
+        bottomNavigationBar: NavBottomBar(widget.roadRouter),
+        floatingActionButton: FloatButton(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       )
     );
   }

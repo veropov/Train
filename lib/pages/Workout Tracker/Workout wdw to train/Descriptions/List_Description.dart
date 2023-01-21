@@ -38,32 +38,6 @@ List <String> subTitle0 = [
   'Articular gymnastics activates the work of joints, tendons and ligaments, improves their mobility and helps to work out the periarticular muscles.'
 ];
 
-int a = 0;
-
-List repetitions0 = [ for (var i = 0; i<=24; i++) 
-  Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset('assets/images/calories.svg', height: 16),
-          if (i<=8) Text('50 Calories Burn', style: kTextMainBranch) 
-          else if (i<=16) Text('100 Calories Burn', style: kTextMainBranch) 
-          else if (i<=24) Text('150 Calories Burn', style: kTextMainBranch)
-        ],
-      ),
-      SizedBox(width: 10),
-      if (i<2) Text(('0${a}:0${i*5}'), style: TextStyle(fontSize: 30, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100))
-      else if (i<12) Text(('0${a}:${i*5}'), style: TextStyle(fontSize: 30, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100))
-      else if (i<=13) Text(('0${a+1}:0${(i-12)*5}'), style: TextStyle(fontSize: 30, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100))
-      else if (i<24) Text(('0${a+1}:${(i-12)*5}'), style: TextStyle(fontSize: 30, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100))
-      else if (i==24) Text(('0${a+2}:0${(i-i)}'), style: TextStyle(fontSize: 30, height: 1.5, fontWeight: FontWeight.w500, fontFamily: "Poppins", color: kGray100))
-    ],
-  )
-
-];
-
 
 //Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2
 //Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2//Set 2
