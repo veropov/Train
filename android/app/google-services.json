@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "239296391799",
+    "project_id": "fitnestx-6d223",
+    "storage_bucket": "fitnestx-6d223.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239296391799:android:201b65238c026277de7472",
+        "android_client_info": {
+          "package_name": "com.example.aga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239296391799-65dc3itepogblengbi0tvs1vf8gq3od5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg8xjMNZLSDSOVvjo_k5Um-4GlwIZoe_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239296391799-65dc3itepogblengbi0tvs1vf8gq3od5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "239296391799-gqgr87gmesnhqlib9659fn5n5rd20n98.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aga"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,6 +7,8 @@ import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget
 import 'package:aga/pages/DashBoard/Activity%20traker/Change_target/ChangeTarget_water.dart';
 import 'package:aga/pages/DashBoard/FirstPage/HomePage.dart';
 import 'package:aga/pages/DashBoard/FirstPage/Page_BMIndex.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'pages/DashBoard/Activity traker/Activity_traker.dart';
 import 'pages/DashBoard/Activity traker/List_target.dart';
@@ -18,7 +20,7 @@ class AllRoutes {
   static String workout = '/workout';
   static String photo = '/photo';
   static String profile = '/profile';
-  static String BodyMassIndex = '/bms';
+  static String bodyMassIndex = '/bms';
   static String todayTarget = '/t_target';
   static String changeTarget = '/ch_target';
   static String fullbodyWorkout = '/fb_workout';
@@ -37,7 +39,9 @@ roadRouter(route, Function setState) {
 
   String thisRouter = AllRoutes.home;
 
-void main() => runApp(fitnestX());
+void main()  { 
+  runApp(fitnestX());
+}
 
 class fitnestX extends StatefulWidget {
   const fitnestX({Key? key}) : super(key: key);
