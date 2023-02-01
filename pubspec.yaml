@@ -42,6 +42,9 @@ dependencies:
   percent_indicator: ^4.0.1
   fl_chart: ^0.55.2
   lite_rolling_switch: ^1.0.0
+  flutter_local_notifications: ^13.0.0
+  timezone: ^0.9.1 
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:

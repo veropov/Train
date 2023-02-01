@@ -68,9 +68,9 @@ const kTextMainBranch = TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWei
 const floatButton = ShapeDecoration(
   shape: StadiumBorder(),
   gradient: LinearGradient(
-  colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
-  begin: Alignment.topLeft, 
-  end: Alignment.bottomRight
+    colors: [Color.fromARGB(255, 154, 195, 254), Color.fromARGB(255, 146, 166, 253)], 
+    begin: Alignment.topLeft, 
+    end: Alignment.bottomRight
   ),
 );
 

@@ -31,12 +31,6 @@ class AllRoutes {
   static String changeSleep = '/ch_sleep';
 }
 
-roadRouter(route, Function setState) {
-  setState(() {
-    thisRouter = route;
-  });
-}
-
   String thisRouter = AllRoutes.home;
 
 void main()  { 
@@ -78,7 +72,3 @@ class _fitnestXState extends State<fitnestX> {
     );
   }
 }
-
-
-
-
