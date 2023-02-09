@@ -1,3 +1,4 @@
+import 'package:aga/Notification/service.dart';
 import 'package:aga/main.dart';
 import 'package:flutter/material.dart';
 import 'package:aga/constant.dart';
@@ -8,6 +9,8 @@ import '../../bottom_navigation.dart';
 import 'Workout wdw to train/AB_workout.dart';
 import 'Workout wdw to train/Fullbody_workout.dart';
 import 'Workout wdw to train/Lowebody_workout.dart';
+import 'package:aga/Notification/service.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class Workout extends StatefulWidget {
   final Function? roadRouter;
@@ -20,6 +23,14 @@ class Workout extends StatefulWidget {
 bool workoutPage = true;
 
 class _WorkoutState extends State<Workout> {
+  late final LocalNotificationService service;
+
+  void initState() {
+    service = LocalNotificationService();
+    service.initializeNotification();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
